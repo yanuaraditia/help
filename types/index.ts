@@ -1,30 +1,28 @@
+import {EntryWithAllLocalesAndWithLinkResolutionAndWithoutUnresolvableLinks} from "contentful";
 
 interface HelpCategoryPopulate {
     data?: HelpCategory
 }
 
 export interface HelpCategory {
-    id?: bigint,
-    attributes: {
+    sys: {
+        id?: string,
+    },
+    fields: {
         slug?: string,
         description?: string,
-        createdAt?: string,
-        publishedAt?: string,
-        updatedAt?: string,
-        image_svg?: string,
         title?: string
     }
 }
 
 export interface Help {
-    id?: bigint,
-    attributes: {
+    sys: {
+        id?: string,
+    },
+    fields: {
         slug?: string,
         description?: string,
         content?: string,
-        createdAt?: string,
-        publishedAt?: string,
-        updatedAt?: string,
         help_category?: HelpCategoryPopulate,
         title?: string,
         image?: Object
@@ -38,3 +36,10 @@ export interface Helps {
 export interface HelpCategories {
     data?: HelpCategory[]
 }
+
+export interface HelpCategoryRouteInterface {
+    params: {
+        collection?: string | string[]
+    }
+}
+

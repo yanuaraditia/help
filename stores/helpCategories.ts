@@ -1,29 +1,40 @@
-import {defineStore} from "pinia";
-import {HelpCategories} from "~/types";
+import {acceptHMRUpdate, defineStore} from "pinia";
+import {CategoryStateInterface} from "~/types/state";
 
-export const useStore = defineStore('helpCategory',
+export const useCategoryStore = defineStore('helpCategory',
     {
         state: () => ({
             categories: [],
             selectedCategory: null
-        }),
+        } as CategoryStateInterface),
         getters: {
             getCategories: state => state.categories,
+            getSelected: state => state.selectedCategory
         },
         actions: {
             async fetchCategories() {
-                if (this.categories.length === 0) {
+                if (this.categories?.length === 0) {
                     try {
-                        const {find} = useStrapi()
-                        const {data: categories} = await find<HelpCategories>('help-categories',{
-                            populate: "*"
+                        const {$client} = useNuxtApp()
+                        await Promise.all([
+                            $client.getEntries({
+                                content_type: "category",
+                            })
+                        ]).then(([blogs]) => {
+                            this.categories = blogs.items
                         })
-                        // @ts-ignore
-                        this.categories = categories
                     } catch (e) {
-
+                        console.log(e)
                     }
                 }
+                return this.categories
             }
         }
     })
+
+
+if (import.meta.hot) {
+    import.meta.hot.accept(
+        acceptHMRUpdate(useCategoryStore, import.meta.hot)
+    )
+}

@@ -1,61 +1,94 @@
-import {defineStore} from "pinia";
-import type {Help, Helps} from "~/types";
-import {Strapi4ResponseData, Strapi4ResponseSingle} from "@nuxtjs/strapi/dist/runtime/types";
+import {acceptHMRUpdate, defineStore} from "pinia";
+import {FilteredHelpsInterface, HelpStateInterface} from "~/types/state";
 
 interface State {
     help?: Object,
     filteredHelps?: Object
 }
 
+const filterArray = (array: any[], id: string | string[]) => {
+    for (const closure of array) {
+        if (closure.id === id) {
+            return closure
+        }
+    }
+    return null
+}
+
 export const useHelpStore = defineStore('helpStore', {
-    state: () => {
-        return {
-            help: null as Strapi4ResponseData<any> | null,
-            filteredHelps: undefined as Strapi4ResponseData<any>[] | undefined
+    state: () => ({
+        help: null,
+        filteredHelpCache: [],
+        filteredHelps: []
+    } as HelpStateInterface),
+    getters: {
+        getHelp(state) {
+            return state.help
+        },
+        getFilteredHelps(state) {
+            return state.filteredHelps
         }
     },
-    getters: {
-        getHelp: state => state.help,
-        getFilteredHelps: state => state.filteredHelps
-    },
     actions: {
-        async fetchHelps(categorySlug?: string | string[]) {
-            const {find} = useStrapi()
-
-            try {
-                const {data: helps} = await find('helps',{
-                    filters: {
-                        help_category: {
-                            slug: {
-                                $eq: categorySlug
-                            }
-                        }
-                    }
-                })
-                this.filteredHelps = helps
-            } catch (e) {
-
+        async fetchHelps(categoryId: string | string[]) {
+            this.filteredHelps = []
+            let loop: boolean = true
+            let getCache = await filterArray(this.filteredHelpCache, categoryId)
+            if (getCache) {
+                this.filteredHelps = getCache.helps
+                loop = false
             }
+            if (loop) {
+                try {
+                    const {$client} = useNuxtApp()
+                    await Promise.all([
+                        $client.getEntries({
+                            content_type: "entry",
+                            order: '-sys.createdAt',
+                            "fields.category.sys.id": {
+                                all: categoryId
+                            }
+                        })
+                    ]).then(([blogs]) => {
+                        if (blogs.items.length > 0) {
+                            let cache = {
+                                id: categoryId,
+                                helps: blogs.items
+                            } as FilteredHelpsInterface
+                            // @ts-ignore
+                            this.filteredHelpCache.push(cache)
+                            this.filteredHelps = blogs.items
+                        }
+                    })
+                } catch (e) {
+                    console.log(e)
+                }
+            }
+            return this.filteredHelps
         },
         async fetchHelp(slug: string | string[]) {
-            const {find} = useStrapi()
-
             try {
-                const {data: helps} = await find('helps',{
-                    filters: {
-                        slug: {
-                            $eq: slug
-                        }
-                    }
-                })
-                helps.forEach((value: Strapi4ResponseData<any>, key) => {
-                    if(value.attributes.slug == slug) {
-                        this.help = value
-                    }
+                const {$client} = useNuxtApp()
+                await Promise.all([
+                    $client.getEntries({
+                        content_type: "entry",
+                        limit: 1,
+                        order: '-sys.createdAt',
+                        "fields.slug[all]": slug
+                    })
+                ]).then(([res]) => {
+                    this.help = res.items[0]
                 })
             } catch (e) {
-
+                console.log(e)
             }
+            return this.help
         }
     }
 })
+
+if (import.meta.hot) {
+    import.meta.hot.accept(
+        acceptHMRUpdate(useHelpStore, import.meta.hot)
+    )
+}

@@ -12,19 +12,15 @@ export default defineNuxtConfig({
     css: [
         '~/assets/scss/main.scss'
     ],
+    runtimeConfig: {
+        public: {
+            space: process.env.CF_SPACE_ID,
+            accessToken: process.env.CF_DELIVERY_KEY
+        }
+    },
+
     app: {
         head: {
-            script: [
-                {
-                    src: 'https://kiriminaja-static-js.imgix.net/taptalk-rewrite.min.js',
-                    body: true
-                },
-                {
-                    children: `TapTalkLive.init("e6f7195bd71abaf3154b4706ffb3cc118ca48cd7787517992d9800bbd891beae")`,
-                    body: true
-                },
-            ],
-            titleTemplate: '%s - KiriminAja Knowledge',
             link: [
                 {
                     rel: 'icon',
