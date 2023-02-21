@@ -2,9 +2,7 @@
 export default defineNuxtConfig({
     modules: [
         '@nuxtjs/tailwindcss',
-        '@nuxtjs/strapi',
         '@pinia/nuxt',
-
     ],
     strapi: {
         url: 'http://localhost:1337'
