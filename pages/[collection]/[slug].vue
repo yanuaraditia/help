@@ -11,12 +11,6 @@ definePageMeta({
 import {fetch} from "~/repositories/helpRepository";
 const route = useRoute()
 const help = await fetch(route.params.slug)
-if (!help) {
-  createError({
-    statusCode: 404,
-    statusMessage: "Artikel tidakd ditemukan"
-  })
-}
 useHead({
   title: help.attributes.title ?? ''
 })
