@@ -11,6 +11,7 @@ definePageMeta({
 import {fetch} from "~/repositories/helpRepository";
 const route = useRoute()
 const help = await fetch(route.params.slug)
+
 useHead({
   title: help.attributes.title ?? ''
 })
