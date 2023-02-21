@@ -1,4 +1,5 @@
 <template>
+  <NuxtLoadingIndicator/>
   <div>
     <header-article/>
     <section class="py-6 xl:py-8 relative">
