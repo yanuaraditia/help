@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
+            titleTemplate: '%s · Support',
             link: [
                 {
                     rel: 'icon',

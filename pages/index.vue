@@ -40,10 +40,11 @@
   </section>
 </template>
 <script setup lang="ts">
-import {AlgoliaLogo} from "@docsearch/react/dist/esm/AlgoliaLogo";
 import {fetchAll} from "~/repositories/helpCategoryRepository";
-import Search from "~/components/Search/Search.vue";
 const {data: categories} = await useAsyncData('home', () => fetchAll())
+useHead({
+  title: 'Help Center'
+})
 </script>
 
 <style lang="scss">
