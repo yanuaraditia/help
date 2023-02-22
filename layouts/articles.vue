@@ -6,7 +6,7 @@
       <div class="container mx-auto px-5 relative">
         <div class="grid xl:grid-cols-8 gap-7">
           <div class="xl:col-span-2">
-            <div class="xl:sticky xl:top-24">
+            <div class="xl:sticky xl:top-28">
               <h3 class="mb-5 font-bold">Kategori</h3>
               <div class="grid gap-y-3">
                 <div v-for="(category, i) in categories" :key="`sidebar-${i}`" :class="[
