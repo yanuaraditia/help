@@ -3,7 +3,7 @@
     <h1 class="font-bold text-xl xl:text-3xl mb-2" v-text="category.fields.title"></h1>
     <p v-text="category.fields.description"></p>
   </div>
-  <div class="grid xl:gap-7 xl:grid-cols-2">
+  <div class="grid gap-3 xl:gap-7 xl:grid-cols-2">
     <client-only>
     <div
         class="p-3 xl:p-5 rounded-2xl relative transition-all bg-primary-100 border border-primary-200 hover:border-transparent hover:ring-2 hover:ring-primary-300 shadow-sm"
