@@ -12,11 +12,11 @@
               <p class="text-lg slider-description dark:text-neutral-material-300 text-neutral-700 xl:w-9/12">Temukan solusi dan bantuan seputar penggunaan layanan KiriminAja. Ada kok solusinya disini. </p>
             </div>
             <div class="xl:w-10/12">
-              <Search/>
+              <AlgoliaDocSearch/>
             </div>
           </div>
         </div>
-        <div class="hidden xl:static">
+        <div class="hidden xl:block">
           <img src="/assets/illustration-help-1.png" class="w-full" alt="">
         </div>
       </div>
@@ -40,6 +40,18 @@
   </section>
 </template>
 <script setup lang="ts">
+import {AlgoliaLogo} from "@docsearch/react/dist/esm/AlgoliaLogo";
 import {fetchAll} from "~/repositories/helpCategoryRepository";
+import Search from "~/components/Search/Search.vue";
 const {data: categories} = await useAsyncData('home', () => fetchAll())
 </script>
+
+<style lang="scss">
+.DocSearch-Button {
+  --tw-bg-opacity: 1;
+  --docsearch-searchbox-background: rgb(234 221 255 / var(--tw-bg-opacity));
+  margin: 0!important;
+  height: 2.5rem!important;
+  width: 100% !important;
+}
+</style>

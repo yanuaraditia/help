@@ -22,12 +22,18 @@ import {HelpCategoryRouteInterface} from "~/types";
 
 const {params} = await useRoute() as HelpCategoryRouteInterface
 const category = await fetch(params.collection)
-const helps = await fetchAll(category.sys.id)
+const {data: helps} = await useAsyncData('row', () => fetchAll(category.sys.id))
 
 definePageMeta({
   layout: 'articles'
 })
 useHead({
-  title: category.fields.title + ' | Koleksi'
+  title: category.fields.title + ' | Koleksi',
+  meta: [
+    {
+      name: 'description',
+      content: category.fields.description
+    }
+  ]
 })
 </script>

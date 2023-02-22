@@ -35,7 +35,13 @@ const route = useRoute()
 const help = await fetch(route.params.slug) as Help
 
 useHead({
-  title: help.fields.title ?? ''
+  title: help.fields.title ?? '',
+  meta: [
+    {
+      name: 'description',
+      content: help.fields.description
+    }
+  ]
 })
 
 const {rendered, toc: tableOfContents} = MarkedRenderer(help.fields.content ?? '');
