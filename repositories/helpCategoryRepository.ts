@@ -18,7 +18,7 @@ export const fetch = async (slug?: string | string[]) => {
     if (category.fields === undefined) {
         throw createError({
             statusCode: 404,
-            statusMessage: "Not Found"
+            statusMessage: "Kategori Artikel Tidak Ditemukan"
         })
     }
     return category
