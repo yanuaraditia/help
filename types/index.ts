@@ -42,4 +42,3 @@ export interface HelpCategoryRouteInterface {
         collection?: string | string[]
     }
 }
-
