@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="hidden xl:static">
           <img src="/assets/illustration-help-1.png" class="w-full" alt="">
         </div>
       </div>
