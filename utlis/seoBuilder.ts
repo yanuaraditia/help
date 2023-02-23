@@ -1,3 +1,5 @@
+import {UseHeadInput} from "@unhead/vue";
+
 export const seoBuilder = (title: string, description: string) => {
     const {fullPath} = useRoute()
     return {
@@ -11,6 +13,10 @@ export const seoBuilder = (title: string, description: string) => {
                 name: 'description',
                 content: description
             },
+            {
+                name: 'robots',
+                content: 'index, follow'
+            }
         ],
         link: [
             {
@@ -18,5 +24,5 @@ export const seoBuilder = (title: string, description: string) => {
                 href: `https://help.kiriminaja.com/${fullPath}`
             }
         ]
-    }
+    } as UseHeadInput
 }

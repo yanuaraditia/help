@@ -28,6 +28,10 @@ export default defineNuxtConfig({
                 {
                     name: 'publisher',
                     content: 'PT Selalu Siap Solusi'
+                },
+                {
+                    name: 'keywords',
+                    content: 'KiriminAja, Kirim Paket ,Multi expedisi ,kirim paket COD, Cara daftar COD ,COD tanpa marketplace, JNE Express, J&T Express, Sicepat, Gratis Ongkir '
                 }
             ],
             link: [
