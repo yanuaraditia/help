@@ -7,7 +7,9 @@
         <div class="grid xl:grid-cols-8 gap-7">
           <div class="xl:col-span-2">
             <div class="xl:sticky z-50 xl:top-28">
-              <Search/>
+              <div class="xl:w-10/12">
+                <Search/>
+              </div>
               <h3 class="mb-5 mt-3 font-bold">Kategori</h3>
               <div class="grid gap-y-3">
                 <div v-for="(category, i) in categories" :key="`sidebar-${i}`" :class="[

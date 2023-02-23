@@ -1,7 +1,3 @@
-interface HelpCategoryPopulate {
-    data?: HelpCategory
-}
-
 export interface HelpCategory {
     sys: {
         id?: string,
@@ -21,7 +17,7 @@ export interface Help {
         slug?: string,
         description?: string,
         content?: string,
-        help_category?: HelpCategoryPopulate,
+        category?: HelpCategory,
         title?: string,
         image?: Object
     }
@@ -45,4 +41,9 @@ export interface ResultStructure {
     to: string,
     label: string,
     content: string
+}
+
+export interface ParentScope {
+  to: string,
+  label: string
 }
