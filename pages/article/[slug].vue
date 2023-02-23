@@ -69,6 +69,7 @@ definePageMeta({
 import {Help, ParentScope} from "~/types";
 import {fetch} from "~/repositories/helpRepository";
 import {MarkedRenderer} from "~/utlis/markedRenderer";
+import {seoBuilder} from "~/utlis/seoBuilder";
 
 const sharedUrl = ref('')
 
@@ -82,15 +83,12 @@ const parentScope = ref({
   label: help.fields.category?.fields.title
 } as ParentScope)
 
-useHead({
-  title: help.fields.title ?? '',
-  meta: [
-    {
-      name: 'description',
-      content: help.fields.description
-    }
-  ]
-})
+useHead(
+    seoBuilder(
+        help.fields.title,
+        help.fields.description
+    )
+)
 
 const {rendered, toc: tableOfContents} = MarkedRenderer(help.fields.content ?? '');
 

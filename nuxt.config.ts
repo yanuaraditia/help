@@ -16,11 +16,30 @@ export default defineNuxtConfig({
     app: {
         head: {
             titleTemplate: '%s · Support',
+            meta: [
+                {
+                    name: 'author',
+                    content: 'KiriminAja Support'
+                },
+                {
+                    name: 'theme-color',
+                    content: '#6f2fab'
+                },
+                {
+                    name: 'publisher',
+                    content: 'PT Selalu Siap Solusi'
+                }
+            ],
             link: [
                 {
                     rel: 'icon',
                     type: 'image/x-icon',
-                    href: '/favicon.ico'
+                    href: 'https://kiriminaja.com/favicon.ico'
+                },
+                {
+                    rel: 'shortcut icon',
+                    type: 'image/x-icon',
+                    href: 'https://kiriminaja.com/favicon.ico'
                 },
                 {
                     rel: 'stylesheet',
