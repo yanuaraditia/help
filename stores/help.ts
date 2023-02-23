@@ -33,11 +33,6 @@ export const useHelpStore = defineStore('helpStore', {
         async fetchHelps(categoryId: string | string[]) {
             this.filteredHelps = []
             let loop: boolean = true
-            let getCache = await filterArray(this.filteredHelpCache, categoryId)
-            if (getCache) {
-                this.filteredHelps = getCache.helps
-                loop = false
-            }
             if (loop) {
                 try {
                     const {$client} = useNuxtApp()

@@ -12,7 +12,7 @@
               <p class="text-lg slider-description dark:text-neutral-material-300 text-neutral-700 xl:w-9/12">Temukan solusi dan bantuan seputar penggunaan layanan KiriminAja. Ada kok solusinya disini. </p>
             </div>
             <div class="xl:w-10/12">
-              <AlgoliaDocSearch/>
+              <Search/>
             </div>
           </div>
         </div>
