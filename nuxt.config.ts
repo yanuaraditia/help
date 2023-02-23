@@ -34,6 +34,9 @@ export default defineNuxtConfig({
                     content: 'KiriminAja, Kirim Paket ,Multi expedisi ,kirim paket COD, Cara daftar COD ,COD tanpa marketplace, JNE Express, J&T Express, Sicepat, Gratis Ongkir '
                 }
             ],
+            htmlAttrs: {
+                lang: 'id'
+            },
             link: [
                 {
                     rel: 'icon',
