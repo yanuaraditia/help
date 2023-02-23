@@ -12,7 +12,7 @@ export const showModal = (isShowRef: Ref, forceModal?: boolean, forceModalValue?
     const {toggleModal, isModalShow} = useSearchStore()
     toggleModal(forceModal, forceModalValue)
     isShowRef.value = isModalShow
-    disableBody(document.body)
+    disableBody(document.body, isShowRef)
 }
 
 /**
@@ -34,22 +34,32 @@ export const keyboardHandler = (event: KeyboardEvent, isShowRef: Ref) => {
 /**
  * DISABLE SRCOLL
  * @param element: Element
+ * @param isModalShow: Ref
  * @return void
  */
-export const disableBody = (element: Element): void => {
-    element.classList.toggle('overflow-hidden')
+export const disableBody = (element: Element, isModalShow: Ref): void => {
+    if (isModalShow.value) {
+        element.classList.add('overflow-hidden')
+    } else {
+        element.classList.remove('overflow-hidden')
+    }
 }
 
 /**
  * SEARCH HANDLER
  * @param keyword
  * @param results
+ * @param isLoading
  */
-export const searchHandler = async (keyword: Ref, results: Ref) => {
+export const searchHandler = async (keyword: Ref, results: Ref, isLoading: Ref) => {
+    isLoading.value = true
     const {searchData, getResults} = useSearchStore()
-    if (keyword.value.length >= 3) {
-        await searchData(keyword.value)
+    if (keyword.value.length > 3) {
+        await Promise.all([
+            searchData(keyword.value)
+        ])
         results.value = getResults as ResultStructure[]
+        isLoading.value = false
     }
 }
 
@@ -58,9 +68,10 @@ export const searchHandler = async (keyword: Ref, results: Ref) => {
  * @param keywordRef
  * @param resultsRef
  * @param isShowRef
+ * @param isLoading
  */
-export const useMount = (keywordRef: Ref, resultsRef: Ref, isShowRef: Ref) => {
-    watch(() => keywordRef.value, () => searchHandler(keywordRef, resultsRef))
+export const useMount = (keywordRef: Ref, resultsRef: Ref, isShowRef: Ref, isLoading: Ref) => {
+    watch(() => keywordRef.value, () => searchHandler(keywordRef, resultsRef, isLoading))
     onMounted(() => {
         document.addEventListener('keyup', (event: KeyboardEvent) => keyboardHandler(event, isShowRef))
     })
