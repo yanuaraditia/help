@@ -1,8 +1,5 @@
 <template>
-  <div class="mb-3 xl:mb-7">
-    <h1 class="font-bold text-xl xl:text-3xl mb-2" v-text="category.fields.title"></h1>
-    <p v-text="category.fields.description"></p>
-  </div>
+  <ContentTitle :parent-scope="parentScope" :title="category.fields.title" :description="category.fields.description"/>
   <div class="grid gap-3 xl:gap-7 xl:grid-cols-2">
     <client-only>
     <div
@@ -18,11 +15,16 @@
 <script setup lang="ts">
 import {fetch} from "~/repositories/helpCategoryRepository";
 import {fetchAll} from "~/repositories/helpRepository";
-import {HelpCategoryRouteInterface} from "~/types";
+import {HelpCategoryRouteInterface, ParentScope} from "~/types";
 
 const {params} = await useRoute() as HelpCategoryRouteInterface
 const category = await fetch(params.collection)
 const {data: helps} = await useAsyncData('row', () => fetchAll(category.sys.id))
+
+const parentScope = {
+  to: '/',
+  label: 'Kategori'
+} as ParentScope
 
 definePageMeta({
   layout: 'articles'
