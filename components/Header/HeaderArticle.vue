@@ -5,9 +5,6 @@
         <Logo class-name="block hover:text-primary-600 text-primary-700"/>
         <div class="ml-auto flex gap-3">
           <div>
-              <AlgoliaDocSearch/>
-          </div>
-          <div>
             <div>
               <a href="https://kiriminaja.com/about" class="block px-4 py-1.5 rounded-full bg-primary-700 text-white">
                 Homepage

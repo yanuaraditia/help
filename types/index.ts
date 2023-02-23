@@ -1,5 +1,3 @@
-import {EntryWithAllLocalesAndWithLinkResolutionAndWithoutUnresolvableLinks} from "contentful";
-
 interface HelpCategoryPopulate {
     data?: HelpCategory
 }
@@ -41,4 +39,10 @@ export interface HelpCategoryRouteInterface {
     params: {
         collection?: string | string[]
     }
+}
+
+export interface ResultStructure {
+    to: string,
+    label: string,
+    content: string
 }

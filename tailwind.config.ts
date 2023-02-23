@@ -21,6 +21,9 @@ module.exports = {
             animation: {
                 'waving-hand': 'wave 2s linear infinite',
             },
+            zIndex: {
+                70: '70'
+            },
             colors: {
                 "primary": {
                     "25": "#FFFBFE",
