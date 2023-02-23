@@ -3,9 +3,9 @@ export interface HelpCategory {
         id?: string,
     },
     fields: {
-        slug?: string,
-        description?: string,
-        title?: string
+        slug: string,
+        description: string,
+        title: string
     }
 }
 
@@ -14,12 +14,12 @@ export interface Help {
         id?: string,
     },
     fields: {
-        slug?: string,
-        description?: string,
-        content?: string,
+        slug: string,
+        description: string,
+        content: string,
         category?: HelpCategory,
-        title?: string,
-        image?: Object
+        title: string,
+        image: Object
     }
 }
 
