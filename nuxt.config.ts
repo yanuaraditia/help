@@ -37,6 +37,16 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'id'
             },
+            script: [
+                {
+                    src: '/js/taptalk.js',
+                    body: true
+                },
+                {
+                    children: `TapTalkLive.init("e6f7195bd71abaf3154b4706ffb3cc118ca48cd7787517992d9800bbd891beae")`,
+                    body: true
+                }
+            ],
             link: [
                 {
                     rel: 'icon',
