@@ -60,7 +60,7 @@ var customTapliveIdentifier = {}, tapliveOmnichannelList = [], tapliveOmnichanne
     tapliveCallback = {tapliveOnCreateCase: null, tapliveOnSendMessage: null}, isPermissionAskReady = !1;
 !function () {
     let css = dc.createElement('link');
-    css.rel = 'stylesheet'; css.href = '../css/taptalk.css';
+    css.rel = 'stylesheet'; css.href = 'https://help.kiriminaja.com/css/taptalk.css';
     dc.getElementsByTagName('head')[0].appendChild(css)
 
 
