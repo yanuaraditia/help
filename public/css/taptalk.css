@@ -1,0 +1,4522 @@
+:root {
+    --main-brand-color: rgba(255, 126, 0, 1);
+    --main-brand-color-10: rgba(255, 126, 0, 0.1);
+    --main-brand-color-80: rgba(236, 193, 149, 0.8);
+}
+
+.taplive-grey-text {
+    color: #757575;
+}
+
+.taplive-font-14 {
+    font-size: 14px;
+}
+
+.taplive-force-hide {
+    display: none !important;
+}
+
+.taplive-main-button {
+    width: 100%;
+    padding: 13px;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.taplive-full-loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(25, 25, 25, 0.6);
+}
+
+.taplive-full-loading-screen-content {
+    min-width: 96px;
+    font-size: 16px;
+    color: #191919;
+    letter-spacing: -0.5px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center !important;
+    padding: 68px 18px 18px;
+    line-height: 1;
+}
+
+.taplive-full-loading-screen .taplive-lds-ring {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 33px;
+    height: 33px;
+}
+
+.taplive-full-loading-screen .taplive-lds-ring div {
+    border: solid 4px;
+    border-color: #ff7d00 transparent transparent transparent;
+    width: 33px;
+    height: 33px;
+}
+
+.taplive-main-chat-wrapper .taplive-centered-dot {
+    width: 2px;
+    height: 2px;
+    display: inline-block;
+    vertical-align: top;
+    background: rgba(25, 25, 25, 0.4);
+    border-radius: 50%;
+    position: relative;
+    top: 8px;
+    margin: 0 2px;
+}
+
+.taplive-main-chat-wrapper .taplive-centered-dot-white {
+    background: #ffffff;
+}
+
+.taplive-main-chat-wrapper .taplive-lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+.taplive-lds-ring.centered-taplive-lds-ring {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-lds-ring.centered-taplive-lds-ring div {
+    margin: 0;
+}
+
+.taplive-lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute !important;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    animation: taplive-lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.taplive-lds-ring.white-taplive-lds-ring div {
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.taplive-lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.taplive-lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.taplive-lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes taplive-lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.taplive-snack-bar-wrapper {
+    width: calc(100% - 30px);
+    display: inline-block;
+    border-radius: 8px;
+    position: absolute !important;
+    z-index: 4; /* height: 48px; */
+    bottom: 12px;
+    left: 50%;
+    transform: translate(-50%, 0); /* display: none; */
+    visibility: hidden;
+    padding: 13px 30px 13px 50px;
+}
+
+.taplive-snack-bar-wrapper.taplive-error-snack-bar {
+    border: solid 1px #ff3f57;
+    color: #ff3f57;
+    background: #ffc0c0;
+}
+
+.taplive-snack-bar-wrapper.taplive-warning-snack-bar {
+    border: solid 1px #ff7d00;
+    color: #ff7d00;
+    background: #FFF4B1;
+}
+
+.taplive-snack-bar-wrapper .taplive-snack-bar-message {
+    font-size: 16px;
+    letter-spacing: -0.5px;
+}
+
+.taplive-snack-bar-wrapper .taplive-snack-bar-icon {
+    position: absolute !important;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 16px;
+    display: none;
+}
+
+.taplive-snack-bar-wrapper .taplive-close-snack-bar {
+    position: absolute !important;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 16px;
+}
+
+.taplive-main-chat-wrapper {
+    display: block;
+    flex-direction: unset;
+    flex: unset;
+}
+
+.taplive-main-chat-wrapper * {
+    box-sizing: border-box !important;
+    display: block;
+    flex-direction: unset;
+    flex: unset; /* position: unset; */
+    line-height: unset;
+    letter-spacing: 0;
+}
+
+.taplive-main-chat-wrapper a {
+    position: unset;
+    display: inline-block;
+}
+.taplive-main-chat-wrapper p {
+    line-height: normal;
+}
+
+.taplive-main-chat-wrapper img {
+    display: inline-block;
+}
+
+.taplive-main-chat-wrapper input {
+    color: #282828;
+}
+
+.taplive-main-chat-wrapper textarea {
+    color: #282828;
+}
+
+.taplive-main-brand-button {
+    background: var(--main-brand-color);
+    cursor: pointer;
+}
+
+.taplive-main-brand-button:hover {
+    background: var(--main-brand-color-80) !important
+}
+
+.taplive-chat-widget-opener-button {
+    background: var(--main-brand-color);
+    box-shadow: inset 1px -1px 10px 0px rgba(255, 255, 255, 0.12), 0px 2px 20px 0px rgba(25, 25, 25, 0.3);
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9998;
+    box-sizing: border-box;
+}
+
+.taplive-chat-widget-opener-button:hover::before {
+    content: "";
+    height: 64px;
+    width: 64px;
+    position: absolute !important;
+    border-radius: 50%;
+    background: rgba(25, 25, 25, .1);
+    top: 0;
+    left: 0;
+}
+
+.taplive-chat-widget-opener-button .taplive-chat-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: unset;
+    flex: unset;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff3f57;
+    position: relative;
+    right: -40px;
+    box-shadow: 0 2px 20px 0 rgba(25, 25, 25, 0.18);
+    color: #ffffff;
+    display: none;
+}
+
+.taplive-chat-widget-opener-button .taplive-chat-badge b {
+    font-size: 12px;
+}
+
+.taplive-chat-widget-opener-button img {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.taplive-close-widget-button {
+    display: none;
+}
+
+.taplive-outer-container {
+    height: min(704px, 100% - 130px);
+    width: 400px;
+    min-height: 80px;
+    border-radius: 16px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 5px 40px;
+    position: fixed;
+    right: 24px;
+    bottom: 110px;
+    z-index: 99999;
+    background: #f3f3f3;
+    color: #191919; /* display: none; */
+    visibility: hidden;
+    overflow: hidden;
+    text-align: left;
+}
+
+.taplive-outer-container p {
+    padding: 0;
+}
+
+.taplive-outer-container div {
+    text-align: unset;
+}
+
+.taplive-outer-container button {
+    line-height: 1;
+}
+
+.taplive-outer-container textarea {
+    height: unset;
+    min-height: unset;
+    margin: 0;
+    line-height: inherit;
+}
+
+.active-taplive-power .taplive-main-chat-wrapper {
+    height: calc(100% - 80px);
+    width: 100%;
+    position: relative; /* max-height: calc(100% - 130px); border-radius: 6px; box-shadow: 0px 2px 20px 0px rgba(25, 25, 25, 0.18); */
+}
+
+.taplive-power {
+    height: 36px;
+    padding: 4px 0;
+    width: 100%;
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    background: #ffffff;
+    box-shadow: 0 1px 0 0 rgba(25, 25, 25, 0.1);
+    display: none;
+}
+
+.taplive-power div {
+    padding: 0 14px;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0 14px;
+    border-radius: 4px;
+    display: inline-block;
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    white-space: nowrap;
+    height: 28px;
+    line-height: 28px;
+}
+
+.taplive-power div:hover {
+    background: var(--main-brand-color-10);
+}
+
+.taplive-power div a {
+    text-decoration: none;
+    color: rgba(25, 25, 25, 0.8);
+    font-size: 14px;
+    letter-spacing: -0.2px;
+}
+
+.taplive-power div a img {
+    vertical-align: top;
+    position: relative;
+    top: 9px;
+    margin-left: 4px;
+    width: 71px;
+}
+
+.active-taplive-power .taplive-power {
+    display: block;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .taplive-outer-container {
+        width: 100vw; /* height: calc(100% - 170px); */
+        height: 100%;
+        max-height: 100%;
+        bottom: 0 !important; /* top: 0; */
+        right: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .taplive-start-new-chat-wrapper .taplive-start-new-chat-top-content {
+        border-radius: 0 !important;
+        min-height: 220px !important;
+    }
+
+    .taplive-room-list-with-omnichannel .taplive-start-new-chat-top-content {
+        border-radius: 0 !important;
+    }
+
+    .taplive-room-list-wrapper .taplive-room-list-top-content {
+        border-radius: 0 !important;
+    }
+
+    .taplive-room-list-wrapper {
+        border-radius: 0 !important;
+    }
+
+    .taplive-close-widget-button {
+        display: inline-block;
+        width: 31px;
+        height: 31px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: ease-in-out .2s;
+        background: none;
+        position: relative;
+    }
+
+    .taplive-close-widget-button:active {
+        background: rgba(25, 25, 25, 0.1);
+    }
+
+    .taplive-close-widget-button img {
+        position: absolute !important;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px !important;
+        height: 24px !important;
+        display: inline-block;
+    }
+
+    .taplive-room-list-top-content .taplive-close-widget-button {
+        position: absolute !important;
+        right: 20px;
+        top: 35px;
+    }
+
+    .taplive-start-new-chat-top-content {
+        padding-right: 62px !important;
+    }
+
+    .taplive-start-new-chat-top-content .taplive-close-widget-button {
+        position: absolute !important;
+        right: 24px;
+        top: 24px;
+    }
+
+    .taplive-main-chat-room-wrapper .taplive-main-chat-room-header {
+        border-radius: 0 !important;
+    }
+}
+
+.taplive-main-chat-wrapper * {
+    outline: none;
+}
+
+.taplive-main-chat-wrapper input[type="text"]:focus, .taplive-main-chat-wrapper textarea:focus {
+    box-shadow: 0 0 0 1px var(--main-brand-color) !important;
+    border: none !important;
+}
+
+.taplive-start-new-case-wrapper {
+    position: absolute !important;
+    top: 0;
+    right: -100%;
+    transition: ease-in-out .3s;
+}
+
+.taplive-start-new-case-wrapper.taplive-active-start-new-case-wrapper {
+    right: 0;
+}
+
+.taplive-start-new-chat-wrapper {
+    max-height: 100%;
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    position: relative;
+}
+
+.graders {
+    background: linear-gradient(117.67deg, #21005D, #4F378B, #EADDFF);
+    width: 100%; /* height: 220px; */
+    color: #ffffff;
+    border-radius: 8px 8px 0px 0px; /* padding: 30px 24px; */
+    padding: 24px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.graders::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 90%;
+    z-index: 0;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+}
+
+.taplive-start-new-chat-top-content-color-background {
+    height: 220px;
+}
+
+.taplive-start-new-chat-wrapper, .taplive-room-list-with-omnichannel, .taplive-room-list-wrapper {
+    background: white;
+}
+
+.taplive-start-new-message-wrapper {
+    max-height: unset; /* height: unset; */
+    height: 100%;
+    overflow: hidden; /* display: none; */
+    visibility: hidden;
+    z-index: 1;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-top-content .taplive-start-new-chat-top-content-logo-wrapper {
+    background: #ffffff;
+    height: 48px;
+    width: 48px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-top-content .taplive-start-new-chat-top-content-logo-wrapper img {
+    width: 100%;
+}
+
+/* .taplive-start-new-chat-wrapper .taplive-start-new-chat-top-content p:nth-child(2) { */
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-top-content p:nth-child(1) {
+    font-size: 20px;
+    letter-spacing: -0.6px; /* margin: 25px 0 8px; */
+    margin: 0 0 7px;
+    color: #ffffff;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-top-content p:nth-child(2) {
+    margin: 0;
+    line-height: 24px;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    color: #ffffff;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-top-content p:nth-child(3) {
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    margin: 0;
+    color: #ffffff;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24px;
+    position: relative;
+    top: -30px; /* top: -15px; */
+}
+
+.taplive-start-new-chat-bottom-content .taplive-shimmer-room-list {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.taplive-shimmer-room-list-chat-content {
+    width: 100%;
+    position: relative;
+    padding-top: 12px;
+    font-size: 0;
+}
+
+.taplive-avatar-shimmer-room-list {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin: 0 12px 0 16px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.taplive-shimmer-right-wrapper {
+    width: calc(100% - 80px);
+    display: inline-block;
+}
+
+.taplive-shimmer-room-list-top {
+    width: 100px;
+    display: inline-block;
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.taplive-shimmer-room-list-bottom {
+    width: calc(100% - 16px);
+    display: inline-block;
+    height: 42px;
+    margin-bottom: 12px;
+}
+
+.taplive-shimmer-room-list-line {
+    height: 2px;
+    width: 100%;
+}
+
+.taplive-shimmer-room-list .taplive-shimmer-room-list-button-wrapper {
+    padding: 12px 16px;
+    width: 100%;
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background: #ffffff;
+}
+
+.taplive-shimmer-room-list .taplive-shimmer-room-list-button-wrapper .taplive-shimmer-room-list-button-content {
+    height: 48px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+@keyframes taplivePlaceholderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.taplive-shine {
+    background: #f6f7f8 linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%) no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: taplivePlaceholderShimmer;
+    animation-timing-function: linear;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper {
+    overflow-y: auto;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper label {
+    display: block;
+    font-size: 14px;
+    letter-spacing: -0.4px;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper input[type="text"] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    padding: 16px;
+    margin: 8px 0 12px;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    padding: 16px 11px;
+    margin: 8px 0 12px;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    padding: 16px;
+    margin: 8px 0 12px;
+    resize: none;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper .taplive-submit-new-chat {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.taplive-submit-new-chat:hover {
+    background: var(--main-brand-color-80) !important;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content-new-message {
+    top: -150px;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-message-header {
+    font-size: 20px;
+    letter-spacing: -0.6px;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-message-header img {
+    vertical-align: top; /* width: 25px; */
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+    top: -1px;
+    padding: 3px;
+    transition: ease-in-out .1s;
+    width: unset;
+}
+
+.taplive-start-new-chat-wrapper .taplive-start-new-message-header img:hover {
+    background: rgba(25, 25, 25, 0.3);
+}
+
+.taplive-room-list-with-omnichannel {
+    max-height: 100%;
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    position: relative;
+}
+
+.taplive-start-new-case-wrapper .taplive-start-new-chat-top-content {
+    min-height: 180px;
+}
+
+.taplive-start-new-message-wrapper {
+    max-height: unset; /* height: unset; */
+    height: 100%;
+    overflow: hidden; /* display: none; */
+    visibility: hidden;
+    z-index: 1;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-top-content .taplive-start-new-chat-top-content-logo-wrapper {
+    background: #ffffff;
+    height: 48px;
+    width: 48px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-top-content .taplive-start-new-chat-top-content-logo-wrapper img {
+    width: 100%;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-top-content p:nth-child(1) {
+    font-size: 20px;
+    letter-spacing: -0.6px; /* margin: 25px 0 8px; */
+    margin: 0 0 7px;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-top-content p:nth-child(2) {
+    margin: 0;
+    line-height: 24px;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-top-content p:nth-child(3) {
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    margin: 0;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24px;
+    position: relative;
+    top: -30px; /* top: -15px; */
+}
+
+.taplive-start-new-chat-bottom-content .taplive-shimmer-room-list {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.taplive-shimmer-room-list-chat-content {
+    width: 100%;
+    position: relative;
+    padding-top: 12px;
+    font-size: 0;
+}
+
+.taplive-avatar-shimmer-room-list {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin: 0 12px 0 16px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.taplive-shimmer-right-wrapper {
+    width: calc(100% - 80px);
+    display: inline-block;
+}
+
+.taplive-shimmer-room-list-top {
+    width: 100px;
+    display: inline-block;
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.taplive-shimmer-room-list-bottom {
+    width: calc(100% - 16px);
+    display: inline-block;
+    height: 42px;
+    margin-bottom: 12px;
+}
+
+.taplive-shimmer-room-list-line {
+    height: 2px;
+    width: 100%;
+}
+
+.taplive-shimmer-room-list .taplive-shimmer-room-list-button-wrapper {
+    padding: 12px 16px;
+    width: 100%;
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background: #ffffff;
+}
+
+.taplive-shimmer-room-list .taplive-shimmer-room-list-button-wrapper .taplive-shimmer-room-list-button-content {
+    height: 48px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+@keyframes taplivePlaceholderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.taplive-shine {
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: taplivePlaceholderShimmer;
+    animation-timing-function: linear;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper {
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 8px 8px 0 0; /* border-top: solid 8px var(--main-brand-color-10); */ /* max-height: calc(100% - 70px); */
+    overflow-y: auto;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper label {
+    display: block;
+    font-size: 14px;
+    letter-spacing: -0.4px;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper input[type="text"] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    padding: 16px;
+    margin: 8px 0 12px;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    padding: 16px 11px;
+    margin: 8px 0 12px;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    padding: 16px;
+    margin: 8px 0 12px;
+    resize: none;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper .taplive-submit-new-chat {
+    color: #ffffff;
+    background: var(--main-brand-color);
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    text-align: center !important;
+    padding: 13px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.taplive-submit-new-chat:hover {
+    background: var(--main-brand-color-80) !important;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content-new-message { /* top: -150px; */
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-message-header {
+    font-size: 20px;
+    letter-spacing: -0.6px;
+}
+
+.taplive-room-list-with-omnichannel .taplive-start-new-message-header img {
+    vertical-align: top;
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.taplive-room-list-wrapper {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    right: -100%;
+    position: absolute !important;
+    top: 0;
+    transition: ease-in-out .3s;
+}
+
+.taplive-room-list-wrapper.taplive-active-room-list-wrapper {
+    right: 0;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-top-content {
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 175px;
+    position: relative;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-top-content img {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    border-radius: 8px;
+    vertical-align: top;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-top-content img.taplive-room-list-back-button {
+    width: unset;
+    height: unset;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute !important;
+    top: 33px;
+    border-radius: 50%;
+    left: 22px;
+    cursor: pointer;
+    padding: 3px;
+    transition: ease-in-out .1s;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-top-content img.taplive-room-list-back-button:hover {
+    background: rgba(25, 25, 25, 0.3);
+}
+
+.taplive-room-list-top-content.taplive-room-list-without-omnichannel img.taplive-room-list-back-button {
+    display: none;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-top-content b {
+    font-size: 24px;
+    letter-spacing: -0.6px;
+    margin-left: 35px;
+    position: relative;
+    top: 11px;
+    line-height: 1;
+}
+
+.taplive-room-list-top-content.taplive-room-list-without-omnichannel b {
+    margin-left: 0;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-bottom-content {
+    width: calc(100% - 50px);
+    position: relative;
+    left: 24px;
+    top: -90px;
+    display: inline-block;
+    height: calc(100% - 150px);
+    overflow-y: hidden;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-bottom-content .taplive-room-list-outer-container {
+    max-height: calc(100% - 70px);
+    overflow-y: auto;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .taplive-room-list-wrapper .taplive-room-list-bottom-content {
+        height: calc(100% - 87px)
+    }
+}
+
+/* room list chat */
+.taplive-chat-list-wrapper {
+    background: #fff;
+    width: 100%;
+    padding: 12px 0 0;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0;
+}
+b, strong {
+    font-weight: 700!important;
+}
+
+.taplive-chat-list-wrapper:hover {
+    background: var(--main-brand-color-10);
+}
+
+.taplive-chat-list-wrapper.active-chat-list {
+    background: #efeeee;
+}
+
+.taplive-chat-list-wrapper .taplive-chat-avatar-wrapper {
+    width: 70px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center !important;
+    position: relative;
+}
+
+.taplive-chat-list-wrapper .taplive-chat-avatar-wrapper img {
+    width: 52px;
+    height: 52px;
+    display: inline-block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.taplive-chat-list-wrapper .taplive-chat-avatar-wrapper img.group-badge {
+    width: 20px;
+    height: 20px;
+    position: absolute !important;
+    bottom: 1px;
+    right: 11px;
+}
+
+.taplive-chat-list-wrapper .taplive-chat-avatar-wrapper .taplive-user-avatar-name {
+    background: var(--main-brand-color-80);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: inline-block;
+    text-align: center !important;
+    font-size: 20px;
+    letter-spacing: -0.6px;
+    color: white;
+    line-height: 44px;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper {
+    width: calc(100% - 70px);
+    display: inline-block;
+    position: relative;
+    border-bottom: solid 1px #dcdcdc;
+    padding: 5px 0 12px 0;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-top {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    padding-right: 85px;
+    box-sizing: border-box;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-top p {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    color: #282828 !important;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-top b {
+    font-size: 16px;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-top .taplive-dialog-date {
+    color: rgba(25, 25, 25, 0.6);
+    font-size: 12px;
+    letter-spacing: -0.4px;
+    line-height: 18px;
+    position: absolute !important;
+    right: 16px;
+    top: 0;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-bottom {
+    color: rgba(25, 25, 25, 0.6);
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    line-height: 21px;
+    padding: 3px 60px 0 0;
+    position: relative;
+    min-height: 32px;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-bottom span {
+    color: #191919;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-bottom p {
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    color: rgba(25, 25, 25, 0.6) !important;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-bottom p:first-child {
+    opacity: 0.7;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-bottom .taplive-message-status {
+    position: absolute !important;
+    top: 10px;
+    right: 16px;
+}
+
+.taplive-chat-list-wrapper .taplive-dialog-message-wrapper .taplive-dialog-bottom .taplive-message-status .taplive-unread-count-wrapper {
+    background: var(--main-brand-color);
+    color: #fff;
+    font-size: 12px;
+    border-radius: 12px;
+    height: 24px;
+    min-width: 24px;
+    text-align: center !important;
+    line-height: 24px;
+    padding: 0 5px;
+}
+
+.taplive-chat-list-wrapper:nth-last-child(1) .taplive-dialog-message-wrapper {
+    border-bottom: 0;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-bottom-content .taplive-room-list-bottom-new-message-wrapper {
+    width: 100%; /* height: 43px; */
+    width: 100%;
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    padding: 12px 16px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-bottom-content .taplive-room-list-bottom-list-room-wrapper {
+    max-height: calc(100% - 70px);
+    overflow-y: auto;
+    border-bottom: solid 1px #dcdcdc;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 16px 12px;
+    cursor: pointer;
+}
+.btn-1 {
+    background: var(--main-brand-color);
+    color: var(--main-brand-color-10);
+}
+.btn-2 {
+    background: var(--main-brand-color-10);
+    color: var(--main-brand-color);
+}
+.btn-1:hover, .btn-2:hover {
+    background: var(--main-brand-color-80);
+    color: white;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-bottom-content .taplive-room-list-bottom-new-message {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.taplive-room-list-wrapper .taplive-room-list-bottom-content .taplive-room-list-bottom-new-message img {
+    position: relative;
+    margin-right: 5px;
+    vertical-align: top;
+    top: 3px;
+    width: 14px !important;
+}
+
+.taplive-chat-list-wrapper:nth-last-child(1) .taplive-dialog-message-wrapper {
+    border-bottom: 0;
+}
+
+/* room list chat */ /* review */
+.taplive-review-wrapper {
+    background: #00000073;
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    left: 0;
+    border-radius: 8px;
+    z-index: 3;
+    transition: ease-in-out .5s;
+    bottom: -100vh;
+}
+
+.taplive-review-wrapper.active-taplive-review-wrapper {
+    bottom: 0;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper { /* height: 340px; */
+    width: 100%;
+    background: #ffffff;
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    border-radius: 8px 8px 0 0;
+    padding: 16px 12px;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper label {
+    white-space: nowrap;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper span {
+    display: inline-block;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-text-length {
+    text-align: right;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-head {
+    width: 100%;
+    position: relative;
+    text-align: center !important;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-head img {
+    cursor: pointer;
+    position: absolute !important;
+    left: 0;
+    top: -3px;
+    width: unset;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-body .taplive-review-content-body-star-wrapper {
+    text-align: center !important;
+    padding-top: 38px;
+    position: relative;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-body .taplive-review-content-body-star-wrapper .taplive-star-image-wrapper {
+    width: 264px;
+    position: absolute !important;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 0;
+}
+
+.taplive-star-image-wrapper .taplive-star-image-click-wrapper {
+    width: 264px;
+    height: 38px;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+}
+
+.taplive-star-image-wrapper .taplive-star-image-click-content {
+    width: 20%;
+    display: inline-block;
+    cursor: pointer;
+    height: 38px;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-body .taplive-review-content-body-star-wrapper img {
+    width: 264px;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-body .taplive-review-content-body-star-wrapper p {
+    color: #191919;
+    letter-spacing: -0.4px;
+    font-size: 14px;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-body textarea {
+    resize: none;
+    border-radius: 8px;
+    width: 100%;
+    letter-spacing: -0.3px;
+    font-size: 16px;
+    padding: 12px 16px;
+    border: solid 1px #dcdcdc;
+    margin: 10px 0 12px;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-foot {
+    width: 100%;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-foot {
+    width: 100%;
+}
+
+.taplive-review-wrapper .taplive-review-content-wrapper .taplive-review-content-foot button {
+    border: 0;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 14px 0;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.taplive-submit-review-button:hover {
+    background: var(--main-brand-color-80);
+}
+
+/* review */ /* chat room */
+.taplive-main-chat-room-wrapper {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    position: absolute !important;
+    left: 100%;
+    top: 0;
+    transition: ease-in-out .3s;
+    background: #ffffff;
+}
+
+.taplive-main-chat-room-wrapper .taplive-loading-message-wrapper {
+    margin-top: 16px;
+    text-align: center !important;
+    width: 100%;
+}
+
+.taplive-main-chat-room-wrapper .taplive-loading-message-wrapper .taplive-lds-ring div {
+    border-color: var(--main-brand-color) transparent transparent transparent;
+}
+
+.taplive-main-chat-room-wrapper.taplive-active-main-chat-room-wrapper {
+    left: 0;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-header {
+    border-radius: 16px 16px 0 0;
+    background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    color: #000;
+    padding: 14px 20px 14px 55px;
+    position: absolute; /* height: 88px; */
+    z-index: 50;
+    height: 52px;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-header .taplive-main-chat-room-back-button {
+    position: absolute !important;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+    padding: 5px;
+    margin-right: 5px;
+    width: unset;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-header .taplive-main-chat-room-back-button:hover { /* left: 15px; transform: scale(0.90); */
+    opacity: 0.5;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-header .taplive-main-chat-room-admin-name {
+    font-size: 1.15rem;
+    letter-spacing: -0.6px;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-header .taplive-main-chat-room-case-id {
+    font-size: 1.15rem;
+    letter-spacing: -0.6px;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-container {
+    width: 100%; /* max-height: calc(100% - 146px); min-height: calc(100% - 146px); */
+    max-height: calc(100%);
+    min-height: calc(100%);
+    transition: ease-in-out .2s;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* .taplive-main-chat-room-wrapper .taplive-main-chat-room-container.taplive-hide-overflow-chat-room-container { overflow-y: hidden; } */
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-container .taplive-blocking-loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #f3f3f3;
+    z-index: 1; /* display: none; */
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-container .taplive-blocking-loading .taplive-lds-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-container .taplive-blocking-loading .taplive-lds-ring div {
+    border: solid 3px #ffffff;
+    border-color: var(--main-brand-color) transparent transparent transparent;
+    width: 32px;
+    height: 32px;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-container.taplive-chat-room-is-locked .taplive-action-reply {
+    display: none;
+}
+
+.taplive-main-chat-room-bubble-container {
+    position: absolute !important;
+    bottom: 0;
+    width: 100%;
+    padding: 70px 16px 70px 16px;
+    max-height: calc(100%);
+    overflow-y: auto;
+}
+
+/* chat info */
+.taplive-chat-room-info-wrapper {
+    width: 100%;
+    text-align: center !important;
+    position: relative;
+    margin-top: 16px;
+}
+
+.taplive-chat-room-info-wrapper .taplive-chat-room-info-content {
+    padding: 4px 16px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 20px 0px rgba(25, 25, 25, 0.05);
+    display: inline-block;
+    background: #fff;
+    color: rgba(25, 25, 25, 0.4);
+    font-size: 12px;
+    letter-spacing: -0.4px;
+    line-height: 18px;
+    text-align: center !important;
+}
+
+/* chat-info */ /* message out text */
+.taplive-chat-room-message-out-wrapper {
+    margin-top: 16px;
+    width: 100%;
+    position: relative;
+    text-align: right !important;
+}
+
+.taplive-chat-room-message-out-wrapper .taplive-message-out-bubble {
+    border-radius: 10px;
+    background: rgb(245, 245, 245);
+    display: inline-block;
+    max-width: calc(100% - 85px); /* padding: 10px 45px 10px 10px; */
+    padding: 17px 20px;
+    background: var(--main-brand-color);
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    position: relative; /* cursor: pointer; */
+    color: #fff;
+    text-align: left; /* min-height: 44px; */
+}
+
+.taplive-chat-room-message-out-wrapper .taplive-message-out-bubble.taplive-deleted-bubble {
+    color: #fff;
+    padding: 10px 10px 10px 33px;
+}
+
+.taplive-chat-room-message-out-wrapper .taplive-message-out-bubble.taplive-deleted-bubble .taplive-deleted-icon {
+    position: absolute !important;
+    left: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.taplive-chat-room-message-out-wrapper .taplive-message-out-bubble .taplive-message-info { /* position: absolute !important; */ /* bottom: 11px; right: 27px; */
+    margin: 0;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    line-height: 18px; /* width: 26px; */
+    width: 100%;
+    text-align: right !important;
+    white-space: nowrap;
+}
+
+.centered-dot {
+    width: 2px;
+    height: 2px;
+    display: inline-block;
+    vertical-align: top;
+    background: rgba(25, 25, 25, 0.4);
+    border-radius: 50%;
+    position: relative;
+    top: 9px;
+}
+
+.taplive-chat-room-message-out-wrapper .taplive-message-out-bubble .taplive-message-info img { /* margin-left: 4px; */
+    width: 16px;
+    position: relative;
+    top: 1px;
+    vertical-align: top;
+}
+
+/* message out text */ /* message in text */
+.taplive-chat-room-message-in-wrapper {
+    margin-top: 16px;
+    width: 100%;
+    position: relative;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-message-review-bubble {
+    padding: 10px !important;
+    max-width: 250px !important;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-message-in-bubble {
+    border-radius: 10px;
+    background: rgb(245, 245, 245);
+    display: inline-block;
+    max-width: calc(100% - 85px); /* padding: 10px 45px 10px 10px; */
+    padding: 17px 20px;
+    color: #191919;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    position: relative; /* cursor: pointer; */
+    min-height: 44px;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-message-in-bubble .taplive-review-button-bubble {
+    color: #ffffff;
+    border: none;
+    letter-spacing: -0.5px;
+    font-size: 14px;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 4px;
+    padding: 12px 16px 11px;
+}
+
+.taplive-review-button-bubble:hover {
+    background: var(--main-brand-color-80) !important;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-message-in-bubble.deleted-bubble {
+    color: #9b9b9b;
+    padding: 10px;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-message-in-bubble.deleted-bubble .deleted-icon {
+    position: absolute !important;
+    left: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-message-in-bubble .taplive-message-info { /* position: absolute !important; */ /* bottom: 11px; right: 27px; */
+    margin: 0;
+    color: rgba(25, 25, 25, 0.4);
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    line-height: 18px; /* width: 26px; */
+    width: 100%;
+    text-align: right !important;
+    white-space: nowrap;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-message-in-bubble .taplive-group-sender-name-wrapper {
+    color: var(--main-brand-color) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    line-height: 24px;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-group-sender-avatar-wrapper {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-right: 5px;
+    font-size: 16px;
+    line-height: 34px;
+    text-align: center !important;
+    color: #fff;
+}
+
+.taplive-chat-room-message-in-wrapper .taplive-group-sender-avatar-wrapper img {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+/* message in text */ /* message in image */
+.taplive-chat-room-message-image-in-wrapper {
+    width: 100%;
+    text-align: left;
+    position: relative;
+    margin-top: 16px;
+    font-size: 0;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-group-sender-avatar-wrapper {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-right: 5px;
+    font-size: 14px;
+    line-height: 34px;
+    text-align: center !important;
+    color: #fff;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-group-sender-avatar-wrapper img {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble {
+    border-radius: 2px 16px 16px; /* width: 200px; */
+    max-width: calc(100% - 85px);
+    display: inline-block;
+    position: relative;
+    font-size: 0; /* overflow: hidden; */
+    background: #fff;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper {
+    position: relative;
+    min-width: 150px; /* min-height: 150px; */
+    padding: 10px;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-with-caption {
+    padding: 10px 10px 0;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper img {
+    vertical-align: top;
+    width: 100%;
+    max-width: 100%; /* cursor: pointer; */
+    border-radius: 0 16px 16px 16px;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-without-caption img {
+    border-radius: 0 16px 16px 16px;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper img {
+    color: #fff;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    border-radius: 0 !important;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-onprocess-wrapper {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper {
+    vertical-align: top;
+    width: 100%;
+    min-width: 150px; /* min-height: 150px; */
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-caption-text {
+    font-size: 16px;
+    letter-spacing: -0.3px; /* padding: 10px 55px 10px 10px; */
+    padding: 4px 10px 0 10px;
+    margin: 0;
+    word-break: break-word;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-message-info { /* background: rgba(25, 25, 25, 0.6); */
+    position: absolute !important;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 2px 5px;
+    color: #ffffff;
+    bottom: 10px;
+    right: 10px; /* z-index: 1; */
+    margin: 0;
+    line-height: 18px;
+    letter-spacing: -0.2px;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble .taplive-message-info.taplive-message-info.taplive-message-info-with-caption {
+    position: relative !important;
+    bottom: unset;
+    right: unset;
+    width: 100%;
+    text-align: right !important;
+    color: rgba(25, 25, 25, 0.4);
+    padding: 2px 10px 3px;
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble.taplive-not-sent-message-bubble { /* overflow: hidden; */
+}
+
+.taplive-chat-room-message-image-in-wrapper .taplive-message-in-bubble.taplive-not-sent-message-bubble .dark-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    left: 0;
+    top: -5%;
+    border-radius: 2px 16px 16px;
+}
+
+.taplive-chat-room-message-image-in-wrapper:hover .message-action-wrapper {
+    display: inline-block;
+}
+
+.taplive-chat-room-message-image-in-wrapper .message-action-wrapper {
+    right: unset !important;
+    left: calc(30% + 40px) !important;
+}
+
+.taplive-chat-room-message-image-in-wrapper .message-action-wrapper .message-action-button-wrapper {
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-image-in-wrapper .CircularProgressbar .CircularProgressbar-trail {
+    stroke: transparent;
+}
+
+.taplive-chat-room-message-image-in-wrapper .CircularProgressbar .CircularProgressbar-path {
+    stroke: #fff;
+}
+
+/* message in image */ /* message out image */
+.taplive-chat-room-message-image-out-wrapper {
+    width: 100%;
+    text-align: right !important;
+    position: relative;
+    margin-top: 16px;
+    font-size: 0;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble {
+    border-radius: 16px 2px 16px 16px; /* width: 200px; */
+    max-width: calc(100% - 43px);
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    border: 1px solid rgba(25, 25, 25, 0.1); /* overflow: hidden; */
+    background: var(--main-brand-color);
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    text-align: left;
+    color: #fff;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper {
+    position: relative;
+    min-width: 150px; /* min-height: 150px; */
+    padding: 10px;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-with-caption {
+    padding: 10px 10px 0;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper.taplive-bubble-image-wrapper.taplive-bubble-wrapper-without-caption img {
+    border-radius: 16px 0 16px 16px;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper img {
+    vertical-align: top;
+    width: 100%;
+    max-width: 100%; /* cursor: pointer; */
+    border-radius: 16px 0 16px 16px;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-lds-ring {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-lds-ring div {
+    border-color: var(--main-brand-color) transparent transparent transparent;
+    width: 40px;
+    height: 40px;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper img {
+    width: 24px;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    border-radius: 0 !important;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-onprocess-wrapper {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-main-image-message {
+    width: 100%;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-caption-text {
+    font-size: 16px;
+    letter-spacing: -0.3px; /* padding: 10px 55px 10px 10px; */
+    padding: 4px 10px 0 10px;
+    margin: 0;
+    word-break: break-word;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-message-info { /* background: rgba(25, 25, 25, 0.6); */
+    margin: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 2px 5px;
+    color: #ffffff;
+    bottom: 10px;
+    right: 10px; /* z-index: 1; */
+    line-height: 18px;
+    letter-spacing: -0.2px;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-message-info.taplive-message-info.taplive-message-info-with-caption {
+    position: relative !important;
+    bottom: unset;
+    right: unset;
+    width: 100%;
+    text-align: right !important;
+    color: #ffffff;
+    padding: 2px 10px 3px;
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble .taplive-message-info img {
+    vertical-align: top;
+    position: relative;
+    top: 1px /* margin-left: 3px; */
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-message-out-bubble.taplive-not-sent-message-bubble { /* overflow: hidden; */
+}
+
+.taplive-chat-room-message-image-out-wrapper .taplive-failed-sending-file-warning {
+    font-size: 12px;
+    letter-spacing: -0.4px;
+    color: rgba(25, 25, 25, 0.4);
+}
+
+.taplive-chat-room-message-image-out-wrapper:hover .message-action-wrapper {
+    display: inline-block;
+}
+
+.taplive-chat-room-message-image-out-wrapper .message-action-wrapper {
+    right: calc(30% + 10px) !important;
+}
+
+.taplive-chat-room-message-image-out-wrapper .message-action-wrapper .message-action-button-wrapper {
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-image-out-wrapper .CircularProgressbar .CircularProgressbar-trail {
+    stroke: transparent;
+}
+
+.taplive-chat-room-message-image-out-wrapper .CircularProgressbar .CircularProgressbar-path {
+    stroke: #fff;
+}
+
+/* message out image */ /* message in video */
+.taplive-chat-room-message-video-in-wrapper {
+    width: 100%;
+    text-align: left;
+    position: relative;
+    margin-top: 16px;
+    font-size: 0;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-group-sender-avatar-wrapper {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-right: 5px;
+    font-size: 14px;
+    line-height: 34px;
+    text-align: center !important;
+    color: #ffffff;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-group-sender-avatar-wrapper img {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble {
+    border-radius: 2px 16px 16px; /* width: 200px; */
+    max-width: calc(100% - 85px);
+    display: inline-block;
+    position: relative;
+    font-size: 0; /* overflow: hidden; */
+    background: #ffffff;
+    background: #ffffff;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper {
+    position: relative;
+    min-width: 150px; /* min-height: 150px; */
+    padding: 10px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-with-caption {
+    padding: 10px 10px 0;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-without-caption video {
+    border-radius: 0 16px 16px 16px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-without-caption img {
+    border-radius: 0 16px 16px 16px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper img {
+    color: #ffffff;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    border-radius: 0 !important;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-onprocess-wrapper {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-video-thumbnail {
+    width: 100%;
+    border-radius: 0 16px 16px 16px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-bubble-image-wrapper .taplive-video-image-thumbnail {
+    width: 100%;
+    border-radius: 0 16px 16px 16px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-main-image-message {
+    width: 100%;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-caption-text {
+    font-size: 16px;
+    letter-spacing: -0.3px; /* padding: 10px 55px 10px 10px; */
+    padding: 4px 10px 0 10px;
+    margin: 0;
+    word-break: break-word;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-message-info {
+    position: absolute !important;
+    margin: 0;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 2px 5px;
+    letter-spacing: -0.2px;
+    color: #ffffff;
+    bottom: 10px;
+    right: 10px; /* z-index: 1; */
+    line-height: 18px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-message-info.taplive-message-info.taplive-message-info-with-caption {
+    position: relative !important;
+    bottom: unset;
+    right: unset;
+    width: 100%;
+    text-align: right !important;
+    color: rgba(25, 25, 25, 0.4);
+    padding: 2px 10px 3px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-message-info.taplive-message-info-with-caption {
+    position: relative !important;
+    bottom: unset;
+    right: unset;
+    width: 100%;
+    text-align: right !important;
+    color: rgba(25, 25, 25, 0.4);
+    padding: 2px 10px 3px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-message-info img {
+    vertical-align: top; /* margin-left: 3px; */
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble.taplive-not-sent-message-bubble { /* overflow: hidden; */
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble.taplive-not-sent-message-bubble .dark-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    border-radius: 2px 16px 16px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble.taplive-not-sent-message-bubble .dark-cover .taplive-icon-status-wrapper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble.taplive-not-sent-message-bubble .dark-cover .taplive-icon-status-wrapper img {
+    color: #ffffff;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    border-radius: 0 !important;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble.taplive-not-sent-message-bubble .dark-cover .taplive-icon-status-wrapper .taplive-onprocess-wrapper {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border: solid 2px #ffffff;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .taplive-timer-filesize-wrapper {
+    background: rgba(25, 25, 25, 0.6);
+    position: absolute !important;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    padding: 2px 5px;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble video {
+    width: 100%; /* cursor: pointer; */
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .play-button-wraper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-in-wrapper .taplive-message-in-bubble .play-button-wraper img {
+    color: #ffffff;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.taplive-chat-room-message-video-in-wrapper:hover .message-action-wrapper {
+    display: inline-block;
+}
+
+.taplive-chat-room-message-video-in-wrapper .message-action-wrapper {
+    right: unset !important;
+    left: calc(30% + 34px) !important;
+}
+
+.taplive-chat-room-message-video-in-wrapper .message-action-wrapper .message-action-button-wrapper {
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-in-wrapper .CircularProgressbar .CircularProgressbar-trail {
+    stroke: transparent;
+}
+
+.taplive-chat-room-message-video-in-wrapper .CircularProgressbar .CircularProgressbar-path {
+    stroke: #ffffff;
+}
+
+.modal-video .modal-content {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-video .modal-content .modal-body {
+    width: 100%;
+    height: 100%;
+    background: #191919;
+}
+
+.modal-video .modal-content .modal-body .video-wrapper {
+    display: inline-block;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-video .modal-content .modal-body .close-modal-video {
+    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 40px;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+}
+
+.modal-video .modal-content .modal-body .close-modal-video:hover {
+    color: #c9c9c9;
+}
+
+.modal-video .modal-content .modal-body video {
+    max-height: 80vh;
+}
+
+/* message in video */ /* message out video */
+.taplive-chat-room-message-video-out-wrapper {
+    width: 100%;
+    text-align: right !important;
+    position: relative;
+    margin-top: 16px;
+    font-size: 0;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble {
+    border-radius: 16px 2px 16px 16px; /* width: 200px; */
+    max-width: calc(100% - 43px);
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    border: 1px solid rgba(25, 25, 25, 0.1); /* overflow: hidden; */
+    background: var(--main-brand-color);
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    text-align: left;
+    color: #ffffff;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-lds-ring {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-lds-ring div {
+    border-color: var(--main-brand-color) transparent transparent transparent;
+    width: 40px;
+    height: 40px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper img {
+    width: 24px;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    border-radius: 0 !important;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper {
+    padding: 10px;
+    position: relative;
+    min-width: 150px; /* min-height: 150px; */
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper video {
+    width: 100%; /* cursor: pointer; */
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-without-caption video {
+    border-radius: 16px 0 16px 16px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper.taplive-bubble-wrapper-without-caption img {
+    border-radius: 16px 0 16px 16px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper img {
+    color: #ffffff;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    border-radius: 0 !important;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-icon-status-wrapper .taplive-onprocess-wrapper {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-video-thumbnail {
+    width: 100%;
+    border-radius: 16px 0 16px 16px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-video-image-thumbnail {
+    width: 100%;
+    border-radius: 16px 0 16px 16px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-bubble-image-wrapper .taplive-video-image-thumbnail {
+    width: 100%;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .main-image-message {
+    width: 100%;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-caption-text {
+    font-size: 16px;
+    letter-spacing: -0.3px; /* padding: 10px 55px 10px 10px; */
+    padding: 4px 10px 0 10px;
+    margin: 0;
+    word-break: break-word;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-message-info {
+    position: absolute !important;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 2px 5px;
+    color: #ffffff;
+    bottom: 10px;
+    right: 10px;
+    letter-spacing: -0.2px; /* z-index: 1; */
+    line-height: 18px;
+    margin: 0;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-message-info.taplive-message-info-with-caption {
+    position: relative !important;
+    bottom: unset;
+    right: unset;
+    width: 100%;
+    text-align: right !important;
+    color: #ffffff;
+    padding: 2px 10px 3px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-message-info img {
+    vertical-align: top;
+    position: relative;
+    top: 1px; /* margin-left: 3px; */
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble.taplive-not-sent-message-bubble { /* overflow: hidden; */
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .taplive-timer-filesize-wrapper {
+    background: rgba(25, 25, 25, 0.6);
+    position: absolute !important;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    padding: 2px 5px;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .play-button-wraper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-out-wrapper .taplive-message-out-bubble .play-button-wraper img {
+    color: #ffffff;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.taplive-chat-room-message-video-out-wrapper:hover .message-action-wrapper {
+    display: inline-block;
+}
+
+.taplive-chat-room-message-video-out-wrapper .message-action-wrapper {
+    right: calc(30% + 10px) !important;
+    left: unset !important;
+}
+
+.taplive-chat-room-message-video-out-wrapper .message-action-wrapper .message-action-button-wrapper {
+    cursor: pointer;
+}
+
+.taplive-chat-room-message-video-out-wrapper .CircularProgressbar .CircularProgressbar-trail {
+    stroke: transparent;
+}
+
+.taplive-chat-room-message-video-out-wrapper .CircularProgressbar .CircularProgressbar-path {
+    stroke: #ffffff;
+}
+
+.modal-video .modal-content {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-video .modal-content .modal-body {
+    width: 100%;
+    height: 100%;
+    background: #191919;
+}
+
+.modal-video .modal-content .modal-body .video-wrapper {
+    display: inline-block;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-video .modal-content .modal-body .close-modal-video {
+    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 40px;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+}
+
+.modal-video .modal-content .modal-body .close-modal-video:hover {
+    color: #c9c9c9;
+}
+
+.modal-video .modal-content .modal-body video {
+    max-height: 80vh;
+}
+
+/* message out video */ /* message in file */
+.taplive-chat-room-message-file-in-wrapper {
+    margin-top: 16px;
+    width: 100%;
+    position: relative;
+    text-align: left;
+}
+
+.taplive-chat-room-message-file-in-wrapper .message-action-right {
+    right: -40px !important;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-group-sender-avatar-wrapper {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-right: 5px;
+    font-size: 14px;
+    line-height: 34px;
+    text-align: center !important;
+    color: #ffffff;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-group-sender-avatar-wrapper img {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble {
+    border-radius: 2px 16px 16px;
+    background: #ffffff;
+    display: inline-block;
+    max-width: calc(100% - 85px); /* padding: 10px 44px 10px 10px; */
+    padding: 10px;
+    color: #191919;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+    text-align: left;
+    border: 1px solid rgba(25, 25, 25, 0.1); /* width: 100%; */
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-info { /* position: absolute !important; bottom: 11px; right: 10px; */
+    margin: 0;
+    color: rgba(25, 25, 25, 0.4);
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    line-height: 18px; /* width: 26px; */
+    width: 100%;
+    text-align: right !important;
+    white-space: nowrap;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-info img {
+    margin-left: 4px;
+    width: 16px;
+    position: relative;
+    top: 4px;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper {
+    width: 100%;
+    display: inline-block;
+    color: #191919;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-icon-wrapper {
+    height: 46px;
+    width: 46px;
+    display: inline-block;
+    background: var(--main-brand-color);
+    border-radius: 50%;
+    vertical-align: top;
+    position: relative;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper a {
+    max-width: 100%;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-icon-wrapper img {
+    font-size: 25px;
+    color: #ffffff;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-icon-wrapper .taplive-onprocess-wrapper {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper {
+    width: calc(100% - 50px);
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    padding-left: 10px;
+    line-height: 19px;
+    padding-top: 6px;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-filename-wrapper {
+    width: 100%;
+    margin: 0;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-filename-wrapper b {
+    letter-spacing: -0.4px;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-filename-wrapper p {
+    margin: 0;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.taplive-chat-room-message-file-in-wrapper .taplive-message-in-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-message-file-in-filesize {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+}
+
+.taplive-chat-room-message-file-in-wrapper:hover .message-action-wrapper {
+    display: inline-block;
+}
+
+.taplive-chat-room-message-file-in-wrapper .CircularProgressbar .CircularProgressbar-trail {
+    stroke: var(--main-brand-color);
+}
+
+.taplive-chat-room-message-file-in-wrapper .CircularProgressbar .CircularProgressbar-path {
+    stroke: #ffffff;
+}
+
+/* message in file */ /* message out file */
+.taplive-chat-room-message-file-out-wrapper {
+    margin-top: 16px;
+    width: 100%;
+    position: relative;
+    text-align: right !important;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble {
+    border-radius: 16px 2px 16px 16px;
+    background: var(--main-brand-color);
+    display: inline-block;
+    max-width: calc(100% - 43px); /* padding: 10px 62px 10px 10px; */
+    padding: 10px;
+    color: #191919;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+    text-align: left; /* width: 90%; */
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-info { /* position: absolute !important; bottom: 11px; right: 10px; */
+    margin: 0;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    line-height: 18px; /* width: 26px; */
+    width: 100%;
+    text-align: right !important;
+    white-space: nowrap;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-info img { /* margin-left: 4px; */
+    width: 16px;
+    position: relative;
+    top: 1px;
+    vertical-align: top;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper {
+    width: 100%;
+    display: inline-block;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper a {
+    max-width: 100%;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-icon-wrapper {
+    height: 46px;
+    width: 46px;
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 50%;
+    vertical-align: top;
+    position: relative;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-icon-wrapper img {
+    font-size: 25px;
+    color: var(--main-brand-color) !important;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-icon-wrapper .taplive-onprocess-wrapper {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper {
+    width: calc(100% - 50px);
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    padding-left: 10px;
+    line-height: 19px;
+    padding-top: 6px;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-filename-wrapper {
+    width: 100%;
+    margin: 0;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-filename-wrapper b {
+    letter-spacing: -0.4px;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-filename-wrapper p {
+    margin: 0;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-message-out-bubble .taplive-message-bubble-file-wrapper .taplive-file-detail-wrapper .taplive-message-file-out-filesize {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.taplive-chat-room-message-file-out-wrapper .taplive-failed-sending-file-warning {
+    font-size: 12px;
+    letter-spacing: -0.4px;
+    color: rgba(25, 25, 25, 0.4);
+}
+
+.taplive-chat-room-message-file-out-wrapper:hover .message-action-wrapper {
+    display: inline-block;
+    left: -90px;
+}
+
+.taplive-chat-room-message-file-out-wrapper .CircularProgressbar .CircularProgressbar-trail {
+    stroke: #ffffff;
+}
+
+.taplive-chat-room-message-file-out-wrapper .CircularProgressbar .CircularProgressbar-path {
+    stroke: var(--main-brand-color);
+}
+
+/* message out file */ /* send message */
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper {
+    width: 100%; /* height: 56px; */
+    box-shadow: 0px -1px 0px 0px rgba(25, 25, 25, 0.1);
+    background: #ffffff;
+    border-radius: 0 0 8px 8px; /* position: relative; */ /* top: 2px; */
+    bottom: 0;
+    position: absolute !important; /* padding: 8px 12px; */ /* padding: 7px 12px 4px; */
+    padding: 7px 0 4px;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-hamburger {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    text-align: center !important;
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    margin-left: 14px;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-hamburger:hover {
+    background: var(--main-brand-color-80);
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-hamburger img {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    margin-left: 8px;
+    transition: ease-in-out .3s; /* width: calc(100% - 44px); */
+    width: calc(100% - 70px);
+    z-index: 1;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input-typing { /* width: calc(100% - 87px); */
+    width: calc(100% - 114px);
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input input[type="file"] {
+    display: none;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input textarea {
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px 1px #dcdcdc;
+    border: none;
+    width: 100%; /* height: 100%; */
+    color: #191919;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    padding: 11px 46px 11px 16px;
+    resize: none; /* overflow: hidden; */ /* max-height: 124px; /* 5 rows */
+    max-height: 106px;
+    scrollbar-width: none;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input img {
+    position: absolute !important;
+    right: 17px;
+    top: 10px;
+    cursor: pointer; /* transform: translate(0, -50%); */
+    transition: ease-in-out .3s;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input img:hover {
+    transform: scale(1.1);
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .taplive-main-chat-room-send-message-input .taplive-input-file-media-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 20px 0px rgba(25, 25, 25, 0.18);
+    position: absolute !important;
+    right: 0;
+    z-index: 1;
+    background: #ffffff;
+    top: -70px;
+    width: 220px;
+    z-index: 2;
+    padding: 10px;
+    line-height: 23px;
+    display: none;
+    cursor: pointer;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .submit-chat-icon-wrapper {
+    background: var(--main-brand-color);
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .input-message-wrapper {
+    width: 32px;
+    height: 32px;
+    right: 12px;
+    position: absolute !important;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center !important;
+    top: 11px;
+    cursor: pointer;
+    transition: ease-in-out .1s;
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .submit-chat-icon-wrapper {
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .input-message-wrapper img {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper .submit-chat-icon-wrapper:hover {
+    background: var(--main-brand-color-80);
+}
+
+.taplive-input-file-media-wrapper .taplive-input-file-media-list {
+    cursor: pointer;
+    padding: 0 0 8px;
+}
+
+.taplive-input-file-media-wrapper .taplive-input-file-media-list:hover {
+    color: var(--main-brand-color) !important;
+}
+
+.taplive-input-file-media-wrapper label:nth-last-child(1) .taplive-input-file-media-list {
+    border-bottom: 0;
+    padding: 0;
+}
+
+.taplive-main-chat-wrapper .taplive-input-file-media-wrapper .taplive-input-file-media-list img {
+    position: relative !important;
+    top: -2px !important;
+    right: unset !important;
+    transform: unset !important;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.taplive-main-chat-room-solve-wrapper {
+    height: 40px;
+    display: flex;
+    position: relative;
+    width: 100%; /* border-radius: 0 0 8px 8px; */ /* background: pink; */
+    top: 4px;
+    padding: 10px 8px 6px 20px;
+    color: rgb(25, 25, 25);
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    transition: ease-in-out .2s;
+    background: #efefef;
+}
+
+.taplive-main-chat-room-solve-wrapper.taplive-main-chat-room-solve-wrapper-hide {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.taplive-main-chat-room-solve-wrapper .taplive-lds-ring {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-main-chat-room-solve-wrapper .taplive-lds-ring div {
+    border-color: var(--main-brand-color) transparent transparent transparent;
+}
+
+.taplive-main-chat-room-solve-wrapper:hover {
+    background: #ece9e9;
+}
+
+.taplive-main-chat-room-solve-wrapper img {
+    vertical-align: top;
+    position: relative;
+    top: 2px;
+    margin-right: 4px;
+}
+
+/* send messsage */ /* chat room */ /* circular progress */
+.taplive-file-bubble-circular-progress-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.taplive-file-bubble-circular-progress-wrapper .taplive-lds-ring-file-out {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.taplive-file-bubble-circular-progress-wrapper .taplive-lds-ring-file-out div {
+    border-color: var(--main-brand-color) transparent transparent transparent;
+    width: 40px;
+    height: 40px;
+}
+
+.taplive-file-bubble-circular-progress-wrapper .taplive-lds-ring-file-in {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--main-brand-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.taplive-file-bubble-circular-progress-wrapper .taplive-lds-ring-file-in div {
+    border-color: #ffffff transparent transparent transparent;
+    width: 40px;
+    height: 40px;
+}
+
+/* circular progress */
+.taplive-message-file-out-filesize {
+    white-space: nowrap;
+}
+
+.taplive-message-filesize-progress {
+    display: inline-block;
+}
+
+.typing-dot-one {
+    opacity: 0;
+    animation: typing-dot 1.3s infinite;
+    animation-delay: 0.0s;
+    letter-spacing: 1px;
+}
+
+.typing-dot-two {
+    opacity: 0;
+    animation: typing-dot 1.3s infinite;
+    animation-delay: 0.2s;
+    letter-spacing: 1px;
+}
+
+.typing-dot-three {
+    opacity: 0;
+    animation: typing-dot 1.3s infinite;
+    animation-delay: 0.3s;
+    letter-spacing: 1px;
+}
+
+@keyframes typing-dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.taplive-chat-list-wrapper.active-typing .last-message-room-list {
+    display: none;
+}
+
+.taplive-chat-list-wrapper .typing-room-list {
+    display: none;
+}
+
+.taplive-chat-list-wrapper.active-typing .typing-room-list {
+    display: block;
+}
+
+.taplive-message-body {
+    word-break: break-word;
+    font-size: 16px;
+    letter-spacing: -.3px;
+}
+
+.taplive-outer-container button[disabled] {
+    background: #9b9b9b !important;
+    color: #ffffff !important;
+}
+
+.taplive-taplive-button-disabled {
+    background: #9b9b9b !important;
+}
+
+.active-taplive-power .taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content { /* height: calc(100% - 160px); max-height: calc(100% - 160px); */ /* height: calc(100% - 125px); */ /* max-height: calc(100% - 125px); */
+    position: relative !important; /* top: 160px; */
+    top: -35px;
+}
+
+.active-taplive-power .taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content { /* height: calc(100% - 160px); max-height: calc(100% - 160px); */ /* height: calc(100% - 125px); */ /* max-height: calc(100% - 125px); */
+    position: relative !important; /* top: 160px; */
+    top: -35px;
+}
+
+.active-taplive-power .taplive-start-new-chat-wrapper .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper { /* max-height: 100%; */
+}
+
+.active-taplive-power .taplive-room-list-with-omnichannel .taplive-start-new-chat-bottom-content .taplive-start-new-chat-form-wrapper {
+    max-height: 100%;
+}
+
+.active-taplive-power .taplive-main-chat-room-wrapper .taplive-main-chat-room-send-message-panel-wrapper {
+    border-radius: 0;
+}
+
+.active-taplive-power .new-conversation-form-wrapper {
+    top: -150px !important
+}
+
+.active-taplive-power .new-conversation-form-wrapper .taplive-start-new-chat-form-wrapper {
+    max-height: unset !important;
+}
+
+/* custom select option */
+.taplive-custom-select-option {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.taplive-custom-select-option .taplive-custom-select-option-value-box {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(25, 25, 25, 0.1);
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    padding: 16px 32px 16px 16px;
+    margin: 8px 0 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1;
+}
+
+.taplive-custom-select-option-value-box::before {
+    content: "";
+    position: absolute !important;
+    top: 50%;
+    transform: translate(0, -50%) rotate(135deg);
+    right: 16px;
+    border-top: solid 3px #191919;
+    border-right: solid 3px #191919;
+    border-bottom: solid 3px #ffffff;
+    border-left: solid 3px #ffffff;
+    transition: ease-in-out .3s;
+}
+
+.taplive-custom-select-option-value-box.taplive-active-select-box::before {
+    top: 50%;
+    transform: translate(0, -50%) rotate(-45deg);
+}
+
+.taplive-custom-select-option-wrapper {
+    background: #ffffff;
+    display: none;
+    position: absolute !important;
+    left: 0;
+    top: 55px;
+    width: 100%;
+    border-radius: 8px;
+    border: solid 1px rgba(25, 25, 25, 0.1);
+    padding: 0;
+    z-index: 1;
+    max-height: 89px;
+    overflow-y: auto;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+}
+
+.taplive-custom-select-option-list {
+    padding: 5px 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.taplive-custom-select-option-list:nth-child(1) {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.taplive-custom-select-option-list:nth-last-child(1) {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.taplive-custom-select-option-list:hover {
+    background: var(--main-brand-color-10);
+}
+
+.taplive-custom-select-option-list.taplive-selected-option {
+    background: var(--main-brand-color-10);
+}
+
+/* custom select option */ /* omnichannel option */
+.omnichannel-option-wrapper {
+}
+
+.omnichannel-option-description {
+    font-size: 14px;
+    letter-spacing: -0.4px;
+    color: rgba(25, 25, 25, 0.6);
+    margin: 0;
+    text-align: center !important;
+}
+
+.omnichannel-option-image-wrapper {
+    width: 100%;
+    text-align: center !important;
+    margin-top: 12px;
+}
+
+.omnichannel-option-image-wrapper .option-image-wrapper {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 7px;
+}
+
+.omnichannel-option-image-wrapper .option-image-wrapper .option-title-wrapper {
+    display: none;
+    position: absolute;
+    background: #191919;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    padding: 8px 12px;
+    line-height: 20px;
+    border-radius: 4px;
+    bottom: 54px;
+    width: 106px;
+    word-break: break-word;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.omnichannel-option-image-wrapper .option-image-wrapper:hover .option-title-wrapper {
+    display: inline-block;
+}
+
+.omnichannel-option-image-wrapper .option-image-wrapper .option-title-wrapper::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+    bottom: -7px;
+    display: inline-block;
+    position: absolute;
+    background: #191919;
+}
+
+.omnichannel-option-image-wrapper a {
+    text-decoration: none;
+    display: unset;
+}
+
+.omnichannel-option-image-wrapper img {
+    vertical-align: top !important;
+    margin-right: 7px !important;
+    display: inline-block !important; /* max-width: calc(20% - 9.6px) !important; */
+    transition: ease-in-out .1s !important;
+    opacity: 1;
+    text-align: center !important;
+    cursor: pointer;
+    width: 100%;
+}
+
+.omnichannel-option-image-wrapper:hover img {
+    opacity: .5;
+}
+
+.omnichannel-option-image-wrapper img:hover { /* transform: scale(0.95); */ /* opacity: 1; */ /* opacity: .5; */ /* display: none; */
+    opacity: 1 !important;
+}
+
+.omnichannel-option-image-wrapper a:nth-last-child(1) img {
+    margin-right: 0;
+}
+
+.omnichannel-option-separator {
+    border-top: solid 1px #f3f3f3;
+    position: relative;
+    width: 100%;
+    margin: 36px 0 20px;
+}
+
+.omnichannel-option-separator-id::before {
+    content: "ATAU";
+    background: #ffffff;
+    padding: 0 8px;
+    font-weight: bold;
+    color: rgba(25, 25, 25, 0.6);
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.omnichannel-option-separator-en::before {
+    content: "OR";
+    background: #ffffff;
+    padding: 0 8px;
+    font-weight: bold;
+    color: rgba(25, 25, 25, 0.6);
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* omnichannel option */ /*submit button*/
+.taplive-submit-button {
+    color: #ffffff;
+    background: var(--main-brand-color);
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    text-align: center !important;
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.taplive-submit-button:hover {
+    background: var(--main-brand-color-80) !important;
+}
+
+/*submit button*/ /*full loading*/
+.taplive-full-loading {
+    position: absolute !important;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: white;
+    border-radius: 8px;
+    left: 0;
+    z-index: 1;
+}
+
+.taplive-full-loading-content {
+    text-align: center !important;
+    position: absolute !important;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    font-size: 14px;
+    color: var(--main-brand-color-80);
+}
+
+.taplive-full-loading-content .taplive-lds-ring {
+    width: 28px;
+    height: 28px;
+}
+
+.taplive-full-loading-content .taplive-lds-ring div {
+    width: 28px;
+    height: 28px;
+    border-color: var(--main-brand-color-80) transparent transparent transparent;
+}
+
+/*full loading*/ /*room list with omnichannel*/
+.taplive-room-list-with-omnichannel .taplive-start-new-chat-form-wrapper {
+    border-radius: 8px !important;
+}
+
+.taplive-room-list-with-omnichannel-wrapper {
+    margin-top: 16px;
+    padding-top: 49px !important;
+    position: relative;
+}
+
+.taplive-room-list-omnichannel-your-message {
+    font-size: 14px;
+    letter-spacing: -0.4px;
+    color: #ff7d00;
+    color: rgba(25, 25, 25, 0.6);
+    position: absolute !important;
+    left: 16px;
+    top: 16px;
+    margin: 0;
+}
+
+.taplive-room-list-omnichannel-all-message {
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: -0.4px;
+    color: var(--main-brand-color-80);
+    right: 16px;
+    top: 16px;
+    margin: 0;
+    position: absolute !important;
+    transition: ease-in-out .1s;
+}
+
+.taplive-room-list-omnichannel-all-message:hover {
+    opacity: .8;
+}
+
+.taplive-room-list-with-omnichannel-button-wrapper button {
+    width: 100%;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.taplive-room-list-with-omnichannel-button-wrapper button img {
+    margin-right: 5px;
+}
+
+.taplive-room-list-with-omnichannel-button-wrapper button b {
+    position: relative;
+    top: -1px;
+}
+
+.taplive-room-list-with-omnichannel-chatlist-wrapper .taplive-shimmer-room-list {
+    height: unset;
+}
+
+/*room list with omnichanel*/
+.taplive-start-new-case-without-omnichannel .first-start-new-case-back-button {
+    display: none;
+    padding: 3px;
+    border-radius: 50%;
+    transition: ease-in-out .1s;
+}
+
+.taplive-start-new-case-without-omnichannel.taplive-active-start-new-case-with-omnichannel .taplive-start-new-chat-top-content {
+    padding-left: 65px;
+}
+
+.taplive-start-new-case-without-omnichannel.taplive-no-omnichannel .taplive-start-new-chat-top-content {
+    padding-left: 24px;
+}
+
+.taplive-start-new-case-without-omnichannel.taplive-active-start-new-case-with-omnichannel .first-start-new-case-back-button {
+    display: inline-block;
+    position: absolute !important;
+    left: 24px;
+    top: 32px;
+    cursor: pointer;
+    width: unset;
+}
+
+.taplive-start-new-case-without-omnichannel.taplive-active-start-new-case-with-omnichannel .first-start-new-case-back-button:hover {
+    background: rgba(25, 25, 25, 0.3);
+}
+
+.taplive-first-message-us-directly {
+    width: 100%;
+}
+
+.taplive-message-info-dark {
+    background: rgba(25, 25, 25, 0.6);
+    padding: 2px 5px;
+    color: #ffffff !important;
+    bottom: 16px !important;
+    right: 16px !important;
+}
+
+.bubble-action-icon-wrapper {
+    border-radius: 50%;
+    position: absolute !important;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background: rgba(25, 25, 25, 0.4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.bubble-action-icon-wrapper img {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-fullscreen-background-dark {
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(25, 25, 25, 0.9); /* display: none; */
+    visibility: hidden;
+    z-index: 9999;
+}
+
+.taplive-fullscreen-background-dark .taplive-close-blackscreen {
+    cursor: pointer;
+    position: absolute !important;
+    right: 16px;
+    top: 16px;
+}
+
+.taplive-fullscreen-background-dark .taplive-close-blackscreen:hover {
+    transform: scale(0.9);
+}
+
+.taplive-image-preview-wrapper {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+
+.taplive-image-preview-panel .taplive-image-preview-value { /* position: absolute !important; */ /* top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: calc(100vw - 130px); max-height: calc(100vh - 130px); */
+    max-width: calc(100vw - 130px);
+    max-height: calc(100vh - 130px);
+    background: #ffffff;
+}
+
+.taplive-zoom-figure { /* background-size: 180%; */
+    background-position: -100% -100%;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.taplive-zoom-figure img {
+    transition: opacity 0.5s;
+    display: inline-block;
+}
+
+.taplive-zoom-figure img:hover {
+    opacity: 0;
+}
+
+.taplive-video-preview-panel .taplive-video-preview-value {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: calc(100vw - 130px);
+    max-height: calc(100vh - 130px);
+}
+
+.taplive-preupload-file-wrapper {
+    position: absolute !important;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    text-align: center !important;
+    min-width: 250px;
+}
+
+.taplive-preupload-file-wrapper input {
+    border: none !important;
+    border-bottom: solid 1px #ffffff !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    letter-spacing: -0.5px !important;
+    outline: none !important;
+    text-align: left !important;
+    background: none !important;
+    padding: 8px 28px 8px 0 !important;
+    width: 100% !important;
+}
+
+.taplive-preupload-file-wrapper input:focus {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-bottom: solid 1px #ffffff !important;
+}
+
+.taplive-preupload-file-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.taplive-preupload-file-wrapper .taplive-send-media-button-submit {
+    position: absolute !important;
+    right: 0;
+    bottom: 41px;
+    cursor: pointer;
+}
+
+.taplive-preupload-file-wrapper .taplive-caption-limit {
+    width: 100%;
+    text-align: right !important;
+    padding: 8px 0;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+}
+
+.taplive-image-preupload-panel .taplive-image-preupload-file-wrapper .taplive-image-preupload-value {
+    max-width: calc(100vw - 170px);
+    max-height: calc(100vh - 170px);
+}
+
+.taplive-video-preupload-panel .taplive-video-preupload-file-wrapper .taplive-video-preupload-value {
+    max-width: calc(100vw - 170px);
+    max-height: calc(100vh - 170px);
+}
+
+.taplive-fade-element {
+    transition: all .2s;
+    opacity: 0;
+}
+
+.taplive-fade-out {
+    opacity: 0;
+}
+
+.taplive-fade-in {
+    opacity: 1;
+}
+
+.taplive-click-area-file {
+    text-decoration: none;
+    color: unset;
+}
+
+/* reply */
+@keyframes highlight {
+    0% {
+        background: #FFF4B1;
+    }
+    100% {
+        background: none;
+    }
+}
+
+.highlight-chat-bubble {
+    animation: highlight 2s;
+}
+
+/* reply in */
+.taplive-reply-message-in-bubble {
+    width: 100%;
+    display: block;
+    position: relative;
+    background: #f3f3f3;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.taplive-reply-message-in-bubble.taplive-with-media-or-file {
+    padding: 8px 0;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper {
+    padding: 0 8px;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper.taplive-with-border {
+    padding: 0 8px 0 12px;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper.taplive-with-border::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background: var(--main-brand-color);
+    content: "";
+    height: 100%;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-file-media-wrapper {
+    border-radius: 4px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    margin: 0 8px 0 0;
+    vertical-align: top;
+    position: relative;
+    top: 0;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-image {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0 !important;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-video {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0 !important;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-file {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: var(--main-brand-color);
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-file img {
+    color: #ffffff;
+    font-size: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0;
+    width: unset;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-message-in-bubble-reply-name-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 6px 0 8px;
+    width: 100%;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-message-in-bubble-reply-name-wrapper p {
+    margin: 0;
+    color: #191919;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-message-in-bubble-reply-name-wrapper p.taplive-reply-message-in-bubble-reply-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.4px;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper .taplive-reply-message-in-bubble-reply-name-wrapper p.taplive-reply-message-in-bubble-reply-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.2px;
+    color: rgba(25, 25, 25, 0.8);
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper.taplive-with-media-file {
+    padding: 0 8px 0 12px;
+}
+
+.taplive-reply-message-in-bubble .taplive-reply-message-in-bubble-name-text-wrapper.taplive-with-media-file .taplive-reply-message-in-bubble-reply-name-wrapper {
+    width: calc(100% - 66px);
+}
+
+/* reply in */ /* reply out */
+.taplive-reply-message-out-bubble {
+    width: 100%;
+    display: block;
+    position: relative;
+    background: var(--main-brand-color);
+    margin-bottom: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.taplive-reply-message-out-bubble.taplive-with-media-or-file {
+    padding: 8px 0;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper {
+    padding: 0 8px;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper.taplive-with-border {
+    padding: 0 8px 0 12px;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper.taplive-with-border::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background: #ffffff;
+    content: "";
+    height: 100%;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-file-media-wrapper {
+    border-radius: 4px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    margin: 0 8px 0 0;
+    vertical-align: top;
+    position: relative;
+    top: 0;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-image {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0 !important;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-video {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0 !important;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-file {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: var(--main-brand-color);
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-file img {
+    width: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-message-out-bubble-reply-name-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 6px 0 8px;
+    width: 100%;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-message-out-bubble-reply-name-wrapper p {
+    margin: 0;
+    color: #ffffff;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-message-out-bubble-reply-name-wrapper p.taplive-reply-message-out-bubble-reply-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.4px;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper .taplive-reply-message-out-bubble-reply-name-wrapper p.taplive-reply-message-out-bubble-reply-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.2px;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper.taplive-with-media-file {
+    padding: 0 8px 0 12px;
+}
+
+.taplive-reply-message-out-bubble .taplive-reply-message-out-bubble-name-text-wrapper.taplive-with-media-file .taplive-reply-message-out-bubble-reply-name-wrapper {
+    width: calc(100% - 66px);
+}
+
+/* reply out */
+.taplive-video-inner-wrapper {
+    position: relative;
+}
+
+.taplive-image-inner-wrapper {
+    position: relative;
+}
+
+/* reply input */
+.taplive-reply-message-wrapper {
+    width: 100%;
+    position: absolute;
+    height: 68px;
+    left: 0;
+    top: 0;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner {
+    border-top: solid 1px #dcdcdc;
+    padding: 9px 8px 9px 64px;
+    width: 100%;
+    position: absolute;
+    height: 68px;
+    top: -69px;
+    left: 0;
+    background: #ffffff;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .cancel-taplive-reply-button {
+    color: rgba(25, 25, 25, 0.4);
+    transition: ease-in-out 0.1s;
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    width: 12px;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .cancel-taplive-reply-button:hover {
+    transform: scale(.9) translate(0, -50%);
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .cancel-taplive-reply-button:hover {
+    color: rgba(25, 25, 25, 0.8);
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 100%;
+    position: relative;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper.with-border {
+    padding-left: 4px;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper.with-border::before {
+    content: "";
+    width: 4px;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--main-brand-color);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-file-media-wrapper {
+    border-radius: 4px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    margin: 0 8px 0 0;
+    vertical-align: top;
+    position: relative;
+    top: 1px;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-image {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-video {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-file {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: var(--main-brand-color);
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-file-media-wrapper .taplive-reply-message-file img {
+    color: #ffffff;
+    font-size: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-name-text-wrapper {
+    padding: 8px 0 8px 8px;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-name-text-wrapper.with-image-or-video-or-file {
+    width: calc(100% - 64px);
+    display: inline-block;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-name-text-wrapper p {
+    margin: 0;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-name-text-wrapper p.taplive-reply-name {
+    color: #191919;
+    font-size: 12px;
+    letter-spacing: -0.4px;
+    line-height: 18px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taplive-reply-message-wrapper .taplive-reply-message-wrapper-inner .taplive-reply-content-outer-wrapper .taplive-reply-name-text-wrapper p.taplive-reply-text {
+    color: rgba(25, 25, 25, 0.8);
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    line-height: 16px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* reply input  */ /* action bubble */
+.taplive-bubble-action-view-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    display: none;
+    z-index: 1;
+}
+
+.taplive-bubble-action-view-wrapper img {
+    transition: ease-in-out .1s;
+    width: 17px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* .taplive-bubble-action-view-wrapper img:hover { transform: scale(.9); } */
+.taplive-chat-room-message-image-out-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-chat-room-message-video-out-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-chat-room-message-file-out-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-chat-room-message-out-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-chat-room-message-image-in-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-chat-room-message-video-in-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-chat-room-message-file-in-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-chat-room-message-in-wrapper:hover .taplive-bubble-action-view-wrapper {
+    display: block;
+}
+
+.taplive-bubble-action-view-wrapper.taplive-action-bubble-in {
+    right: -38px;
+}
+
+.taplive-bubble-action-view-wrapper.taplive-action-bubble-out {
+    left: -38px;
+}
+
+.taplive-bubble-action-view-wrapper .taplive-action-button {
+    vertical-align: top;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    text-align: center;
+}
+
+.taplive-bubble-action-view-wrapper .taplive-action-button:hover {
+    background: #e6e6e6;
+}
+
+.taplive-icon-reply-hover {
+    display: none !important;
+}
+
+.taplive-action-reply:hover .taplive-icon-reply-hover {
+    display: block !important;
+}
+
+.taplive-action-reply:hover .taplive-icon-reply {
+    display: none !important;
+}
+
+.taplive-tooltip-reply {
+    display: none;
+}
+
+.taplive-action-reply:hover .taplive-tooltip-reply {
+    display: block;
+}
+
+/* action bubble */ /* reply */ /* tooltip */
+.taplive-tooltip-view {
+    border-radius: 4px;
+    background: #191919;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: -0.4px;
+    line-height: 1;
+    padding: 6px 12px;
+    position: absolute;
+    top: 30px;
+}
+
+.taplive-tooltip-view.taplive-action-bubble-out {
+    left: -10px; /* transform: translate(-50%, 0); */
+}
+
+.taplive-tooltip-view.taplive-action-bubble-in {
+    right: -10px;
+}
+
+/* .taplive-tooltip-view::before { border: solid 6px transparent; content: ""; top: -11px; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); border-bottom-color: #191919; } */ /* tooltip */ /* link */
+.taplive-hyperlink {
+    color: unset !important;
+    text-decoration: underline !important;
+}
+
+.taplive-message-in-bubble .taplive-hyperlink {
+    color: #039be5 !important;
+    text-decoration: underline !important;
+}
+
+/* link */ /*faq*/
+.taplive-faq-box-wrapper {
+    padding: 0 24px;
+    position: relative;
+    top: -16px;
+}
+
+.taplive-faq-box-wrapper .taplive-faq-inner-box-wrapper {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.taplive-faq-box-wrapper .taplive-faq-inner-box-wrapper .tapive-faq-title-1 {
+    font-size: 14px;
+    margin: 0 0 4px 0;
+    color: rgba(25, 25, 25, 0.6);
+    letter-spacing: -0.4px;
+    display: block;
+}
+
+.taplive-faq-box-wrapper .taplive-faq-inner-box-wrapper .tapive-faq-title-2 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    color: rgba(25, 25, 25, 1);
+    letter-spacing: -0.6px;
+    display: block;
+    word-break: break-word;
+}
+
+.taplive-faq-box-wrapper .taplive-faq-inner-box-wrapper .tapive-faq-description-1 {
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: rgba(25, 25, 25, 1);
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    word-break: break-word;
+}
+
+.taplive-faq-box-wrapper .taplive-talk-to-agent-faq-first-message-with-omnichannel svg {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2px;
+}
+
+.taplive-faq-list-wrapper {
+    padding: 0;
+    display: block;
+    position: relative;
+}
+
+.taplive-faq-list-wrapper .taplive-faq-list {
+    width: 100%;
+    position: relative;
+    padding: 6px 32px 6px 6px;
+    margin: 0 0 12px 0;
+    cursor: pointer;
+}
+
+.taplive-faq-list-wrapper.taplive-faq-list-shimmer .taplive-faq-list {
+    padding: 6px;
+    background: none !important;
+}
+
+.taplive-faq-list-wrapper .taplive-faq-list:hover {
+    background: rgba(25, 25, 25, 0.05);
+}
+
+.taplive-faq-list-wrapper .taplive-faq-list-title {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+    color: rgba(25, 25, 25, 1);
+    margin: 0 0 4px 0;
+    min-height: 25px;
+    width: 100%;
+}
+
+.taplive-faq-list-wrapper .taplive-faq-list-title.taplive-shine {
+    width: 80%;
+}
+
+.taplive-faq-list-wrapper .taplive-faq-list-description {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.4px; /* white-space: nowrap; */
+    overflow: hidden; /* text-overflow: ellipsis; */
+    color: rgba(25, 25, 25, .4);
+    margin: 0;
+    height: 18px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.taplive-faq-list-wrapper .taplive-faq-list-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: ease-in-out .1s;
+}
+
+/* //main */
+.taplive-main-faq-box-wrapper {
+    right: -100%;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    right: -100%;
+    position: absolute !important;
+    top: 0;
+    transition: ease-in-out 0.3s;
+    background: #f3f3f3;
+    z-index: 1;
+}
+
+.taplive-main-faq-box-wrapper.taplive-active-main-faq-box-wrapper {
+    right: 0;
+}
+
+.taplive-main-faq-box-wrapper .taplive-main-faq-box-top {
+    background: var(--main-brand-color);
+    height: 150px;
+}
+
+.taplive-main-faq-box-wrapper .taplive-main-faq-back {
+    position: absolute;
+    top: 21px;
+    left: 21px;
+    width: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.taplive-main-faq-box-wrapper .taplive-main-faq-back:hover {
+    background: rgba(25, 25, 25, 0.3);
+}
+
+.taplive-main-faq-box-wrapper .taplive-main-faq-close {
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.taplive-main-faq-box-wrapper .taplive-main-faq-close:hover {
+    background: rgba(25, 25, 25, 0.3);
+}
+
+.taplive-main-faq-content {
+    word-break: break-word;
+    position: relative;
+    border-radius: 8px;
+    width: calc(100% - 32px);
+    left: 16px;
+    top: -80px;
+    background: #fff;
+    padding: 16px 12px;
+    max-height: calc(100% - 70px);
+    overflow: auto;
+}
+
+.taplive-main-faq-content .taplive-main-faq-content-title {
+    font-size: 20px;
+    letter-spacing: -0.6px;
+    line-height: 1;
+    margin: 0;
+    min-height: 25px;
+}
+
+.taplive-main-faq-content .taplive-main-faq-content-title.taplive-shine {
+    width: 80%;
+}
+
+.taplive-main-faq-content .taplive-main-faq-content-description {
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    margin: 12px 0 12px 0;
+    color: rgba(25, 25, 25, 1);
+    width: 100%;
+    min-height: 14px;
+}
+
+.taplive-main-faq-content .taplive-faq-main-content-talk-to-agent svg {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.grid {
+    display: grid;
+
+}
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+}
+.taplive-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: white;
+    height: 80px;
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 25px;
+}
+.taplive-footer a {
+    color: rgb(26, 26, 26);
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    text-overflow: clip;
+    padding: 14px 2px;
+}
+.taplive-footer a span {
+    display: block;
+    font-size: .85rem;
+}
+.taplive-footer a:hover {
+    color: var(--main-brand-color);
+}
+h2.init-new-chat {
+    opacity: 0.8;
+}
+.init-new-chat {
+    font-weight: 700;
+    font-size: 32px;
+}
+.card
+{
+    padding: 18px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: rgb(0 0 0 / 8%) 0px 0px 0px 1px, rgb(0 0 0 / 6%) 0px 2px 8px;
+}
