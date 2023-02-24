@@ -21,6 +21,7 @@ let tapliveApiBaseURL = "https://taplive-cstd.taptalk.io/api/visitor/v1", setTap
     }, tapliveSendTextMessageVal = "", tapliveFileData = {}, tapliveSelectOptionValue = {topic: ""},
     tapliveLauncherReady = !1;
 
+let dc = document
 const CHAT_ICON_URL = `../assets/icon-chat.svg`
 const CHAT_ICON_CLOSE_URL = `../assets/close-chat.svg`
 
@@ -58,51 +59,51 @@ var customTapliveIdentifier = {}, tapliveOmnichannelList = [], tapliveOmnichanne
     tapliveMainThemeColor = "#ff7d00", tapliveLanguage = "en", tapliveReplyMessage = {message: !1},
     tapliveCallback = {tapliveOnCreateCase: null, tapliveOnSendMessage: null}, isPermissionAskReady = !1;
 !function () {
-    let css = document.createElement('link');
+    let css = dc.createElement('link');
     css.rel = 'stylesheet'; css.href = '../css/taptalk.css';
-    document.getElementsByTagName('head')[0].appendChild(css)
+    dc.getElementsByTagName('head')[0].appendChild(css)
 
 
-    var e, a = document.getElementById("taplive-launcher-script");
+    var e, a = dc.getElementById("taplive-launcher-script");
     if (a) {
         tapliveStorageBaseURL = a.getAttribute("data-storage-baseURL") || tapliveStorageBaseURL
     }
-    var t = document.createElement("script");
+    var t = dc.createElement("script");
     t.type = "text/javascript", t.src = `${tapliveStorageBaseURL}/crypto-js-min.js`, t.onload = () => s();
-    var i = document.getElementsByTagName("script")[0];
+    var i = dc.getElementsByTagName("script")[0];
     i.parentNode.insertBefore(t, i);
-    var r = document.getElementsByTagName("head")[0];
-    var p = document.createElement("script");
+    var r = dc.getElementsByTagName("head")[0];
+    var p = dc.createElement("script");
     p.type = "text/javascript", p.src = `${tapliveStorageBaseURL}/lang/taplive-lang-en.js`;
-    var r = document.getElementsByTagName("script")[0];
+    var r = dc.getElementsByTagName("script")[0];
     r.parentNode.insertBefore(p, r);
-    var o = document.createElement("script");
+    var o = dc.createElement("script");
     o.type = "text/javascript", o.src = `${tapliveStorageBaseURL}/lang/taplive-lang-id.js`;
-    var n = document.getElementsByTagName("script")[1];
+    var n = dc.getElementsByTagName("script")[1];
     n.parentNode.insertBefore(o, n);
     let s = () => {
-        var e = document.createElement("script");
+        var e = dc.createElement("script");
         e.type = "text/javascript", e.src = `${tapliveStorageBaseURL}/taptalk-core.js`, e.onload = () => {
             m(), c()
         };
-        var a = document.getElementsByTagName("script")[1];
+        var a = dc.getElementsByTagName("script")[1];
         a.parentNode.insertBefore(e, a)
     };
-    if (null === document.querySelector('meta[name="viewport"]')) {
-        var v = document.createElement("meta");
-        v.id = "viewport", v.name = "viewport", v.content = "width=device-width, initial-scale=1.0", document.getElementsByTagName("head")[0].appendChild(v)
+    if (null === dc.querySelector('meta[name="viewport"]')) {
+        var v = dc.createElement("meta");
+        v.id = "viewport", v.name = "viewport", v.content = "width=device-width, initial-scale=1.0", dc.getElementsByTagName("head")[0].appendChild(v)
     }
     let c = () => {
-        var e = document.createElement("script");
+        var e = dc.createElement("script");
         e.type = "text/javascript", e.src = `https://help.kiriminaja.com/js/taptalk-faq.js`, e.onload = () => {
             buildLauncher()
         };
-        var a = document.getElementsByTagName("script")[2];
+        var a = dc.getElementsByTagName("script")[2];
         a.parentNode.insertBefore(e, a)
     }, m = () => {
-        var e = document.createElement("script");
+        var e = dc.createElement("script");
         e.type = "text/javascript", e.src = `${tapliveStorageBaseURL}/tapliveRoomListAction.js`;
-        var a = document.getElementsByTagName("script")[2];
+        var a = dc.getElementsByTagName("script")[2];
         a.parentNode.insertBefore(e, a)
     }
 }();
@@ -194,10 +195,10 @@ class tapliveCore {
             };
             i.Authorization = `Bearer ${e}`, tapliveHelper.tapliveDoXMLHTTPRequest("POST", i, t, null, !1).then(function (e) {
                 "" === e.error.code ? (tapliveHelper.tapliveSetLocalStorage("taplive.auth", e.data), TapTalkLive.tapliveRequestAuthTicketWithoutCase(() => {
-                    document.querySelectorAll(".taplive-start-new-message-header img")[0] && (document.querySelectorAll(".taplive-start-new-message-header")[0].innerHTML = `
+                    dc.querySelectorAll(".taplive-start-new-message-header img")[0] && (dc.querySelectorAll(".taplive-start-new-message-header")[0].innerHTML = `
                                         <img src="${tapliveStorageBaseURL}/image/chat-room/icon-close.svg" class="taplive-close-widget-button-2">
                                         <b>${TapTalkLive.getTapliveLanguageVar().screenNewMessage.text1}</b>
-                                    `, window.innerWidth > 767 && document.querySelectorAll(".taplive-start-new-message-header img")[0].remove()), document.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), tapliveFaq && tapliveFaq.tapliveGetFaqListApi(), a()
+                                    `, window.innerWidth > 767 && dc.querySelectorAll(".taplive-start-new-message-header img")[0].remove()), dc.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), tapliveFaq && tapliveFaq.tapliveGetFaqListApi(), a()
                 })) : (console.log(t, e.error.message), tapliveSnackBar.tapliveSetSnackBar("fail", e.error.message)), tapliveHelper.tapliveToggleLoadingScreen()
             }).catch(function (e) {
                 console.log(e)
@@ -218,12 +219,12 @@ class tapliveCore {
         a.Authorization = `Bearer ${i}`, tapliveHelper.tapliveDoXMLHTTPRequest("POST", a, t, null, !1).then(function (a) {
             "" === a.error.code ? taptalk.authenticateWithAuthTicket(a.data.ticket, {
                 onSuccess(a) {
-                    tapliveView.tapliveRenderRoomListWithOmnichannel(), document.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), TapTalkLive.tapliveConnectWebsocket({
+                    tapliveView.tapliveRenderRoomListWithOmnichannel(), dc.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), TapTalkLive.tapliveConnectWebsocket({
                         onSuccess() {
                             tapliveGetCaseList({
                                 onSuccess(e) {
                                     tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2 ? tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]] : null, "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent(), tapliveHelper.renderOmnichannelList();
-                                    let a = document.querySelectorAll(".taplive-room-list-omnichannel-all-message")[0];
+                                    let a = dc.querySelectorAll(".taplive-room-list-omnichannel-all-message")[0];
                                     a && tapliveRoomListData2 && Object.keys(tapliveRoomListData2).length > 0 ? a.click() : tapliveHelper.tapliveCustomFadeIn("taplive-start-new-message-wrapper")
                                 }, onError(e) {
                                     tapliveSnackBar.tapliveSetSnackBar("fail", e)
@@ -234,7 +235,7 @@ class tapliveCore {
                                         if (tapliveRoomListAction.setRoomListLastMessage(e, tapliveRoomListData2, !1, e => {
                                             tapliveRoomListData2 = e
                                         }), e.type === CHAT_TYPE.TAPChatMessageTypeCaseUpdate && tapliveChatRoomData.case.caseID === e.data.id) {
-                                            let a = document.querySelectorAll(".taplive-main-chat-room-case-id");
+                                            let a = dc.querySelectorAll(".taplive-main-chat-room-case-id");
                                             a.length > 0 && (a[0].innerHTML = `${e.data.topicName} (#${e.data.stringID})`)
                                         }
                                     } else tapliveRoomListData2 = tapliveRoomListAction.pushNewToRoomList(e, tapliveRoomListData2);
@@ -248,7 +249,7 @@ class tapliveCore {
                                 onNewMessage(e) {
                                     if (null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e.room.roomID) {
                                         e.room.isLocked && tapliveHelper.tapliveChatRoomRemoveInputMessageField();
-                                        let a = document.querySelectorAll(".taplive-main-chat-room-bubble-container")[0];
+                                        let a = dc.querySelectorAll(".taplive-main-chat-room-bubble-container")[0];
                                         a.scrollHeight - a.scrollTop === a.clientHeight && tapliveHelper.tapliveScrollChatViewToBottom(), e.user.userID === taptalk.getTaptalkActiveUser().userID ? (tapliveChatRoomData.chatRoomDataChat[e.localID] ? tapliveHelper.updateMessageBubble(e) : tapliveHelper.generateMessageBubble(e), tapliveChatRoomData.chatRoomDataChat[e.localID] = e) : (tapliveChatRoomData.chatRoomDataChat[e.localID] = e, tapliveUnreadMessageAction([e]), tapliveHelper.generateMessageBubble(e), tapliveHelper.tapliveScrollChatViewToBottom())
                                     }
                                 }, onUpdateMessage(e) {
@@ -260,13 +261,13 @@ class tapliveCore {
                                 onStartTyping(e, a) {
                                     tapliveTyping.runActionTypingFromRoomList(e, "show"), clearTimeout(tapliveTyping.roomListTypingHashmap[e]), tapliveTyping.roomListTypingHashmap[e] = setTimeout(function () {
                                         tapliveTyping.runActionTypingFromRoomList(e, "hide")
-                                    }, 1e4), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = `
+                                    }, 1e4), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = `
                                                         Typing<span class="typing-dot-one">.</span><span class="typing-dot-two">.</span><span class="typing-dot-three">.</span>
                                                     `, clearTimeout(tapliveTyping.chatRoomTypingTimeout), tapliveTyping.chatRoomTypingTimeout = setTimeout(function () {
-                                        tapliveChatRoomData.room.roomID === e && document.querySelectorAll(".taplive-main-chat-room-case-id").html(tapliveChatRoomData.case.caseName)
+                                        tapliveChatRoomData.room.roomID === e && dc.querySelectorAll(".taplive-main-chat-room-case-id").html(tapliveChatRoomData.case.caseName)
                                     }, 1e4))
                                 }, onStopTyping(e, a) {
-                                    tapliveTyping.runActionTypingFromRoomList(e, "hide"), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, clearTimeout(tapliveTyping.chatRoomTypingTimeout))
+                                    tapliveTyping.runActionTypingFromRoomList(e, "hide"), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, clearTimeout(tapliveTyping.chatRoomTypingTimeout))
                                 }
                             })
                         }, onError(e) {
@@ -283,8 +284,8 @@ class tapliveCore {
     }
 
     setVisible(e) {
-        let a = document.querySelectorAll(".taplive-chat-widget-opener-button")[0],
-            t = document.querySelectorAll(".taplive-outer-container")[0];
+        let a = dc.querySelectorAll(".taplive-chat-widget-opener-button")[0],
+            t = dc.querySelectorAll(".taplive-outer-container")[0];
         e ? (a.classList.remove("taplive-force-hide"), t.classList.remove("taplive-force-hide")) : (a.classList.add("taplive-force-hide"), t.classList.add("taplive-force-hide"))
     }
 
@@ -301,7 +302,7 @@ class tapliveCore {
     }
 
     setBrandColorWithHex(e) {
-        document.documentElement.style.setProperty("--main-brand-color-darker", tapliveConvertHexToRGBA(((e, a, t, i) => {
+        dc.documentElement.style.setProperty("--main-brand-color-darker", tapliveConvertHexToRGBA(((e, a, t, i) => {
             let l, p, r, o, n, s, v, c = parseInt, m = Math.round, d = "string" == typeof t;
             return "number" != typeof e || e < -1 || e > 1 || "string" != typeof a || "r" != a[0] && "#" != a[0] || t && !d ? null : (this.pSBCr || (this.pSBCr = e => {
                 let a = e.length, t = {};
@@ -324,7 +325,7 @@ class tapliveCore {
                 b: 255,
                 a: -1
             }, o = 1 - (e = o ? -1 * e : e), n && s) ? (l = m((o * n.r ** 2 + e * s.r ** 2) ** .5), p = m((o * n.g ** 2 + e * s.g ** 2) ** .5), r = m((o * n.b ** 2 + e * s.b ** 2) ** .5), d = n.a, s = s.a, d = (n = d >= 0 || s >= 0) ? d < 0 ? s : s < 0 ? d : d * o + s * e : 0, v) ? "rgb" + (n ? "a(" : "(") + l + "," + p + "," + r + (n ? "," + m(1e3 * d) / 1e3 : "") + ")" : "#" + (4294967296 + 16777216 * l + 65536 * p + 256 * r + (n ? m(255 * d) : 0)).toString(16).slice(1, n ? void 0 : -2) : null
-        })(-.2, e), 100)), document.documentElement.style.setProperty("--main-brand-color", tapliveConvertHexToRGBA(e, 100)), document.documentElement.style.setProperty("--main-brand-color-90", tapliveConvertHexToRGBA(e, 90)), document.documentElement.style.setProperty("--main-brand-color-80", tapliveConvertHexToRGBA(e, 80)), document.documentElement.style.setProperty("--main-brand-color-70", tapliveConvertHexToRGBA(e, 70)), document.documentElement.style.setProperty("--main-brand-color-60", tapliveConvertHexToRGBA(e, 60)), document.documentElement.style.setProperty("--main-brand-color-50", tapliveConvertHexToRGBA(e, 50)), document.documentElement.style.setProperty("--main-brand-color-40", tapliveConvertHexToRGBA(e, 40)), document.documentElement.style.setProperty("--main-brand-color-30", tapliveConvertHexToRGBA(e, 30)), document.documentElement.style.setProperty("--main-brand-color-20", tapliveConvertHexToRGBA(e, 20)), document.documentElement.style.setProperty("--main-brand-color-10", tapliveConvertHexToRGBA(e, 10))
+        })(-.2, e), 100)), dc.documentElement.style.setProperty("--main-brand-color", tapliveConvertHexToRGBA(e, 100)), dc.documentElement.style.setProperty("--main-brand-color-90", tapliveConvertHexToRGBA(e, 90)), dc.documentElement.style.setProperty("--main-brand-color-80", tapliveConvertHexToRGBA(e, 80)), dc.documentElement.style.setProperty("--main-brand-color-70", tapliveConvertHexToRGBA(e, 70)), dc.documentElement.style.setProperty("--main-brand-color-60", tapliveConvertHexToRGBA(e, 60)), dc.documentElement.style.setProperty("--main-brand-color-50", tapliveConvertHexToRGBA(e, 50)), dc.documentElement.style.setProperty("--main-brand-color-40", tapliveConvertHexToRGBA(e, 40)), dc.documentElement.style.setProperty("--main-brand-color-30", tapliveConvertHexToRGBA(e, 30)), dc.documentElement.style.setProperty("--main-brand-color-20", tapliveConvertHexToRGBA(e, 20)), dc.documentElement.style.setProperty("--main-brand-color-10", tapliveConvertHexToRGBA(e, 10))
     }
 
     setReadStatusHidden(e) {
@@ -345,7 +346,7 @@ class tapliveCore {
                 "Secret-Key": TapTalkLive.tapliveSecretKey
             };
             let t = JSON.parse(tapliveHelper.tapliveGetLocalStorage("taplive.auth")).accessToken;
-            a.Authorization = `Bearer ${t}`, tapliveHelper.tapliveToggleLoadingScreen("Logging out..."), document.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), document.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), tapliveHelper.onClickBackFromChatRoom(), tapliveHelper.onClickCloseNewMessage(), tapliveOmnichannelList.length < 1 ? tapliveHelper.goToFormFirstStartNewCase() : (document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-with-omnichannel"), tapliveHelper.goToOmnichannelFirstStartNewCase()), tapliveHelper.tapliveDoXMLHTTPRequest("POST", a, tapliveApiBaseURL + "/client/logout", null, !1).then(function (e) {
+            a.Authorization = `Bearer ${t}`, tapliveHelper.tapliveToggleLoadingScreen("Logging out..."), dc.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), dc.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), tapliveHelper.onClickBackFromChatRoom(), tapliveHelper.onClickCloseNewMessage(), tapliveOmnichannelList.length < 1 ? tapliveHelper.goToFormFirstStartNewCase() : (dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-with-omnichannel"), tapliveHelper.goToOmnichannelFirstStartNewCase()), tapliveHelper.tapliveDoXMLHTTPRequest("POST", a, tapliveApiBaseURL + "/client/logout", null, !1).then(function (e) {
                 "" === e.error.code ? console.log("Logout Successfully") : (console.log(e.error.message), tapliveSnackBar.tapliveSetSnackBar("fail", e.error.message))
             }).catch(function (e) {
                 console.log(e)
@@ -355,7 +356,7 @@ class tapliveCore {
                 room: {},
                 chatRoomDataChat: null,
                 hasMore: !1
-            }, tapliveCounterBadge = 0, document.querySelectorAll(".taplive-chat-badge")[0].style.display = "none", localStorage.removeItem("taplive.auth"), taptalk.logoutAndClearAllTapTalkData({
+            }, tapliveCounterBadge = 0, dc.querySelectorAll(".taplive-chat-badge")[0].style.display = "none", localStorage.removeItem("taplive.auth"), taptalk.logoutAndClearAllTapTalkData({
                 onSuccess(e) {
                     console.log("Logout from Tapcore")
                 }
@@ -386,7 +387,7 @@ class tapliveHelperCore extends tapliveCore {
     }
 
     tapliveAddEventForChild(e, a, t) {
-        document.addEventListener(a, function (a) {
+        dc.addEventListener(a, function (a) {
             for (var i = a.target; i && i != this; i = i.parentNode) if (i.matches(e)) {
                 t.call(i, a);
                 break
@@ -493,8 +494,8 @@ class tapliveHelperCore extends tapliveCore {
 
     tapliveDownloadFileToStorage(e, a) {
         fetch(e).then(e => e.blob()).then(e => {
-            let t = window.URL.createObjectURL(e), i = document.createElement("a"), l = `file-${new Date().valueOf()}`;
-            i.style.display = "none", i.href = t, i.id = l, i.download = a, document.body.appendChild(i), i.click(), window.URL.revokeObjectURL(t), i.remove()
+            let t = window.URL.createObjectURL(e), i = dc.createElement("a"), l = `file-${new Date().valueOf()}`;
+            i.style.display = "none", i.href = t, i.id = l, i.download = a, dc.body.appendChild(i), i.click(), window.URL.revokeObjectURL(t), i.remove()
         })
     }
 
@@ -518,11 +519,11 @@ class tapliveHelperCore extends tapliveCore {
 
     tapliveOnClickCancelReply() {
         if (tapliveReplyMessage.message) {
-            let e = parseInt(getComputedStyle(document.querySelectorAll(".taplive-main-chat-room-container")[0]).maxHeight.split("-")[1].replace("px", "")) - 68;
+            let e = parseInt(getComputedStyle(dc.querySelectorAll(".taplive-main-chat-room-container")[0]).maxHeight.split("-")[1].replace("px", "")) - 68;
             this.tapliveSetChatRoomMaxMinHeight(e)
         }
         tapliveReplyMessage.message = !1;
-        let a = document.querySelectorAll(".taplive-reply-message-wrapper");
+        let a = dc.querySelectorAll(".taplive-reply-message-wrapper");
         0 !== a.length && a[0].remove()
     }
 
@@ -582,11 +583,11 @@ class tapliveHelperCore extends tapliveCore {
     }
 
     tapliveChatRoomRemoveInputMessageField() {
-        document.querySelectorAll(".taplive-main-chat-room-container")[0].classList.add("taplive-chat-room-is-locked"), document.querySelectorAll(".taplive-main-chat-room-send-message-panel-wrapper")[0] && document.querySelectorAll(".taplive-main-chat-room-send-message-panel-wrapper")[0].remove(), document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0] && document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].remove()
+        dc.querySelectorAll(".taplive-main-chat-room-container")[0].classList.add("taplive-chat-room-is-locked"), dc.querySelectorAll(".taplive-main-chat-room-send-message-panel-wrapper")[0] && dc.querySelectorAll(".taplive-main-chat-room-send-message-panel-wrapper")[0].remove(), dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0] && dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].remove()
     }
 
     tapliveChatRoomAddInputMessageField() {
-        document.querySelectorAll(".taplive-main-chat-room-container")[0].classList.remove("taplive-chat-room-is-locked"), document.querySelectorAll(".taplive-main-chat-room-send-message-panel-wrapper").length < 1 && tapliveHelper.tapliveAppend("div", "taplive-main-chat-room-send-message-panel-wrapper", !0, ".taplive-main-chat-room-wrapper", `
+        dc.querySelectorAll(".taplive-main-chat-room-container")[0].classList.remove("taplive-chat-room-is-locked"), dc.querySelectorAll(".taplive-main-chat-room-send-message-panel-wrapper").length < 1 && tapliveHelper.tapliveAppend("div", "taplive-main-chat-room-send-message-panel-wrapper", !0, ".taplive-main-chat-room-wrapper", `
                 <div class="taplive-main-chat-room-send-message-hamburger" title="Mark as resolved" id="taplive-chat-room-mark-as-solved-button">
                     <img src="../assets/icon-resolve.svg">
                 </div>
@@ -624,13 +625,13 @@ class tapliveHelperCore extends tapliveCore {
     }
 
     tapliveRemoveMessageInBubble(e) {
-        document.querySelectorAll(`.taplive-chat-room-message-in-wrapper[data-chat-id="${e}"]`)[0].remove()
+        dc.querySelectorAll(`.taplive-chat-room-message-in-wrapper[data-chat-id="${e}"]`)[0].remove()
     }
 
     tapliveScrollChatViewToBottom() {
         setTimeout(function () {
-            let e = document.querySelectorAll(".taplive-main-chat-room-bubble-container")[0].scrollHeight;
-            document.querySelectorAll(".taplive-main-chat-room-bubble-container")[0].scrollTop = e
+            let e = dc.querySelectorAll(".taplive-main-chat-room-bubble-container")[0].scrollHeight;
+            dc.querySelectorAll(".taplive-main-chat-room-bubble-container")[0].scrollTop = e
         }, 0)
     }
 
@@ -663,7 +664,7 @@ class tapliveHelperCore extends tapliveCore {
 
     tapliveCustomSelectOption(e, a, t = !0) {
         customTapliveIdentifier[a] = {}, customTapliveIdentifier[a].placeholder = e;
-        let i = document.querySelectorAll(`${t ? "." : "#"}${a}-container`);
+        let i = dc.querySelectorAll(`${t ? "." : "#"}${a}-container`);
         for (let l = 0; l < i.length; l++) i[l].innerHTML = `
                 <div class="taplive-custom-select-option" data="${a}">
                     <div class="taplive-custom-select-option-value-box taplive-custom-select-option-value-box-${a}">
@@ -678,7 +679,7 @@ class tapliveHelperCore extends tapliveCore {
     }
 
     tapliveAppendOptionIntoSelectBox(e, a, t) {
-        let i = document.querySelectorAll(`.taplive-custom-select-${a}`), l = "";
+        let i = dc.querySelectorAll(`.taplive-custom-select-${a}`), l = "";
         for (let p in e) l += `
                 <div class="taplive-custom-select-option-list"
                      data-value="${e[p].id}"
@@ -694,18 +695,18 @@ class tapliveHelperCore extends tapliveCore {
 
     tapliveCustomSelectOptionClearSelected() {
         Object.keys(customTapliveIdentifier).map(e => {
-            document.querySelectorAll(`.taplive-custom-select-option-value-box-${e}`)[0].innnerHTML = customTapliveIdentifier[e].placeholder
+            dc.querySelectorAll(`.taplive-custom-select-option-value-box-${e}`)[0].innnerHTML = customTapliveIdentifier[e].placeholder
         });
-        let e = document.querySelectorAll(".taplive-custom-select-option-list");
+        let e = dc.querySelectorAll(".taplive-custom-select-option-list");
         for (let a = 0; a < e.length; a++) e[a].classList.remove("taplive-selected-option")
     }
 
     goToFormFirstStartNewCase() {
-        document.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-wrapper")
+        dc.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-wrapper")
     }
 
     goToOmnichannelFirstStartNewCase() {
-        document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), document.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.add("taplive-active-start-new-case-wrapper")
+        dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), dc.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.add("taplive-active-start-new-case-wrapper")
     }
 
     renderOmnichannelList() {
@@ -733,12 +734,12 @@ class tapliveHelperCore extends tapliveCore {
                         </div>
                     `)
             }), 0 === tapliveOmnichannelChShow) {
-                let t = document.querySelectorAll(".taplive-roomlist-withomnichannel-omnichannel-list-wrapper")[0],
-                    i = (document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0], document.querySelectorAll(".first-start-new-case-back-button")[0], document.querySelectorAll(".taplive-room-list-omnichannel-all-message")[0]);
+                let t = dc.querySelectorAll(".taplive-roomlist-withomnichannel-omnichannel-list-wrapper")[0],
+                    i = (dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0], dc.querySelectorAll(".first-start-new-case-back-button")[0], dc.querySelectorAll(".taplive-room-list-omnichannel-all-message")[0]);
                 t && (t.style.display = "none"), this.initStartFirstCaseView(), i && tapliveRoomListData && Object.keys(tapliveRoomListData).length > 0 && i.click()
             }
             return e
-        }, a = document.querySelectorAll(".omnichannel-option-image-wrapper");
+        }, a = dc.querySelectorAll(".omnichannel-option-image-wrapper");
         for (let t = 0; t < a.length; t++) a[t].innerHTML = `
                 <div class="omnichannel-option-image-content">
                     ${e()}
@@ -750,34 +751,34 @@ class tapliveHelperCore extends tapliveCore {
     }
 
     hideLoadingView() {
-        document.querySelectorAll(".taplive-full-loading")[0].style.visibilty = "hidden"
+        dc.querySelectorAll(".taplive-full-loading")[0].style.visibilty = "hidden"
     }
 
     goToRoomlistWithOmnichannel() {
-        let e = document.querySelectorAll(".taplive-room-list-wrapper")[0],
-            a = document.querySelectorAll(".taplive-room-list-with-omnichannel")[0];
+        let e = dc.querySelectorAll(".taplive-room-list-wrapper")[0],
+            a = dc.querySelectorAll(".taplive-room-list-with-omnichannel")[0];
         e && e.classList.remove("taplive-active-room-list-wrapper"), a && a.classList.add("taplive-active-start-new-case-wrapper")
     }
 
     goToRoomlistWithoutOmnichannel() {
-        let e = document.querySelectorAll(".taplive-room-list-wrapper")[0],
-            a = document.querySelectorAll(".taplive-room-list-with-omnichannel")[0];
+        let e = dc.querySelectorAll(".taplive-room-list-wrapper")[0],
+            a = dc.querySelectorAll(".taplive-room-list-with-omnichannel")[0];
         e && e.classList.add("taplive-active-room-list-wrapper"), a && a.classList.remove("taplive-active-start-new-case-wrapper")
     }
 
     renderRoomlistWithOmnichannel(e, a) {
-        document.querySelectorAll(".taplive-room-list-with-omnichannel-chatlist-wrapper").innerHTML = "", e && tapliveView.tapliveRenderRoomListContent(e, a)
+        dc.querySelectorAll(".taplive-room-list-with-omnichannel-chatlist-wrapper").innerHTML = "", e && tapliveView.tapliveRenderRoomListContent(e, a)
     }
 
     removeAttrStyle(e, a = !0) {
         if (a) {
-            let t = document.querySelectorAll(`.${e}`);
+            let t = dc.querySelectorAll(`.${e}`);
             for (let i = 0; i < t.length; i++) t[i].removeAttribute("style")
-        } else document.querySelector(`#${e}`).removeAttribute("style")
+        } else dc.querySelector(`#${e}`).removeAttribute("style")
     }
 
     onClickBackFromChatRoom(e = !1) {
-        tapliveChatRoomData.room = {}, tapliveSendTextMessageVal = "", document.querySelectorAll(".taplive-input-text").length > 0 && (document.querySelectorAll(".taplive-input-text")[0].value = ""), e && document.querySelectorAll(".taplive-room-list-wrapper").length > 0 && document.querySelectorAll(".taplive-room-list-wrapper")[0].classList.toggle("taplive-active-room-list-wrapper"), document.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.remove("taplive-active-main-chat-room-wrapper"), document.querySelectorAll(".taplive-main-chat-room-container")[0].classList.remove("taplive-active-mark-as-solved"), document.querySelectorAll(".taplive-main-chat-room-solve-wrapper").length > 0 && document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.remove("taplive-main-chat-room-solve-wrapper-hide"), tapliveChatRoomData.chatRoomDataChat = []
+        tapliveChatRoomData.room = {}, tapliveSendTextMessageVal = "", dc.querySelectorAll(".taplive-input-text").length > 0 && (dc.querySelectorAll(".taplive-input-text")[0].value = ""), e && dc.querySelectorAll(".taplive-room-list-wrapper").length > 0 && dc.querySelectorAll(".taplive-room-list-wrapper")[0].classList.toggle("taplive-active-room-list-wrapper"), dc.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.remove("taplive-active-main-chat-room-wrapper"), dc.querySelectorAll(".taplive-main-chat-room-container")[0].classList.remove("taplive-active-mark-as-solved"), dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper").length > 0 && dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.remove("taplive-main-chat-room-solve-wrapper-hide"), tapliveChatRoomData.chatRoomDataChat = []
     }
 
     onClickCloseNewMessage() {
@@ -789,7 +790,7 @@ class tapliveHelperCore extends tapliveCore {
             onSuccess(e) {
                 console.log(e)
             }
-        }), localStorage.removeItem("taplive.auth"), document.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), document.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), this.onClickBackFromChatRoom(), this.onClickCloseNewMessage(), tapliveOmnichannelList.length < 1 ? tapliveHelper.goToFormFirstStartNewCase() : (document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-with-omnichannel"), tapliveHelper.goToOmnichannelFirstStartNewCase())
+        }), localStorage.removeItem("taplive.auth"), dc.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), dc.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), this.onClickBackFromChatRoom(), this.onClickCloseNewMessage(), tapliveOmnichannelList.length < 1 ? tapliveHelper.goToFormFirstStartNewCase() : (dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-with-omnichannel"), tapliveHelper.goToOmnichannelFirstStartNewCase())
     }
 
     resetFormLoginValue() {
@@ -798,7 +799,7 @@ class tapliveHelperCore extends tapliveCore {
             email: "",
             topic: "",
             message: ""
-        }, tapliveSelectOptionValue.topic = "", tapliveHelper.tapliveCustomSelectOptionClearSelected(), document.getElementsByClassName("taplive-start-new-case-form")[0].reset()
+        }, tapliveSelectOptionValue.topic = "", tapliveHelper.tapliveCustomSelectOptionClearSelected(), dc.getElementsByClassName("taplive-start-new-case-form")[0].reset()
     }
 
     msToTime(e) {
@@ -809,23 +810,23 @@ class tapliveHelperCore extends tapliveCore {
 
     downloadFileToStorage(e, a) {
         fetch(e).then(e => e.blob()).then(e => {
-            let t = window.URL.createObjectURL(e), i = document.createElement("a"), l = `file-${new Date().valueOf()}`;
-            i.style.display = "none", i.href = t, i.id = l, i.download = a, document.body.appendChild(i), i.click(), window.URL.revokeObjectURL(t), i.remove()
+            let t = window.URL.createObjectURL(e), i = dc.createElement("a"), l = `file-${new Date().valueOf()}`;
+            i.style.display = "none", i.href = t, i.id = l, i.download = a, dc.body.appendChild(i), i.click(), window.URL.revokeObjectURL(t), i.remove()
         })
     }
 
     onClosePreuploadPanel() {
         tapliveHelper.tapliveCustomFadeOut("taplive-image-preupload-panel"), tapliveHelper.tapliveCustomFadeOut("taplive-video-preupload-panel");
-        let e = document.querySelectorAll(".taplive-caption-limit");
+        let e = dc.querySelectorAll(".taplive-caption-limit");
         for (let a = 0; a < e.length; a++) e[a].innerHTML = "0/100";
-        document.querySelector("#taplive-input-file-media").value = null;
-        let t = document.querySelectorAll(".taplive-caption-input");
+        dc.querySelector("#taplive-input-file-media").value = null;
+        let t = dc.querySelectorAll(".taplive-caption-input");
         for (let i = 0; i < t.length; i++) t[i].value = "";
         tapliveFileMediaValue = null, tapliveCaptionValue = ""
     }
 
     taplivePlaySound(e) {
-        let a = document.getElementById("taplive-sound-new-message");
+        let a = dc.getElementById("taplive-sound-new-message");
         e.user.userID !== taptalk.getTaptalkActiveUser().userID && tapliveHandleSound && (tapliveHandleSound = !1, a.play(), setTimeout(() => {
             tapliveHandleSound = !0
         }, 3e3))
@@ -835,7 +836,7 @@ class tapliveHelperCore extends tapliveCore {
         let a = 0;
         Object.keys(e).map(t => {
             e[t].tapTalkRoom.lastMessage.user.userID !== taptalk.getTaptalkActiveUser().userID && (a += e[t].tapTalkRoom.unreadCount)
-        }), 0 === (tapliveCounterBadge = a) ? document.querySelectorAll(".taplive-chat-badge")[0].style.display = "none" : (document.querySelectorAll(".taplive-chat-badge")[0].style.display = "flex", document.querySelectorAll(".taplive-chat-badge")[0].innerHTML = `<b>${tapliveCounterBadge}</b>`)
+        }), 0 === (tapliveCounterBadge = a) ? dc.querySelectorAll(".taplive-chat-badge")[0].style.display = "none" : (dc.querySelectorAll(".taplive-chat-badge")[0].style.display = "flex", dc.querySelectorAll(".taplive-chat-badge")[0].innerHTML = `<b>${tapliveCounterBadge}</b>`)
     }
 
     tapliveShowNotifation(e) {
@@ -857,67 +858,67 @@ class tapliveHelperCore extends tapliveCore {
         let a = !!window.opr && !!opr.addons || !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0,
             t = "undefined" != typeof InstallTrigger,
             i = /constructor/i.test(window.HTMLElement) || "[object SafariRemoteNotification]" === (e = !window.safari || "undefined" != typeof safari && safari.pushNotification).toString(),
-            l = !!document.documentMode, p = !l && !!window.StyleMedia,
+            l = !!dc.documentMode, p = !l && !!window.StyleMedia,
             r = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime),
             o = r && -1 != navigator.userAgent.indexOf("Edg"), n = (r || a) && !!window.CSS;
         return {isOpera: a, isFirefox: t, isSafari: i, isIE: l, isEdge: p, isChrome: r, isEdgeChromium: o, isBlink: n}
     }
 
     tapliveCustomFadeOut(e, a = !0) {
-        let t = a ? document.querySelectorAll(`.${e}`)[0] : document.querySelector(`#${e}`);
+        let t = a ? dc.querySelectorAll(`.${e}`)[0] : dc.querySelector(`#${e}`);
         t.classList.remove("taplive-fade-in"), setTimeout(() => {
             t.style.visibility = "hidden"
         }, 200)
     }
 
     tapliveCustomFadeIn(e, a = !0) {
-        let t = a ? document.querySelectorAll(`.${e}`)[0] : document.querySelector(`#${e}`);
+        let t = a ? dc.querySelectorAll(`.${e}`)[0] : dc.querySelector(`#${e}`);
         t.style.visibility = "visible", t.classList.add("taplive-fade-in")
     }
 
     tapliveSetZIndex(e, a, t = !0) {
-        (t ? document.querySelectorAll(`.${e}`)[0] : document.querySelector(`#${e}`)).style.zIndex = a
+        (t ? dc.querySelectorAll(`.${e}`)[0] : dc.querySelector(`#${e}`)).style.zIndex = a
     }
 
     tapliveHasClass(e, a) {
         let t = !1;
-        return "." === e[0] ? document.querySelectorAll(e)[0].className.includes(a) : document.querySelector(e).className.includes(a)
+        return "." === e[0] ? dc.querySelectorAll(e)[0].className.includes(a) : dc.querySelector(e).className.includes(a)
     }
 
     taplivePrepend(e, a, t, i, l = !1) {
-        let p = document.createElement(a), r = "." === t[0], o = "", n = "." === e[0];
-        r ? p.className = "." !== t[0] || "#" !== t[0] ? t.substr(1, t.length) : t : p.id = "." !== t[0] || "#" !== t[0] ? t.substr(1, t.length) : t, p.innerHTML = i, n ? (o = document.querySelectorAll(e)[0]).insertBefore(p, o.firstChild) : (o = document.querySelector(e)).insertBefore(p, o.firstChild)
+        let p = dc.createElement(a), r = "." === t[0], o = "", n = "." === e[0];
+        r ? p.className = "." !== t[0] || "#" !== t[0] ? t.substr(1, t.length) : t : p.id = "." !== t[0] || "#" !== t[0] ? t.substr(1, t.length) : t, p.innerHTML = i, n ? (o = dc.querySelectorAll(e)[0]).insertBefore(p, o.firstChild) : (o = dc.querySelector(e)).insertBefore(p, o.firstChild)
     }
 
     tapliveAppend(e, a, t, i, l, p = null, r = !1) {
-        let o = document.createElement(e), n = "." === i[0], s = "";
+        let o = dc.createElement(e), n = "." === i[0], s = "";
         if (o.innerHTML = l, t ? o.className = a : o.id = a, r && (o.id = r), null !== p) for (let v = 0; v < p.length; v++) o.setAttribute(p[v].attribute, p[v].value);
         if (n) {
-            s = document.querySelectorAll(i);
+            s = dc.querySelectorAll(i);
             for (let c = 0; c < s.length; c++) s[c].appendChild(o)
-        } else (s = document.querySelector(i)).appendChild(o)
+        } else (s = dc.querySelector(i)).appendChild(o)
     }
 
     tapliveHTML(e, a, t, i, l, p = null, r = !1) {
-        let o = document.createElement(e), n = "." === i[0], s = "";
+        let o = dc.createElement(e), n = "." === i[0], s = "";
         if (o.innerHTML = l, t ? o.className = a : o.id = a, r && (o.id = r), null !== p) for (let v = 0; v < p.length; v++) o.setAttribute(p[v].attribute, p[v].value);
         if (n) {
-            s = document.querySelectorAll(i);
+            s = dc.querySelectorAll(i);
             for (let c = 0; c < s.length; c++) s[c].innerHTML = o.outerHTML
-        } else (s = document.querySelector(i)).innerHTML = o.outerHTML
+        } else (s = dc.querySelector(i)).innerHTML = o.outerHTML
     }
 
     tapliveOnClickReply(e) {
-        let a = document.querySelectorAll(".taplive-reply-message-wrapper");
+        let a = dc.querySelectorAll(".taplive-reply-message-wrapper");
         if (tapliveChatRoomData.chatRoomDataChat[e].body = this.tapliveSHTML(tapliveChatRoomData.chatRoomDataChat[e].body), tapliveReplyMessage = {message: tapliveChatRoomData.chatRoomDataChat[e]}, 0 === a.length) {
             this.tapliveChatRoomReplyInput();
-            let t = parseInt(getComputedStyle(document.querySelectorAll(".taplive-main-chat-room-container")[0]).maxHeight.split("-")[1].replace("px", "")) + 68;
+            let t = parseInt(getComputedStyle(dc.querySelectorAll(".taplive-main-chat-room-container")[0]).maxHeight.split("-")[1].replace("px", "")) + 68;
             this.tapliveSetChatRoomMaxMinHeight(t)
         } else a[0].innerHTML = this.tapliveChatRoomReplyInputContent()
     }
 
     tapliveSetChatRoomMaxMinHeight(e) {
-        let a = document.querySelectorAll(".taplive-main-chat-room-container")[0];
+        let a = dc.querySelectorAll(".taplive-main-chat-room-container")[0];
         null !== a && (a.style.cssText = `max-height: calc(100% - ${e}px); min-height: calc(100% - ${e}px);`)
     }
 
@@ -931,29 +932,29 @@ class tapliveHelperCore extends tapliveCore {
     }
 
     tapliveZoomImageIn(e) {
-        var a = document.querySelectorAll(".taplive-zoom-figure")[0];
+        var a = dc.querySelectorAll(".taplive-zoom-figure")[0];
         a.style.backgroundSize = "200%";
         var t = e.offsetX, i = e.offsetY, l = t / a.offsetWidth * 100, p = i / a.offsetHeight * 100;
         a.style.backgroundPosition = l + "% " + p + "%"
     }
 
     tapliveZoomImageOut(e) {
-        document.querySelectorAll(".taplive-zoom-figure")[0].style.backgroundSize = "0%"
+        dc.querySelectorAll(".taplive-zoom-figure")[0].style.backgroundSize = "0%"
     }
 
     tapliveToogleTapliveBlockingLoading(e) {
-        document.querySelectorAll(".taplive-blocking-loading")[0].style.display = e ? "block" : "none"
+        dc.querySelectorAll(".taplive-blocking-loading")[0].style.display = e ? "block" : "none"
     }
 
     tapliveOnChangeReview() {
-        let e = document.querySelectorAll(".taplive-review-comment")[0].value;
-        document.querySelectorAll(".taplive-review-text-length")[0].innerHTML = `(${e.length}/1000)`
+        let e = dc.querySelectorAll(".taplive-review-comment")[0].value;
+        dc.querySelectorAll(".taplive-review-text-length")[0].innerHTML = `(${e.length}/1000)`
     }
 
     tapliveToggleLoadingScreen(e = "") {
-        let a = document.querySelectorAll(".taplive-full-loading-screen")[0];
+        let a = dc.querySelectorAll(".taplive-full-loading-screen")[0];
         if (a) {
-            let t = document.querySelectorAll(".loading-text")[0];
+            let t = dc.querySelectorAll(".loading-text")[0];
             "" === e ? t.innerHTML = "Loading..." : t.innerHTML = e, a.classList.toggle("taplive-force-hide")
         }
     }
@@ -963,7 +964,7 @@ class tapliveHelperCore extends tapliveCore {
     }
 
     tapliveClearCreateNewMessageValue() {
-        tapliveHelper.tapliveCustomSelectOption(TapTalkLive.getTapliveLanguageVar().selectTopic.text1, "taplive-start-new-case"), tapliveSelectOptionValue.topic = "", tapliveHelper.tapliveCustomSelectOptionClearSelected(), tapliveCreateCaseInput.message = "", document.querySelectorAll(".taplive-new-message-input")[0].value = ""
+        tapliveHelper.tapliveCustomSelectOption(TapTalkLive.getTapliveLanguageVar().selectTopic.text1, "taplive-start-new-case"), tapliveSelectOptionValue.topic = "", tapliveHelper.tapliveCustomSelectOptionClearSelected(), tapliveCreateCaseInput.message = "", dc.querySelectorAll(".taplive-new-message-input")[0].value = ""
     }
 
     tapliveCheckIsFileorMedia(e) {
@@ -982,7 +983,7 @@ class tapliveHelperCore extends tapliveCore {
                 tapliveRoomListData2 = e
             }), tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent(), tapliveView.tapliveRenderChatBubbleMessageFileOut(e), tapliveHelper.tapliveScrollChatViewToBottom()
         }, t = (e, a, t) => {
-            document.querySelectorAll(`.taplive-chat-room-message-file-out-wrapper[data-chat-id="${e}"] .taplive-message-filesize-progress`)[0].innerHTML = `${tapliveHelper.tapliveBytesToSize(t)} / `
+            dc.querySelectorAll(`.taplive-chat-room-message-file-out-wrapper[data-chat-id="${e}"] .taplive-message-filesize-progress`)[0].innerHTML = `${tapliveHelper.tapliveBytesToSize(t)} / `
         };
         tapCoreMessageManager.sendFileMessage(e, tapliveChatRoomData.room, {
             onStart(e) {
@@ -1004,7 +1005,7 @@ class tapliveHelperCore extends tapliveCore {
         let a = e.type.split("/")[0];
         var t = new FileReader;
         tapliveFileMediaValue = e, t.onload = e => {
-            "image" === a ? (tapliveHelper.tapliveCustomFadeIn("taplive-image-preupload-panel"), document.querySelectorAll(".taplive-image-preupload-value")[0].src = e.target.result) : (tapliveHelper.tapliveCustomFadeIn("taplive-video-preupload-panel"), document.querySelectorAll(".taplive-video-preupload-value")[0].src = e.target.result)
+            "image" === a ? (tapliveHelper.tapliveCustomFadeIn("taplive-image-preupload-panel"), dc.querySelectorAll(".taplive-image-preupload-value")[0].src = e.target.result) : (tapliveHelper.tapliveCustomFadeIn("taplive-video-preupload-panel"), dc.querySelectorAll(".taplive-video-preupload-value")[0].src = e.target.result)
         }, t.readAsDataURL(e)
     }
 
@@ -1069,7 +1070,7 @@ class tapliveViewCore {
         `, [{
             attribute: "tabindex",
             value: "-1"
-        }]), document.querySelectorAll(".taplive-outer-container")[0].addEventListener("keydown", e => {
+        }]), dc.querySelectorAll(".taplive-outer-container")[0].addEventListener("keydown", e => {
             9 === e.which && e.preventDefault()
         })
     }
@@ -1320,7 +1321,7 @@ class tapliveViewCore {
     }
 
     tapliveRenderRoomListContent(e, a) {
-        if (e.tapTalkRoom && e.tapTalkRoom.lastMessage && document.querySelectorAll(`.${a}`).length > 0) {
+        if (e.tapTalkRoom && e.tapTalkRoom.lastMessage && dc.querySelectorAll(`.${a}`).length > 0) {
             let t = `
                     <div class="taplive-chat-avatar-wrapper">
                         <div class="taplive-user-avatar-name">
@@ -1392,7 +1393,7 @@ class tapliveViewCore {
 
     tapliveLoopRenderRoomListContent() {
         setTimeout(() => {
-            document.querySelectorAll(".taplive-room-list-outer-container").length > 0 && (document.querySelectorAll(".taplive-room-list-outer-container")[0].innerHTML = ""), null !== tapliveRoomListData2 && Object.keys(tapliveRoomListData2).length > 0 && Object.keys(tapliveRoomListData2).map(e => {
+            dc.querySelectorAll(".taplive-room-list-outer-container").length > 0 && (dc.querySelectorAll(".taplive-room-list-outer-container")[0].innerHTML = ""), null !== tapliveRoomListData2 && Object.keys(tapliveRoomListData2).length > 0 && Object.keys(tapliveRoomListData2).map(e => {
                 this.tapliveRenderRoomListContent(tapliveRoomListData2[e], "taplive-room-list-outer-container")
             })
         }, 1e3)
@@ -1517,7 +1518,7 @@ class tapliveViewCore {
         null === a ? e.isHidden || tapliveHelper.tapliveAppend("div", "taplive-chat-room-info-wrapper", !0, ".taplive-main-chat-room-bubble-container", r, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${r}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${r}`)
     }
 
     tapliveRenderChatBubbleReview(e, a = null) {
@@ -1549,7 +1550,7 @@ class tapliveViewCore {
     }
 
     tapliveRenderImageForBubbleReply(e, a) {
-        let t = document.querySelectorAll(`[data-chat-id="${a}"] .taplive-reply-file-media-wrapper`);
+        let t = dc.querySelectorAll(`[data-chat-id="${a}"] .taplive-reply-file-media-wrapper`);
         for (let i = 0; i < t.length; i++) t[i].innerHTML = `
                 <img 
                     src="data:image/png;base64, ${e}"
@@ -1560,7 +1561,7 @@ class tapliveViewCore {
     }
 
     tapliveRenderVideoForBubbleReply(e, a) {
-        let t = document.querySelectorAll(`[data-chat-id="${a}"] .taplive-reply-file-media-wrapper`);
+        let t = dc.querySelectorAll(`[data-chat-id="${a}"] .taplive-reply-file-media-wrapper`);
         for (let i = 0; i < t.length; i++) t[i].innerHTML = `
                 <video
                     src="data:video/mp4;base64, ${e}"
@@ -1736,7 +1737,7 @@ class tapliveViewCore {
         null === a ? e.isHidden || tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-in-wrapper", !0, ".taplive-main-chat-room-bubble-container", t, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
     }
 
     tapliveRenderChatBubbleMessageOut(e, a = null) {
@@ -1761,7 +1762,7 @@ class tapliveViewCore {
         null === a ? e.isHidden || tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-out-wrapper", !0, ".taplive-main-chat-room-bubble-container", t, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
     }
 
     tapliveRenderChatBubbleMessageImageIn(e, a = null) {
@@ -1792,7 +1793,7 @@ class tapliveViewCore {
         null === a ? e.isHidden || tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-image-in-wrapper", !0, ".taplive-main-chat-room-bubble-container", t, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
     }
 
     tapliveRenderChatBubbleMessageImageOut(e, a = null) {
@@ -1843,7 +1844,7 @@ class tapliveViewCore {
         null === a ? e.isHidden || tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-image-out-wrapper", !0, ".taplive-main-chat-room-bubble-container", i, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${i}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${i}`)
     }
 
     tapliveRenderChatBubbleMessageVideoIn(e, a = null) {
@@ -1886,7 +1887,7 @@ class tapliveViewCore {
         null === a ? e.isHidden || tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-video-in-wrapper", !0, ".taplive-main-chat-room-bubble-container", t, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${t}`)
     }
 
     tapliveRenderChatBubbleMessageVideoOut(e, a = null) {
@@ -1940,7 +1941,7 @@ class tapliveViewCore {
         null === a ? e.isHidden || tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-video-out-wrapper", !0, ".taplive-main-chat-room-bubble-container", i, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${i}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${i}`)
     }
 
     tapliveRenderChatBubbleMessageFileIn(e, a = null) {
@@ -1989,7 +1990,7 @@ class tapliveViewCore {
         null === a ? tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-file-in-wrapper", !0, ".taplive-main-chat-room-bubble-container", l, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${l}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${l}`)
     }
 
     tapliveRenderChatBubbleMessageFileOut(e, a = null) {
@@ -2057,7 +2058,7 @@ class tapliveViewCore {
         null === a ? tapliveHelper.tapliveAppend("div", "taplive-chat-room-message-file-out-wrapper", !0, ".taplive-main-chat-room-bubble-container", p, [{
             attribute: "data-chat-id",
             value: e.localID
-        }]) : document.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (document.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${p}`)
+        }]) : dc.querySelectorAll(`[data-chat-id="${a}"]`).length > 0 && (dc.querySelectorAll(`[data-chat-id="${a}"]`)[0].innerHTML = `${p}`)
     }
 
     tapliveRenderFullScreenLoading() {
@@ -2155,8 +2156,8 @@ class tapliveSnackBarCore {
     }
 
     tapliveSetSnackBar(e, a) {
-        let t = document.querySelectorAll(".taplive-snack-bar-wrapper")[0];
-        tapliveSnackBar.state = "fail" === e ? "taplive-error-snack-bar" : "taplive-warning-snack-bar", tapliveSnackBar.message = a, "fail" === e ? (document.querySelectorAll(".taplive-red-snack-bar-icon")[0].style.display = "block", document.querySelectorAll(".taplive-orange-snack-bar-icon")[0].style.display = "none") : (document.querySelectorAll(".taplive-red-snack-bar-icon")[0].style.display = "none", document.querySelectorAll(".taplive-orange-snack-bar-icon")[0].style.display = "block"), t.className = `taplive-snack-bar-wrapper ${tapliveSnackBar.state}`, document.querySelectorAll(".taplive-snack-bar-message")[0].innerHTML = tapliveSnackBar.message, tapliveHelper.tapliveCustomFadeIn("taplive-snack-bar-wrapper"), setTimeout(function () {
+        let t = dc.querySelectorAll(".taplive-snack-bar-wrapper")[0];
+        tapliveSnackBar.state = "fail" === e ? "taplive-error-snack-bar" : "taplive-warning-snack-bar", tapliveSnackBar.message = a, "fail" === e ? (dc.querySelectorAll(".taplive-red-snack-bar-icon")[0].style.display = "block", dc.querySelectorAll(".taplive-orange-snack-bar-icon")[0].style.display = "none") : (dc.querySelectorAll(".taplive-red-snack-bar-icon")[0].style.display = "none", dc.querySelectorAll(".taplive-orange-snack-bar-icon")[0].style.display = "block"), t.className = `taplive-snack-bar-wrapper ${tapliveSnackBar.state}`, dc.querySelectorAll(".taplive-snack-bar-message")[0].innerHTML = tapliveSnackBar.message, tapliveHelper.tapliveCustomFadeIn("taplive-snack-bar-wrapper"), setTimeout(function () {
             tapliveHelper.tapliveCustomFadeOut("taplive-snack-bar-wrapper")
         }, 5e3)
     }
@@ -2176,7 +2177,7 @@ class tapliveReviewCore {
     }
 
     tapliveClearReviewInputValue() {
-        this.tapliveReviewInput.star = "0", this.tapliveReviewInput.note = "", document.querySelectorAll(".taplive-submit-review-button")[0].disabled = !0, document.querySelectorAll(".taplive-star-word")[0].innerHTML = "<b>No Rating</b>", document.querySelectorAll(".taplive-star-image")[0].src = `${tapliveStorageBaseURL}/image/review/stars-0.svg`, document.querySelectorAll(".taplive-review-comment")[0].value = ""
+        this.tapliveReviewInput.star = "0", this.tapliveReviewInput.note = "", dc.querySelectorAll(".taplive-submit-review-button")[0].disabled = !0, dc.querySelectorAll(".taplive-star-word")[0].innerHTML = "<b>No Rating</b>", dc.querySelectorAll(".taplive-star-image")[0].src = `${tapliveStorageBaseURL}/image/review/stars-0.svg`, dc.querySelectorAll(".taplive-review-comment")[0].value = ""
     }
 }
 
@@ -2197,10 +2198,10 @@ class tapliveTypingCore {
 
     runActionTypingFromRoomList(e, a) {
         if ("hide" === a) {
-            let t = document.querySelectorAll(`.taplive-chat-list-wrapper[data-room-id='${e}']`);
+            let t = dc.querySelectorAll(`.taplive-chat-list-wrapper[data-room-id='${e}']`);
             for (let i = 0; i < t.length; i++) t[i].classList.remove("active-typing")
         } else {
-            let l = document.querySelectorAll(`.taplive-chat-list-wrapper[data-room-id='${e}']`);
+            let l = dc.querySelectorAll(`.taplive-chat-list-wrapper[data-room-id='${e}']`);
             for (let p = 0; p < l.length; p++) l[p].classList.add("active-typing")
         }
     }
@@ -2282,13 +2283,13 @@ var tapliveGetUpdatedRoomList = e => {
     };
 
     const setIconChat = (close = false) => {
-        document.querySelector("#taplive-chat-opener-icon").src = close ? CHAT_ICON_CLOSE_URL : CHAT_ICON_URL
+        dc.querySelector("#taplive-chat-opener-icon").src = close ? CHAT_ICON_CLOSE_URL : CHAT_ICON_URL
     }
 
     tapliveHelper.tapliveAddEventForChild(".taplive-chat-widget-opener-button", "click", function (e) {
         "Notification" in window && !isPermissionAskReady && !tapliveHelper.tapliveCheckBrowser().isFirefox && "denied" !== Notification.permisson && (Notification.requestPermission(), isPermissionAskReady = !0), (tapliveChatOpener = !tapliveChatOpener) ? (tapliveHelper.tapliveCustomFadeIn("taplive-outer-container"), tapliveHelper.tapliveSetZIndex("taplive-outer-container", "2147483646"), setIconChat(true)) : (tapliveHelper.tapliveCustomFadeOut("taplive-outer-container"), tapliveHelper.tapliveSetZIndex("taplive-outer-container", "-9999"), setIconChat())
     }), tapliveHelper.tapliveAddEventForChild(".taplive-close-widget-button, .taplive-close-widget-button-2", "click", function (e) {
-        tapliveChatOpener = !tapliveChatOpener, tapliveHelper.tapliveCustomFadeOut("taplive-outer-container"), document.querySelectorAll(".taplive-chat-widget-opener-button")[0].style.zIndex = "9999", tapliveHelper.tapliveSetZIndex("taplive-outer-container", "-9999"), setIconChat()
+        tapliveChatOpener = !tapliveChatOpener, tapliveHelper.tapliveCustomFadeOut("taplive-outer-container"), dc.querySelectorAll(".taplive-chat-widget-opener-button")[0].style.zIndex = "9999", tapliveHelper.tapliveSetZIndex("taplive-outer-container", "-9999"), setIconChat()
     });
     let i, l = {
         Authorization: "",
@@ -2346,7 +2347,7 @@ var tapliveGetUpdatedRoomList = e => {
                                     setTimeout(() => {
                                         tapliveGetCaseList({
                                             onSuccess(e) {
-                                                tapliveView.tapliveRenderRoomListWithOmnichannel(), tapliveHelper.renderOmnichannelList(), document.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent(), tapliveHelper.resetFormLoginValue(), tapliveView.tapliveRenderRoomListWithOmnichannel(), tapliveHelper.renderOmnichannelList(), document.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent()
+                                                tapliveView.tapliveRenderRoomListWithOmnichannel(), tapliveHelper.renderOmnichannelList(), dc.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent(), tapliveHelper.resetFormLoginValue(), tapliveView.tapliveRenderRoomListWithOmnichannel(), tapliveHelper.renderOmnichannelList(), dc.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent()
                                             }, onError(e) {
                                                 tapliveSnackBar.tapliveSetSnackBar("fail", e)
                                             }
@@ -2354,15 +2355,15 @@ var tapliveGetUpdatedRoomList = e => {
                                             onSuccess(a) {
                                                 let t = a.room.xcRoomID.replace("case:", "");
                                                 v("finish"), f("Admin", t, `${e.topicName} (#${e.stringID})`, a.room);
-                                                let i = document.querySelectorAll(".taplive-start-new-case-wrapper");
+                                                let i = dc.querySelectorAll(".taplive-start-new-case-wrapper");
                                                 for (let l = 0; l < i.length; l++) i[l].classList.remove("taplive-active-start-new-case-wrapper");
-                                                document.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.add("taplive-active-main-chat-room-wrapper"), tapliveHelper.tapliveResetTopicListOption(), tapliveHelper.resetFormLoginValue(), tapliveHelper.tapliveClearCreateNewMessageValue(), tapliveMessageListener({
+                                                dc.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.add("taplive-active-main-chat-room-wrapper"), tapliveHelper.tapliveResetTopicListOption(), tapliveHelper.resetFormLoginValue(), tapliveHelper.tapliveClearCreateNewMessageValue(), tapliveMessageListener({
                                                     onNewMessage(e) {
                                                         if (e.isHidden || (tapliveHelper.taplivePlaySound(e), tapliveHelper.tapliveShowNotifation(e)), e.type !== CHAT_TYPE.TAPChatMessageTypeCaseCreated || tapliveRoomListData2[e.room.roomID]) {
                                                             if (tapliveRoomListAction.setRoomListLastMessage(e, tapliveRoomListData2, !1, e => {
                                                                 tapliveRoomListData2 = e
                                                             }), e.type === CHAT_TYPE.TAPChatMessageTypeCaseUpdate && tapliveChatRoomData.case.caseID === e.data.id) {
-                                                                let a = document.querySelectorAll(".taplive-main-chat-room-case-id");
+                                                                let a = dc.querySelectorAll(".taplive-main-chat-room-case-id");
                                                                 a.length > 0 && (a[0].innerHTML = `${e.data.topicName} (#${e.data.stringID})`)
                                                             }
                                                         } else tapliveRoomListData2 = tapliveRoomListAction.pushNewToRoomList(e, tapliveRoomListData2);
@@ -2376,7 +2377,7 @@ var tapliveGetUpdatedRoomList = e => {
                                                     onNewMessage(e) {
                                                         if (null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e.room.roomID) {
                                                             e.room.isLocked && tapliveHelper.tapliveChatRoomRemoveInputMessageField();
-                                                            let a = document.querySelectorAll(".taplive-main-chat-room-bubble-container")[0];
+                                                            let a = dc.querySelectorAll(".taplive-main-chat-room-bubble-container")[0];
                                                             a.scrollHeight - a.scrollTop === a.clientHeight && tapliveHelper.tapliveScrollChatViewToBottom(), e.user.userID === taptalk.getTaptalkActiveUser().userID ? (tapliveChatRoomData.chatRoomDataChat[e.localID] ? tapliveHelper.updateMessageBubble(e) : tapliveHelper.generateMessageBubble(e), tapliveChatRoomData.chatRoomDataChat[e.localID] = e) : (tapliveChatRoomData.chatRoomDataChat[e.localID] = e, tapliveUnreadMessageAction([e]), tapliveHelper.generateMessageBubble(e), tapliveHelper.tapliveScrollChatViewToBottom())
                                                         }
                                                     }, onUpdateMessage(e) {
@@ -2388,13 +2389,13 @@ var tapliveGetUpdatedRoomList = e => {
                                                     onStartTyping(e, a) {
                                                         tapliveTyping.runActionTypingFromRoomList(e, "show"), clearTimeout(tapliveTyping.roomListTypingHashmap[e]), tapliveTyping.roomListTypingHashmap[e] = setTimeout(function () {
                                                             tapliveTyping.runActionTypingFromRoomList(e, "hide")
-                                                        }, 1e4), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = `
+                                                        }, 1e4), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = `
                                                                                 Typing<span class="typing-dot-one">.</span><span class="typing-dot-two">.</span><span class="typing-dot-three">.</span>
                                                                             `, clearTimeout(tapliveTyping.chatRoomTypingTimeout), tapliveTyping.chatRoomTypingTimeout = setTimeout(function () {
-                                                            tapliveChatRoomData.room.roomID === e && document.querySelectorAll(".taplive-main-chat-room-case-id").html(tapliveChatRoomData.case.caseName)
+                                                            tapliveChatRoomData.room.roomID === e && dc.querySelectorAll(".taplive-main-chat-room-case-id").html(tapliveChatRoomData.case.caseName)
                                                         }, 1e4))
                                                     }, onStopTyping(e, a) {
-                                                        tapliveTyping.runActionTypingFromRoomList(e, "hide"), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, clearTimeout(tapliveTyping.chatRoomTypingTimeout))
+                                                        tapliveTyping.runActionTypingFromRoomList(e, "hide"), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, clearTimeout(tapliveTyping.chatRoomTypingTimeout))
                                                     }
                                                 })
                                             }, onError(e, a) {
@@ -2435,26 +2436,26 @@ var tapliveGetUpdatedRoomList = e => {
             e.channelLinks[a("twitter", e.channelLinks)].url = r
         }
         if (tapliveOmnichannelList = e.channelLinks, tapliveView.tapliveRenderAllView(), n(), null === tapliveHelper.tapliveGetLocalStorage("taplive.auth")) {
-            let s = document.querySelectorAll(".taplive-start-new-case-wrapper");
+            let s = dc.querySelectorAll(".taplive-start-new-case-wrapper");
             for (let v = 0; v < s.length; v++) s[v].classList.toggle("taplive-active-start-new-case-wrapper");
-            document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-with-omnichannel")
+            dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.add("taplive-active-start-new-case-with-omnichannel")
         } else {
-            tapliveView.tapliveRenderRoomListWithOmnichannel(), document.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), tapliveHelper.goToRoomlistWithOmnichannel();
+            tapliveView.tapliveRenderRoomListWithOmnichannel(), dc.querySelectorAll(".taplive-room-list-wrapper")[0] || tapliveView.tapliveRenderRoomList(), tapliveHelper.goToRoomlistWithOmnichannel();
             let c = () => {
                 t({
                     onSuccess() {
                         tapliveGetCaseList({
                             onSuccess(e) {
-                                0 === e.cases.length && (tapliveHelper.tapliveCustomFadeIn("taplive-start-new-message-wrapper"), document.querySelectorAll(".taplive-start-new-message-header")[0].innerHTML = `
+                                0 === e.cases.length && (tapliveHelper.tapliveCustomFadeIn("taplive-start-new-message-wrapper"), dc.querySelectorAll(".taplive-start-new-message-header")[0].innerHTML = `
                                                 <img src="${tapliveStorageBaseURL}/image/chat-room/icon-close.svg" class="taplive-close-widget-button-2">
                                                 <b>${TapTalkLive.getTapliveLanguageVar().screenNewMessage.text1}</b>
-                                            `, window.innerWidth > 767 && document.querySelectorAll(".taplive-start-new-message-header img")[0].remove()), document.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), tapliveRoomListData2 && Object.keys(tapliveRoomListData2).length > 0 && tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent(), tapliveMessageListener({
+                                            `, window.innerWidth > 767 && dc.querySelectorAll(".taplive-start-new-message-header img")[0].remove()), dc.querySelectorAll(".taplive-start-new-case-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), tapliveRoomListData2 && Object.keys(tapliveRoomListData2).length > 0 && tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent(), tapliveMessageListener({
                                     onNewMessage(e) {
                                         if (e.isHidden || (tapliveHelper.taplivePlaySound(e), tapliveHelper.tapliveShowNotifation(e)), e.type !== CHAT_TYPE.TAPChatMessageTypeCaseCreated || tapliveRoomListData2[e.room.roomID]) {
                                             if (tapliveRoomListAction.setRoomListLastMessage(e, tapliveRoomListData2, !1, e => {
                                                 tapliveRoomListData2 = e
                                             }), e.type === CHAT_TYPE.TAPChatMessageTypeCaseUpdate && tapliveChatRoomData.case.caseID === e.data.id) {
-                                                let a = document.querySelectorAll(".taplive-main-chat-room-case-id");
+                                                let a = dc.querySelectorAll(".taplive-main-chat-room-case-id");
                                                 a.length > 0 && (a[0].innerHTML = `${e.data.topicName} (#${e.data.stringID})`)
                                             }
                                         } else tapliveRoomListData2 || (tapliveRoomListData2 = {}), tapliveRoomListData2 = tapliveRoomListAction.pushNewToRoomList(e, tapliveRoomListData2);
@@ -2468,7 +2469,7 @@ var tapliveGetUpdatedRoomList = e => {
                                     onNewMessage(e) {
                                         if (null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e.room.roomID) {
                                             e.room.isLocked && tapliveHelper.tapliveChatRoomRemoveInputMessageField();
-                                            let a = document.querySelectorAll(".taplive-main-chat-room-bubble-container")[0];
+                                            let a = dc.querySelectorAll(".taplive-main-chat-room-bubble-container")[0];
                                             a.scrollHeight - a.scrollTop === a.clientHeight && tapliveHelper.tapliveScrollChatViewToBottom(), e.user.userID === taptalk.getTaptalkActiveUser().userID ? (tapliveChatRoomData.chatRoomDataChat[e.localID] ? tapliveHelper.updateMessageBubble(e) : tapliveHelper.generateMessageBubble(e), tapliveChatRoomData.chatRoomDataChat[e.localID] = e) : (tapliveChatRoomData.chatRoomDataChat[e.localID] = e, tapliveUnreadMessageAction([e]), e.isHidden || tapliveHelper.generateMessageBubble(e))
                                         }
                                     }, onUpdateMessage(e) {
@@ -2480,13 +2481,13 @@ var tapliveGetUpdatedRoomList = e => {
                                     onStartTyping(e, a) {
                                         tapliveTyping.runActionTypingFromRoomList(e, "show"), clearTimeout(tapliveTyping.roomListTypingHashmap[e]), tapliveTyping.roomListTypingHashmap[e] = setTimeout(function () {
                                             tapliveTyping.runActionTypingFromRoomList(e, "hide")
-                                        }, 1e4), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = `
+                                        }, 1e4), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = `
                                                             Typing<span class="typing-dot-one">.</span><span class="typing-dot-two">.</span><span class="typing-dot-three">.</span>
                                                         `, clearTimeout(tapliveTyping.chatRoomTypingTimeout), tapliveTyping.chatRoomTypingTimeout = setTimeout(function () {
-                                            tapliveChatRoomData.room.roomID === e && (document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName)
+                                            tapliveChatRoomData.room.roomID === e && (dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName)
                                         }, 1e4))
                                     }, onStopTyping(e, a) {
-                                        tapliveTyping.runActionTypingFromRoomList(e, "hide"), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, clearTimeout(tapliveTyping.chatRoomTypingTimeout))
+                                        tapliveTyping.runActionTypingFromRoomList(e, "hide"), null !== tapliveChatRoomData.room && tapliveChatRoomData.room.roomID === e && (dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, clearTimeout(tapliveTyping.chatRoomTypingTimeout))
                                     }
                                 })
                             }, onError(e) {
@@ -2502,7 +2503,7 @@ var tapliveGetUpdatedRoomList = e => {
         }
         tapliveHelper.renderOmnichannelList(), tapliveHelper.initStartFirstCaseView()
     }, v = e => {
-        let a = document.querySelectorAll(".taplive-submit-new-case");
+        let a = dc.querySelectorAll(".taplive-submit-new-case");
         for (let t = 0; t < a.length; t++) a[t].remove();
         "progress" === e ? tapliveHelper.tapliveAppend("button", "taplive-submit-new-chat taplive-main-brand-button taplive-submit-new-case", !0, ".taplive-start-new-case-form", `
                 <div class="taplive-lds-ring">
@@ -2552,7 +2553,7 @@ var tapliveGetUpdatedRoomList = e => {
                     let t = JSON.parse(tapliveHelper.tapliveGetLocalStorage("taplive.auth")).user;
                     tapliveCallback.tapliveOnSendMessage(a.data.case, t.fullName, t.email, window.location.href)
                 }
-                tapliveHelper.tapliveChatRoomAddInputMessageField(), document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide")
+                tapliveHelper.tapliveChatRoomAddInputMessageField(), dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide")
             } else 401 === a.status ? "40104" === a.error.code ? r(() => c(e)) : (tapliveHelper.onKickSessionBackToFormLogin(), tapliveSnackBar.tapliveSetSnackBar("fail", "Your token is expired")) : tapliveSnackBar.tapliveSetSnackBar("fail", a.error.message)
         }).catch(function (e) {
             console.log(e)
@@ -2601,23 +2602,23 @@ var tapliveGetUpdatedRoomList = e => {
             }
         })
     }, w = e => {
-        let a = document.querySelectorAll(".taplive-main-chat-room-bubble-container")[0],
-            t = document.querySelectorAll(`[data-chat-id="${e}"`)[0], i = () => {
+        let a = dc.querySelectorAll(".taplive-main-chat-room-bubble-container")[0],
+            t = dc.querySelectorAll(`[data-chat-id="${e}"`)[0], i = () => {
                 a.scrollTop = t.offsetTop, t.classList.add("highlight-chat-bubble"), setTimeout(() => {
                     t.classList.remove("highlight-chat-bubble")
                 }, 2e3)
             };
         t ? i() : b(!1, !1, e)
     }, $ = () => {
-        document.querySelectorAll(".taplive-main-chat-room-bubble-container")[0].innerHTML = "";
+        dc.querySelectorAll(".taplive-main-chat-room-bubble-container")[0].innerHTML = "";
         let e = tapliveChatRoomData.chatRoomDataChat;
         e && Object.keys(e).map(a => {
             e[a].isHidden || tapliveHelper.generateMessageBubble(e[a])
         })
     }, f = (e, a, t, i) => {
-        tapliveChatRoomData.adminName = e, tapliveChatRoomData.case.caseID = a, tapliveChatRoomData.case.caseName = t, tapliveChatRoomData.room = i, tapliveChatRoomData.chatRoomDataChat = [], tapliveHelper.tapliveToogleTapliveBlockingLoading(!1), document.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, g(), u()
+        tapliveChatRoomData.adminName = e, tapliveChatRoomData.case.caseID = a, tapliveChatRoomData.case.caseName = t, tapliveChatRoomData.room = i, tapliveChatRoomData.chatRoomDataChat = [], tapliveHelper.tapliveToogleTapliveBlockingLoading(!1), dc.querySelectorAll(".taplive-main-chat-room-case-id")[0].innerHTML = tapliveChatRoomData.case.caseName, g(), u()
     }, x = () => {
-        document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide"), tapliveHelper.removeAttrStyle("taplive-input-text"), document.querySelectorAll(".input-message-wrapper")[0].classList.remove("submit-chat-icon-wrapper"), document.querySelectorAll(".input-message-wrapper")[0].classList.add("button-disabled"), document.querySelectorAll(".taplive-main-chat-room-send-message-input")[0].classList.remove("taplive-main-chat-room-send-message-input-typing"), tapliveTyping.stopTyping(tapliveChatRoomData.room.roomID), "" !== (tapliveSendTextMessageVal = tapliveHelper.tapliveSHTML(tapliveSendTextMessageVal)) && 0 !== tapliveSendTextMessageVal.replace(/\s/g, "").length && tapCoreMessageManager.sendTextMessage(tapliveSendTextMessageVal, tapliveChatRoomData.room, function (e) {
+        dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide"), tapliveHelper.removeAttrStyle("taplive-input-text"), dc.querySelectorAll(".input-message-wrapper")[0].classList.remove("submit-chat-icon-wrapper"), dc.querySelectorAll(".input-message-wrapper")[0].classList.add("button-disabled"), dc.querySelectorAll(".taplive-main-chat-room-send-message-input")[0].classList.remove("taplive-main-chat-room-send-message-input-typing"), tapliveTyping.stopTyping(tapliveChatRoomData.room.roomID), "" !== (tapliveSendTextMessageVal = tapliveHelper.tapliveSHTML(tapliveSendTextMessageVal)) && 0 !== tapliveSendTextMessageVal.replace(/\s/g, "").length && tapCoreMessageManager.sendTextMessage(tapliveSendTextMessageVal, tapliveChatRoomData.room, function (e) {
             if (e.body = tapliveSendTextMessageVal, "function" == typeof tapliveCallback.tapliveOnSendMessage) {
                 let a = JSON.parse(tapliveHelper.tapliveGetLocalStorage("taplive.auth")).user;
                 tapliveCallback.tapliveOnSendMessage(e, a.fullName, a.email, window.location.href)
@@ -2625,20 +2626,20 @@ var tapliveGetUpdatedRoomList = e => {
             tapliveChatRoomData.chatRoomDataChat[e.localID] = e, tapliveRoomListAction.setRoomListLastMessage(e, tapliveRoomListData2, !1, e => {
                 tapliveRoomListData2 = e
             }), tapliveHelper.renderRoomlistWithOmnichannel(tapliveRoomListData2[Object.keys(tapliveRoomListData2)[0]], "taplive-room-list-with-omnichannel-chatlist-wrapper"), tapliveView.tapliveLoopRenderRoomListContent(), tapliveView.tapliveRenderChatBubbleMessageOut(e), tapliveHelper.tapliveScrollChatViewToBottom(), tapliveHelper.tapliveOnClickCancelReply(), tapliveHelper.removeAttrStyle("taplive-main-chat-room-container")
-        }, tapliveReplyMessage.message), tapliveSendTextMessageVal = "", document.querySelectorAll(".taplive-input-text")[0].value = ""
+        }, tapliveReplyMessage.message), tapliveSendTextMessageVal = "", dc.querySelectorAll(".taplive-input-text")[0].value = ""
     };
     tapliveHelper.tapliveAddEventForChild(".taplive-input-text", "focusout", function () {
         tapliveTyping.stopTyping(tapliveChatRoomData.room.roomID)
     }), tapliveHelper.tapliveAddEventForChild(".taplive-input-text", "keyup", function (e) {
         tapliveTyping.isTyping && (tapliveTyping.typingTimeoutID && clearTimeout(tapliveTyping.typingTimeoutID), tapliveTyping.typingTimeoutID = setTimeout(() => {
             tapliveTyping.stopTyping(tapliveChatRoomData.room.roomID)
-        }, 7e3)), e.target.value.length > 0 ? document.querySelectorAll(".taplive-main-chat-room-send-message-input")[0].classList.add("taplive-main-chat-room-send-message-input-typing") : document.querySelectorAll(".taplive-main-chat-room-send-message-input")[0].classList.remove("taplive-main-chat-room-send-message-input-typing"), 13 !== e.which || e.shiftKey || x(), tapliveSendTextMessageVal = e.target.value, e.target.value.length <= 0 ? (document.querySelectorAll(".input-message-wrapper")[0].classList.remove("submit-chat-icon-wrapper"), document.querySelectorAll(".input-message-wrapper")[0].classList.add("button-disabled")) : (document.querySelectorAll(".input-message-wrapper")[0].classList.remove("button-disabled"), document.querySelectorAll(".input-message-wrapper")[0].classList.add("submit-chat-icon-wrapper"))
+        }, 7e3)), e.target.value.length > 0 ? dc.querySelectorAll(".taplive-main-chat-room-send-message-input")[0].classList.add("taplive-main-chat-room-send-message-input-typing") : dc.querySelectorAll(".taplive-main-chat-room-send-message-input")[0].classList.remove("taplive-main-chat-room-send-message-input-typing"), 13 !== e.which || e.shiftKey || x(), tapliveSendTextMessageVal = e.target.value, e.target.value.length <= 0 ? (dc.querySelectorAll(".input-message-wrapper")[0].classList.remove("submit-chat-icon-wrapper"), dc.querySelectorAll(".input-message-wrapper")[0].classList.add("button-disabled")) : (dc.querySelectorAll(".input-message-wrapper")[0].classList.remove("button-disabled"), dc.querySelectorAll(".input-message-wrapper")[0].classList.add("submit-chat-icon-wrapper"))
     }), tapliveHelper.tapliveAddEventForChild(".taplive-input-text", "keydown", function (e) {
         13 !== e.which || e.shiftKey || e.preventDefault(), tapliveTyping.isTyping || tapliveTyping.startTyping(tapliveChatRoomData.room.roomID)
     }), tapliveHelper.tapliveAddEventForChild(".taplive-input-text", "input", function (e) {
         let a = tapliveHelper.tapliveHasClass(".taplive-main-chat-room-solve-wrapper", "taplive-main-chat-room-solve-wrapper-hide");
-        "" !== e.target.value || (tapliveHelper.removeAttrStyle("taplive-input-text"), a ? tapliveReplyMessage.message || tapliveHelper.removeAttrStyle("taplive-main-chat-room-container") : document.querySelectorAll(".taplive-main-chat-room-container")[0].style.cssText = "max-height: calc(100% - 165px); min-height: calc(100% - 165px);");
-        let t = document.querySelectorAll(".taplive-input-text")[0], i = t.offsetHeight;
+        "" !== e.target.value || (tapliveHelper.removeAttrStyle("taplive-input-text"), a ? tapliveReplyMessage.message || tapliveHelper.removeAttrStyle("taplive-main-chat-room-container") : dc.querySelectorAll(".taplive-main-chat-room-container")[0].style.cssText = "max-height: calc(100% - 165px); min-height: calc(100% - 165px);");
+        let t = dc.querySelectorAll(".taplive-input-text")[0], i = t.offsetHeight;
         t.style.height = "", t.style.height = t.scrollHeight + "px";
         let l = t.offsetHeight;
         if (i !== l) {
@@ -2660,22 +2661,22 @@ var tapliveGetUpdatedRoomList = e => {
         tapliveHelper.removeAttrStyle("taplive-main-chat-room-container"), tapliveHelper.removeAttrStyle("taplive-input-text");
         let e = this.getAttribute("data-room-id").replace(/"/g, "").replace(/'/g, ""), a = tapliveRoomListData2[e].id,
             t = tapliveRoomListData2[e].tapTalkRoom.lastMessage.room;
-        f("Admin", a, `${tapliveRoomListData2[e].topicName} (#${tapliveRoomListData2[e].stringID})`, t), document.querySelectorAll(".taplive-main-chat-room-solve-wrapper").length > 0 && (document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide"), document.querySelectorAll(".input-message-wrapper")[0].classList.remove("submit-chat-icon-wrapper"), document.querySelectorAll(".input-message-wrapper")[0].classList.add("button-disabled")), document.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), document.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), document.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.toggle("taplive-active-main-chat-room-wrapper")
+        f("Admin", a, `${tapliveRoomListData2[e].topicName} (#${tapliveRoomListData2[e].stringID})`, t), dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper").length > 0 && (dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide"), dc.querySelectorAll(".input-message-wrapper")[0].classList.remove("submit-chat-icon-wrapper"), dc.querySelectorAll(".input-message-wrapper")[0].classList.add("button-disabled")), dc.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), dc.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), dc.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.toggle("taplive-active-main-chat-room-wrapper")
     }), tapliveHelper.tapliveAddEventForChild(".taplive-room-list-bottom-new-message", "click", function () {
-        tapliveHelper.tapliveClearCreateNewMessageValue(), document.querySelectorAll(".taplive-start-new-message-header")[0].innerHTML = `
+        tapliveHelper.tapliveClearCreateNewMessageValue(), dc.querySelectorAll(".taplive-start-new-message-header")[0].innerHTML = `
                     <img src="${tapliveStorageBaseURL}/image/chat-room/icon-close.svg" id="taplive-close-new-message">
                     <b>${TapTalkLive.getTapliveLanguageVar().screenNewMessage.text1}</b>
             `, tapliveHelper.tapliveCustomFadeIn("taplive-start-new-message-wrapper")
     }), tapliveHelper.tapliveAddEventForChild("#taplive-close-new-message", "click", function () {
         if (tapliveHelper.tapliveClearCreateNewMessageValue(), tapliveFaq.faqMainViewActive) {
-            let e = document.querySelectorAll(".taplive-main-faq-box-wrapper")[0];
-            e && (tapliveHelper.goToOmnichannelFirstStartNewCase(), e.classList.add("taplive-active-main-faq-box-wrapper"), document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"))
+            let e = dc.querySelectorAll(".taplive-main-faq-box-wrapper")[0];
+            e && (tapliveHelper.goToOmnichannelFirstStartNewCase(), e.classList.add("taplive-active-main-faq-box-wrapper"), dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"))
         }
         tapliveHelper.onClickCloseNewMessage()
     }), tapliveHelper.tapliveAddEventForChild(".taplive-submit-new-message", "click", function () {
         let e = !0;
         var a = e => {
-            let a = document.querySelectorAll(".taplive-submit-new-chat");
+            let a = dc.querySelectorAll(".taplive-submit-new-chat");
             for (let t = 0; t < a.length; t++) a[t].remove();
             "progress" === e ? tapliveHelper.tapliveAppend("button", "taplive-submit-new-chat taplive-main-brand-button", !0, ".taplive-start-new-chat-form-wrapper", `
                             <div class="taplive-lds-ring">
@@ -2701,7 +2702,7 @@ var tapliveGetUpdatedRoomList = e => {
                 setTimeout(() => {
                     v("finish"), tapCoreRoomListManager.getRoomByXcID(e.tapTalkXCRoomID, {
                         onSuccess(t) {
-                            a("finish"), tapliveHelper.tapliveCustomFadeOut("taplive-start-new-message-wrapper"), document.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), document.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), document.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.add("taplive-active-main-chat-room-wrapper");
+                            a("finish"), tapliveHelper.tapliveCustomFadeOut("taplive-start-new-message-wrapper"), dc.querySelectorAll(".taplive-room-list-with-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"), dc.querySelectorAll(".taplive-room-list-wrapper")[0].classList.remove("taplive-active-room-list-wrapper"), dc.querySelectorAll(".taplive-main-chat-room-wrapper")[0].classList.add("taplive-active-main-chat-room-wrapper");
                             let i = t.room.xcRoomID.replace("case:", "");
                             tapliveHelper.tapliveChatRoomAddInputMessageField(), f("Admin", i, `${e.topicName} (#${e.stringID})`, t.room), tapliveHelper.tapliveResetTopicListOption(), tapliveHelper.resetFormLoginValue(), tapliveHelper.tapliveClearCreateNewMessageValue()
                         }, onError(e, a) {
@@ -2716,17 +2717,17 @@ var tapliveGetUpdatedRoomList = e => {
     }), tapliveHelper.tapliveAddEventForChild(".taplive-main-chat-room-back-button", "click", function () {
         tapliveHelper.onClickBackFromChatRoom(!0)
     }), tapliveHelper.tapliveAddEventForChild(".taplive-main-chat-wrapper", "click", function (e) {
-        "taplive-icon-attach-input-message" !== e.target.id && document.querySelectorAll(".taplive-input-file-media-wrapper").length > 0 && (document.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display = "none")
+        "taplive-icon-attach-input-message" !== e.target.id && dc.querySelectorAll(".taplive-input-file-media-wrapper").length > 0 && (dc.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display = "none")
     }), tapliveHelper.tapliveAddEventForChild("#taplive-icon-attach-input-message", "click", function (e) {
-        "none" === document.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display ? document.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display = "block" : document.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display = "none"
+        "none" === dc.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display ? dc.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display = "block" : dc.querySelectorAll(".taplive-input-file-media-wrapper")[0].style.display = "none"
     }), tapliveHelper.tapliveAddEventForChild(".taplive-mark-as-solved-case-panel-toggle", "click", function () {
-        let e = parseInt(getComputedStyle(document.querySelectorAll(".taplive-main-chat-room-container")[0]).maxHeight.split("-")[1].replace("px", ""));
+        let e = parseInt(getComputedStyle(dc.querySelectorAll(".taplive-main-chat-room-container")[0]).maxHeight.split("-")[1].replace("px", ""));
         if (tapliveHelper.tapliveHasClass(".taplive-main-chat-room-solve-wrapper", "taplive-main-chat-room-solve-wrapper-hide")) {
             let a = e + 40;
-            document.querySelectorAll(".taplive-main-chat-room-container")[0].style.cssText = `max-height: calc(100% - ${a}px); min-height: calc(100% - ${a}px);`, document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.remove("taplive-main-chat-room-solve-wrapper-hide")
+            dc.querySelectorAll(".taplive-main-chat-room-container")[0].style.cssText = `max-height: calc(100% - ${a}px); min-height: calc(100% - ${a}px);`, dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.remove("taplive-main-chat-room-solve-wrapper-hide")
         } else {
             let t = e - 40;
-            document.querySelectorAll(".taplive-main-chat-room-container")[0].style.cssText = `max-height: calc(100% - ${t}px); min-height: calc(100% - ${t}px);`, document.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide")
+            dc.querySelectorAll(".taplive-main-chat-room-container")[0].style.cssText = `max-height: calc(100% - ${t}px); min-height: calc(100% - ${t}px);`, dc.querySelectorAll(".taplive-main-chat-room-solve-wrapper")[0].classList.add("taplive-main-chat-room-solve-wrapper-hide")
         }
     });
     tapliveHelper.tapliveAddEventForChild("#taplive-chat-room-mark-as-solved-button", "click", function () {
@@ -2744,7 +2745,7 @@ var tapliveGetUpdatedRoomList = e => {
         e()
     });
     var _ = e => {
-        document.querySelectorAll(".taplive-submit-review-button")[0].remove(), "progress" === e ? tapliveHelper.tapliveAppend("button", "taplive-main-brand-button taplive-submit-review-button", !0, ".taplive-review-content-foot", `
+        dc.querySelectorAll(".taplive-submit-review-button")[0].remove(), "progress" === e ? tapliveHelper.tapliveAppend("button", "taplive-main-brand-button taplive-submit-review-button", !0, ".taplive-review-content-foot", `
                     <div class="taplive-lds-ring">
                         <div></div>
                         <div></div>
@@ -2768,20 +2769,20 @@ var tapliveGetUpdatedRoomList = e => {
             note: tapliveReview.tapliveReviewInput.note
         };
         _("progress"), tapliveHelper.tapliveDoXMLHTTPRequest("POST", l, e, t, !1).then(function (e) {
-            "" === e.error.code ? (_("finish"), document.querySelectorAll(".taplive-review-wrapper")[0].classList.remove("active-taplive-review-wrapper")) : 401 === e.status ? "40104" === e.error.code ? r(() => k()) : (_("finish"), tapliveHelper.onKickSessionBackToFormLogin(), tapliveSnackBar.tapliveSetSnackBar("fail", "Your token is expired")) : (_("finish"), tapliveSnackBar.tapliveSetSnackBar("fail", e.error.message))
+            "" === e.error.code ? (_("finish"), dc.querySelectorAll(".taplive-review-wrapper")[0].classList.remove("active-taplive-review-wrapper")) : 401 === e.status ? "40104" === e.error.code ? r(() => k()) : (_("finish"), tapliveHelper.onKickSessionBackToFormLogin(), tapliveSnackBar.tapliveSetSnackBar("fail", "Your token is expired")) : (_("finish"), tapliveSnackBar.tapliveSetSnackBar("fail", e.error.message))
         }).catch(function (e) {
             console.log(e)
         })
     };
     tapliveHelper.tapliveAddEventForChild("#taplive-close-review-button", "click", function () {
-        document.querySelectorAll(".taplive-review-wrapper")[0].classList.remove("active-taplive-review-wrapper")
+        dc.querySelectorAll(".taplive-review-wrapper")[0].classList.remove("active-taplive-review-wrapper")
     }), tapliveHelper.tapliveAddEventForChild(".taplive-review-button-bubble", "click", function () {
-        tapliveReview.tapliveClearReviewInputValue(), document.querySelectorAll(".taplive-review-wrapper")[0].classList.add("active-taplive-review-wrapper"), document.querySelectorAll(".taplive-review-text-length")[0].innerHTML = "(0/1000)"
+        tapliveReview.tapliveClearReviewInputValue(), dc.querySelectorAll(".taplive-review-wrapper")[0].classList.add("active-taplive-review-wrapper"), dc.querySelectorAll(".taplive-review-text-length")[0].innerHTML = "(0/1000)"
     });
     var R = 3;
     tapliveHelper.tapliveAddEventForChild(".taplive-star-image-click-content", "click", function () {
         let e = this.getAttribute("data-star");
-        document.querySelectorAll(".taplive-submit-review-button")[0].disabled = !1, R = e, tapliveReview.tapliveReviewInput.star = R, document.querySelectorAll(".taplive-star-image")[0].src = `${tapliveStorageBaseURL}/image/review/stars-${R}.svg`, document.querySelectorAll(".taplive-star-word")[0].innerHTML = `<b>${tapliveReview.tapliveReviewValue[R]}</b>`
+        dc.querySelectorAll(".taplive-submit-review-button")[0].disabled = !1, R = e, tapliveReview.tapliveReviewInput.star = R, dc.querySelectorAll(".taplive-star-image")[0].src = `${tapliveStorageBaseURL}/image/review/stars-${R}.svg`, dc.querySelectorAll(".taplive-star-word")[0].innerHTML = `<b>${tapliveReview.tapliveReviewValue[R]}</b>`
     }), tapliveHelper.tapliveAddEventForChild("#taplive-submit-review", "click", function () {
         k()
     });
@@ -2808,7 +2809,7 @@ var tapliveGetUpdatedRoomList = e => {
                             l = e.tapTalkRoom.lastMessage.data;
                         e.tapTalkRoom.lastMessage.body = taptalk.generateBodyAndData(a, t), "" !== l && (e.tapTalkRoom.lastMessage.data = JSON.parse(taptalk.generateBodyAndData(l, t))), i[e.tapTalkRoom.lastMessage.room.roomID] = e
                     }), tapliveRoomListData2 = i, tapliveHelper.tapliveShowCounterBadge(i);
-                    let l = document.querySelectorAll(".taplive-shimmer-room-list");
+                    let l = dc.querySelectorAll(".taplive-shimmer-room-list");
                     for (let p = 0; p < l.length; p++) l[p].style.display = "none";
                     e.onSuccess(a.data)
                 } else 401 === a.status ? "40104" === a.error.code ? r(() => tapliveGetCaseList(e)) : (tapliveHelper.onKickSessionBackToFormLogin(), tapliveSnackBar.tapliveSetSnackBar("fail", "Your token is expired")) : tapliveSnackBar.tapliveSetSnackBar("fail", a.error.message)
@@ -2823,23 +2824,23 @@ var tapliveGetUpdatedRoomList = e => {
         tapliveHelper.tapliveCustomFadeOut("taplive-snack-bar-wrapper")
     }), tapliveHelper.tapliveAddEventForChild(".taplive-outer-container", "click", function (e) {
         if ("taplive-custom-select-option-value-box taplive-custom-select-option-value-box-taplive-start-new-case" !== e.target.className) {
-            let a = document.querySelectorAll(".taplive-custom-select-option-value-box"),
-                t = document.querySelectorAll(".taplive-custom-select-option-wrapper");
+            let a = dc.querySelectorAll(".taplive-custom-select-option-value-box"),
+                t = dc.querySelectorAll(".taplive-custom-select-option-wrapper");
             for (let i = 0; i < a.length; i++) a[i].classList.remove("taplive-active-select-box"), t[i].style.display = "none"
         }
     }), tapliveHelper.tapliveAddEventForChild(".taplive-custom-select-option", "click", function (e) {
-        let a = this.getAttribute("data"), t = document.querySelectorAll(".taplive-custom-select-option-value-box"),
-            i = document.querySelectorAll(`.taplive-custom-select-${a}`),
-            l = document.querySelectorAll(".taplive-custom-select-option-wrapper");
+        let a = this.getAttribute("data"), t = dc.querySelectorAll(".taplive-custom-select-option-value-box"),
+            i = dc.querySelectorAll(`.taplive-custom-select-${a}`),
+            l = dc.querySelectorAll(".taplive-custom-select-option-wrapper");
         for (let p = 0; p < i.length; p++) "block" === i[p].style.display ? (t[p].classList.remove("taplive-active-select-box"), i[p].style.display = "none") : (t[p].classList.remove("taplive-active-select-box"), i[p].classList.add("taplive-active-select-box"), i[p].style.display = "block", l[p].style.display = "block")
     }), tapliveHelper.tapliveAddEventForChild(".taplive-custom-select-option-list", "click", function () {
         let e = this.getAttribute("data-value"), a = this.getAttribute("data-value-to"),
             t = this.getAttribute("data-label"), i = this.getAttribute("data-select"),
-            l = document.querySelectorAll(".taplive-custom-select-option-value-box"),
-            p = document.querySelectorAll(".taplive-custom-select-option-wrapper");
+            l = dc.querySelectorAll(".taplive-custom-select-option-value-box"),
+            p = dc.querySelectorAll(".taplive-custom-select-option-wrapper");
         for (let r = 0; r < l.length; r++) l[r].innerHTML = t, p[r].style.display = "none";
         tapliveSelectOptionValue[a] = e;
-        let o = document.querySelectorAll(`.taplive-custom-select-${i} .taplive-custom-select-option-list`);
+        let o = dc.querySelectorAll(`.taplive-custom-select-${i} .taplive-custom-select-option-list`);
         for (let n = 0; n < o.length; n++) o[n].classList.remove("taplive-selected-option");
         this.classList.add("taplive-selected-option")
     }), tapliveHelper.tapliveAddEventForChild(".taplive-first-message-us-directly", "click", function () {
@@ -2850,27 +2851,27 @@ var tapliveGetUpdatedRoomList = e => {
         tapliveHelper.goToRoomlistWithoutOmnichannel()
     }), tapliveHelper.tapliveAddEventForChild(".first-start-new-case-back-button", "click", function () {
         if (tapliveHelper.tapliveResetTopicListOption(), tapliveFaq.faqMainViewActive) {
-            let e = document.querySelectorAll(".taplive-main-faq-box-wrapper")[0];
-            e && (tapliveHelper.goToOmnichannelFirstStartNewCase(), e.classList.add("taplive-active-main-faq-box-wrapper"), document.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"))
+            let e = dc.querySelectorAll(".taplive-main-faq-box-wrapper")[0];
+            e && (tapliveHelper.goToOmnichannelFirstStartNewCase(), e.classList.add("taplive-active-main-faq-box-wrapper"), dc.querySelectorAll(".taplive-start-new-case-without-omnichannel")[0].classList.remove("taplive-active-start-new-case-wrapper"))
         } else tapliveHelper.goToOmnichannelFirstStartNewCase();
         tapliveHelper.resetFormLoginValue()
     }), tapliveHelper.tapliveAddEventForChild(".new-file-download-to-storage", "click", function () {
         let e = this.getAttribute("data-file-url"), a = this.getAttribute("data-file-name");
         tapliveHelper.downloadFileToStorage(e, a)
     }), tapliveHelper.tapliveAddEventForChild(".taplive-close-preview-panel", "click", function () {
-        document.querySelectorAll(".taplive-image-preview-value")[0].src = "", tapliveHelper.tapliveCustomFadeOut("taplive-image-preview-panel"), tapliveHelper.tapliveCustomFadeOut("taplive-video-preview-panel")
+        dc.querySelectorAll(".taplive-image-preview-value")[0].src = "", tapliveHelper.tapliveCustomFadeOut("taplive-image-preview-panel"), tapliveHelper.tapliveCustomFadeOut("taplive-video-preview-panel")
     }), tapliveHelper.tapliveAddEventForChild(".taplive-main-image-message-clicker", "click", function () {
         let e = this.getAttribute("data-image-url");
-        tapliveHelper.tapliveCustomFadeIn("taplive-image-preview-panel"), document.querySelectorAll(".taplive-image-preview-value")[0].src = e, document.querySelectorAll(".taplive-zoom-figure")[0].style.backgroundImage = `url("${e}")`
+        tapliveHelper.tapliveCustomFadeIn("taplive-image-preview-panel"), dc.querySelectorAll(".taplive-image-preview-value")[0].src = e, dc.querySelectorAll(".taplive-zoom-figure")[0].style.backgroundImage = `url("${e}")`
     }), tapliveHelper.tapliveAddEventForChild(".taplive-main-video-message-clicker", "click", function () {
         let e = this.getAttribute("data-video-url");
-        tapliveHelper.tapliveCustomFadeIn("taplive-video-preview-panel"), document.querySelectorAll(".taplive-video-preview-value")[0].src = e
+        tapliveHelper.tapliveCustomFadeIn("taplive-video-preview-panel"), dc.querySelectorAll(".taplive-video-preview-value")[0].src = e
     }), tapliveHelper.tapliveAddEventForChild("#taplive-input-file-media", "change", function (e) {
         tapliveHelper.tapliveRunOnChangeMedia(e.target.files[0])
     }), tapliveHelper.tapliveAddEventForChild(".taplive-close-preupload-panel", "click", function (e) {
         tapliveHelper.onClosePreuploadPanel()
     }), tapliveHelper.tapliveAddEventForChild(".taplive-caption-input", "keyup", function (e) {
-        let a = e.target.value, t = a.length, i = document.querySelectorAll(".taplive-caption-limit");
+        let a = e.target.value, t = a.length, i = dc.querySelectorAll(".taplive-caption-limit");
         if (tapliveCaptionValue = a, t <= 100) for (let l = 0; l < i.length; l++) i[l].innerHTML = `${t}/100`
     }), tapliveHelper.tapliveAddEventForChild("#taplive-submit-image", "click", function () {
         let e = tapliveFileMediaValue, a = tapliveHelper.tapliveSHTML(tapliveCaptionValue), t = e => {
@@ -2913,15 +2914,15 @@ var tapliveGetUpdatedRoomList = e => {
     }), tapliveHelper.tapliveAddEventForChild(".taplive-input-text", "paste", function (e) {
         tapliveHelper.tapliveCheckIsFileorMedia(e.clipboardData.files)
     }), tapliveHelper.tapliveAddEventForChild(".omnichannel-option-image-content a img", "mouseover", function () {
-        let e = document.querySelectorAll(".omnichannel-option-image-content a img");
+        let e = dc.querySelectorAll(".omnichannel-option-image-content a img");
         if (window.innerWidth > 768) for (let a = 0; a < e.length; a++) e[a].style.cssText = "opacity: 0.5;"
     }), tapliveHelper.tapliveAddEventForChild(".omnichannel-option-image-content a img", "mouseout", function () {
-        let e = document.querySelectorAll(".omnichannel-option-image-content a img");
+        let e = dc.querySelectorAll(".omnichannel-option-image-content a img");
         if (window.innerWidth > 768) for (let a = 0; a < e.length; a++) e[a].style.cssText = "opacity: 1;"
     }), window.addEventListener("scroll", e => {
         let a = e.target.className;
         if ("taplive-main-chat-room-bubble-container" === a) {
-            let t = document.querySelectorAll(`.${a}`)[0];
+            let t = dc.querySelectorAll(`.${a}`)[0];
             if (0 === t.scrollTop && tapliveChatRoomData.hasMore) {
                 let i = t.scrollHeight;
                 b(!1, function () {
