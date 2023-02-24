@@ -75,10 +75,9 @@ import {useSearchStore} from "~/stores/search";
 
 const {getResults} = useSearchStore()
 const keyword = ref('')
-const results = ref([])
+const results = ref(getResults)
 const isLoading = ref(false)
 const isModalShow = ref(false)
-
 const handleButton = (forceModal?: boolean, forceModalValue?: boolean) => showModal(isModalShow, forceModal, forceModalValue)
 
 useMount(keyword, results, isModalShow, isLoading)
