@@ -57,16 +57,4 @@ import {usePlatformStore} from "~/stores/platform";
 
 const {isWebView} = usePlatformStore()
 const categories = await fetchAll()
-useHead({
-  script: [
-    {
-      src: '/js/taptalk.js',
-      body: true
-    },
-    {
-      children: `TapTalkLive.init("e6f7195bd71abaf3154b4706ffb3cc118ca48cd7787517992d9800bbd891beae")`,
-      body: true
-    }
-  ]
-})
 </script>
