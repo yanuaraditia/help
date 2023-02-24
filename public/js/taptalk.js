@@ -22,8 +22,8 @@ let tapliveApiBaseURL = "https://taplive-cstd.taptalk.io/api/visitor/v1", setTap
     tapliveLauncherReady = !1;
 
 let dc = document
-const CHAT_ICON_URL = `../assets/icon-chat.svg`
-const CHAT_ICON_CLOSE_URL = `../assets/close-chat.svg`
+const CHAT_ICON_URL = `https://help.kiriminaja.com/assets/icon-chat.svg`
+const CHAT_ICON_CLOSE_URL = `https://help.kiriminaja.com/assets/close-chat.svg`
 
 const renderIntro = (className = 'taplive-start-new-chat-top-content') => {
     return `            <div class="${className} graders">
