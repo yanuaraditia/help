@@ -1,7 +1,7 @@
 import {Help, HelpCategory} from "~/types/index";
 
 export interface CategoryStateInterface {
-    categories: HelpCategory[],
+    categories: HelpCategory[] | any,
     selectedCategory?: any | null
 }
 

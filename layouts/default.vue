@@ -12,4 +12,16 @@
 export default {
   name: 'defaultLayout'
 }
+
+</script>
+
+<script lang="ts" setup>
+import {usePlatformStore} from "~/stores/platform";
+
+const {query} = useRoute()
+const {isWebView, setWebView} = usePlatformStore()
+
+if (!isWebView && query.platform) {
+  setWebView(true)
+}
 </script>

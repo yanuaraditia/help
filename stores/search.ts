@@ -1,5 +1,6 @@
 import {acceptHMRUpdate, defineStore} from "pinia";
 import {ResultStructure} from "~/types";
+import {useCategoryStore} from "~/stores/helpCategories";
 
 interface StateStructure {
     results?: ResultStructure[],
@@ -49,3 +50,9 @@ export const useSearchStore = defineStore('searchStore', {
         }
     }
 })
+
+if (import.meta.hot) {
+    import.meta.hot.accept(
+        acceptHMRUpdate(useCategoryStore, import.meta.hot)
+    )
+}
