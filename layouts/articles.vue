@@ -1,12 +1,12 @@
 <template>
   <NuxtLoadingIndicator/>
   <div>
-    <header-article/>
+    <header-article v-if="!isWebView"/>
     <section class="py-6 xl:py-8 relative">
       <div class="container mx-auto px-5 relative">
         <div class="grid xl:grid-cols-8 gap-7">
           <div class="xl:col-span-2">
-            <div class="xl:sticky z-50 xl:top-28">
+            <div class="xl:sticky z-50" :class="[isWebView ? '' : 'xl:top-28']">
               <div class="xl:w-10/12">
                 <Search/>
               </div>
@@ -37,7 +37,7 @@
             <div class="container mx-auto">
               <slot/>
             </div>
-            <Footer/>
+            <Footer v-if="!isWebView"/>
           </div>
         </div>
       </div>
@@ -46,7 +46,6 @@
 </template>
 
 <script lang="ts">
-
 export default {
   name: "articles",
   extends: 'default'
@@ -54,6 +53,8 @@ export default {
 </script>
 <script setup lang="ts">
 import {fetchAll} from "~/repositories/helpCategoryRepository";
+import {usePlatformStore} from "~/stores/platform";
 
+const {isWebView} = usePlatformStore()
 const categories = await fetchAll()
 </script>

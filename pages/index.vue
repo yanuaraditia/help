@@ -4,7 +4,7 @@
       <div class="grid xl:grid-cols-3">
         <div class="xl:col-span-2">
           <div class="xl:w-12/12">
-            <div class="text-primary-700 mb-10">
+            <div class="text-primary-700 mb-10" v-if="!isWebView">
               <Logo class-name="block hover:text-primary-600"/>
             </div>
             <div class="mb-7">
@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <div class="hidden xl:block">
+        <div class="hidden xl:block" v-if="!isWebView">
           <img src="/assets/illustration-help-1.webp" class="w-full" alt="Help KiriminAja">
         </div>
       </div>
@@ -51,8 +51,10 @@
 <script setup lang="ts">
 import {fetchAll} from "~/repositories/helpCategoryRepository";
 import {seoBuilder} from "~/utlis/seoBuilder";
+import {usePlatformStore} from "~/stores/platform";
 
 const {data: categories} = await useAsyncData('home', () => fetchAll())
+const {isWebView} = usePlatformStore()
 useHead(
     seoBuilder(
         'Help Center',
