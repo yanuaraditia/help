@@ -37,7 +37,7 @@
             <div class="container mx-auto">
               <slot/>
             </div>
-            <Footer/>
+            <Footer v-if="!isWebView"/>
           </div>
         </div>
       </div>
