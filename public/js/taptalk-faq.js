@@ -68,8 +68,8 @@ class TapliveFaqCore {
         let a = document.querySelectorAll(".taplive-faq-box-wrapper");
         if (a.length > 0) {
             for (let b = 0; b < a.length; b++) a[b].children[0].innerHTML = `
-                    <h1 class="tapive-faq-title-1">${TapTalkLive.getTapliveLanguageVar().faq.text1}</h1>
-                    <h2 class="tapive-faq-title-2">${this.tapliveFaqLineBreak(this.faq.title)}</h2>
+                    <h2 class="tapive-faq-title-1">${TapTalkLive.getTapliveLanguageVar().faq.text1}</h2>
+                    <h3 class="tapive-faq-title-2">${this.tapliveFaqLineBreak(this.faq.title)}</h3>
                     <p class="tapive-faq-description-1">${this.tapliveFaqLineBreak(this.faq.content)}</p>
                     
                     ${"talk_to_agent" === c ? `
@@ -103,7 +103,7 @@ class TapliveFaqCore {
     taplivePrintFaqOnRoomListWithOmnichannelShimmer() {
         let a = document.querySelectorAll(".taplive-faq-box-wrapper");
         if (a.length > 0) for (let b = 0; b < a.length; b++) a[b].children[0].innerHTML = `
-                    <h1 class="tapive-faq-title-1">${TapTalkLive.getTapliveLanguageVar().faq.text1}</h1>
+                    <h2 class="tapive-faq-title-1">${TapTalkLive.getTapliveLanguageVar().faq.text1}</h2>
                     
                     <div class="taplive-faq-list-wrapper taplive-faq-list-shimmer">
                         <div class="taplive-faq-list">
@@ -131,7 +131,7 @@ class TapliveFaqCore {
                 </div>
 
                 <div class="taplive-main-faq-content">
-                    <h1 class="taplive-main-faq-content-title">${TapTalkLive.getTapliveLanguageVar().faq.text2}</h1>
+                    <h2 class="taplive-main-faq-content-title">${TapTalkLive.getTapliveLanguageVar().faq.text2}</h2>
 
                     <p class="taplive-main-faq-content-description">${TapTalkLive.getTapliveLanguageVar().faq.text3}</p>
 
@@ -145,7 +145,7 @@ class TapliveFaqCore {
                 </div>
             `, [{attribute: "tabindex", value: "-1"}]); else if (a.length > 0) {
             for (let b = 0; b < a.length; b++) a[b].innerHTML = `
-                        <h1 class="taplive-main-faq-content-title">${this.tapliveFaqLineBreak(this.faqActiveChildData.title)}</h1>
+                        <h2 class="taplive-main-faq-content-title">${this.tapliveFaqLineBreak(this.faqActiveChildData.title)}</h2>
     
                         <p class="taplive-main-faq-content-description">${this.tapliveFaqLineBreak(this.faqActiveChildData.content)}</p>
     
