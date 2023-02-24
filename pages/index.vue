@@ -8,10 +8,12 @@
               <Logo class-name="block hover:text-primary-600"/>
             </div>
             <div class="mb-7">
-              <h1 class="font-display slider-title xl:leading-tight text-3xl xl:text-5xl font-bold mb-5">Cari solusi
-                untuk sebuah masalah? 🔥</h1>
-              <p class="text-lg slider-description dark:text-neutral-material-300 text-neutral-700 xl:w-9/12">Temukan
-                solusi dan bantuan seputar penggunaan layanan KiriminAja. Ada kok solusinya disini. </p>
+              <div class="2xl:w-10/12">
+                <h1 class="font-display slider-title xl:leading-tight text-3xl xl:text-5xl font-bold mb-5">Cari solusi
+                  untuk sebuah masalah? 🔥</h1>
+                <p class="text-lg slider-description dark:text-neutral-material-300 text-neutral-700 xl:w-9/12">Temukan
+                  solusi dan bantuan seputar penggunaan layanan KiriminAja. Ada kok solusinya disini. </p>
+              </div>
             </div>
             <div class="xl:w-10/12">
               <Search/>
@@ -19,7 +21,7 @@
           </div>
         </div>
         <div class="hidden xl:block">
-          <img src="/assets/illustration-help-1.png" class="w-full" alt="">
+          <img src="/assets/illustration-help-1.webp" class="w-full" alt="Help KiriminAja">
         </div>
       </div>
     </div>

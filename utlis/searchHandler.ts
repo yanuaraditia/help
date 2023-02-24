@@ -54,7 +54,7 @@ export const disableBody = (element: Element, isModalShow: Ref): void => {
 export const searchHandler = async (keyword: Ref, results: Ref, isLoading: Ref) => {
     isLoading.value = true
     const {searchData, getResults} = useSearchStore()
-    if (keyword.value.length > 3) {
+    if (keyword.value.length >= 2) {
         await Promise.all([
             searchData(keyword.value)
         ])
