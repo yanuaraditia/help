@@ -589,7 +589,7 @@ class tapliveHelperCore extends tapliveCore {
     tapliveChatRoomAddInputMessageField() {
         dc.querySelectorAll(".taplive-main-chat-room-container")[0].classList.remove("taplive-chat-room-is-locked"), dc.querySelectorAll(".taplive-main-chat-room-send-message-panel-wrapper").length < 1 && tapliveHelper.tapliveAppend("div", "taplive-main-chat-room-send-message-panel-wrapper", !0, ".taplive-main-chat-room-wrapper", `
                 <div class="taplive-main-chat-room-send-message-hamburger" title="Mark as resolved" id="taplive-chat-room-mark-as-solved-button">
-                    <img src="../assets/icon-resolve.svg">
+                    <img src="https://help.kiriminaja.com/assets/icon-resolve.svg">
                 </div>
 
                 <div class="taplive-main-chat-room-send-message-input">
@@ -1459,7 +1459,7 @@ class tapliveViewCore {
             <div class="taplive-main-chat-room-header">
                 <img 
                     class="taplive-main-chat-room-back-button" 
-                    src="../assets/arrow-left.svg"
+                    src="https://help.kiriminaja.com/assets/arrow-left.svg"
                     onclick="tapliveHelper.tapliveOnClickCancelReply()"
                 >
                 <p class="taplive-main-chat-room-case-id">
