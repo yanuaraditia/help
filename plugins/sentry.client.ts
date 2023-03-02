@@ -4,7 +4,7 @@ import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 
 export default defineNuxtPlugin((nuxtApp) => {
-    const release = "app-help"
+    const release = pkg.version
     const environment = useRuntimeConfig();
 
     Sentry.init({
