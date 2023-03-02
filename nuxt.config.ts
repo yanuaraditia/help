@@ -11,6 +11,7 @@ export default defineNuxtConfig({
         public: {
             space: process.env.CF_SPACE_ID,
             accessToken: process.env.CF_DELIVERY_KEY,
+            sentry: process.env.SENTRY_DSN
         }
     },
     app: {
