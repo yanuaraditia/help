@@ -6,7 +6,7 @@ export const fetchAll = async () => {
     return fetchCategories()
 }
 
-export const fetch = async (slug?: string | string[]) => {
+export const fetchSingle = async (slug?: string | string[]) => {
     let category = {} as HelpCategory
     const {fetchCategories} = useCategoryStore()
     const categories = await fetchCategories()

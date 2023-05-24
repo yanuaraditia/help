@@ -67,7 +67,7 @@ definePageMeta({
   layout: 'articles'
 })
 import {Help, ParentScope} from "~/types";
-import {fetch} from "~/repositories/helpRepository";
+import {fetchSingle} from "~/repositories/helpRepository";
 import {MarkedRenderer} from "~/utlis/markedRenderer";
 import {seoBuilder} from "~/utlis/seoBuilder";
 
@@ -77,7 +77,7 @@ onMounted(() => {
   sharedUrl.value = window.location.href
 })
 const route = useRoute()
-const help = await fetch(route.params.slug) as Help
+const help = await fetchSingle(route.params.slug) as Help
 const parentScope = ref({
   to: `/category/${help.fields.category?.fields.slug}`,
   label: help.fields.category?.fields.title

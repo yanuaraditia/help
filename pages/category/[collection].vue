@@ -13,13 +13,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import {fetch} from "~/repositories/helpCategoryRepository";
+import {fetchSingle} from "~/repositories/helpCategoryRepository";
 import {fetchAll} from "~/repositories/helpRepository";
 import {HelpCategoryRouteInterface, ParentScope} from "~/types";
 import {seoBuilder} from "~/utlis/seoBuilder";
 
 const {params} = await useRoute() as HelpCategoryRouteInterface
-const category = await fetch(params.collection)
+const category = await fetchSingle(params.collection)
 const {data: helps} = await useAsyncData('row', () => fetchAll(category.sys.id))
 
 const parentScope = {

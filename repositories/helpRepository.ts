@@ -9,7 +9,7 @@ export const fetchAll = async (categoryId?: string | string[]) => {
     }
 }
 
-export const fetch = async (slug: string | string[]) => {
+export const fetchSingle = async (slug: string | string[]) => {
     const {fetchHelp} = useHelpStore()
     return await fetchHelp(slug)
 }
