@@ -1,6 +1,6 @@
 <template>
   <ContentTitle :parent-scope="parentScope" :title="help.fields.title" :description="help.fields.description"/>
-  <div class="grid xl:grid-cols-5">
+  <div class="grid xl:grid-cols-5 xl:gap-10">
     <div class="xl:col-span-1 xl:order-2">
       <div class="xl:sticky top-24">
         <div class="hidden xl:block bg-primary-100 xl:bg-transparent p-3 xl:p-0 rounded-lg">

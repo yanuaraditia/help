@@ -40,7 +40,7 @@ export default defineNuxtConfig({
             },
             script: [
                 {
-                    src: '/js/taptalk.js',
+                    src: 'https://kiriminaja-static-js.imgix.net/taptalk-rewrite.min.js',
                     body: true
                 },
                 {

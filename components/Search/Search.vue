@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full group hover:bg-white hover:ring-2 hover:ring-primary-700 bg-primary-100 rounded-full">
+  <div class="relative w-full group hover:bg-white hover:ring-2 hover:ring-primary-700 bg-primary-50 rounded-full">
     <div class="flex p-3 gap-3 items-center">
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24"
@@ -75,9 +75,11 @@ import {useSearchStore} from "~/stores/search";
 
 const {getResults} = useSearchStore()
 const keyword = ref('')
+
 const results = ref(getResults)
 const isLoading = ref(false)
 const isModalShow = ref(false)
+
 const handleButton = (forceModal?: boolean, forceModalValue?: boolean) => showModal(isModalShow, forceModal, forceModalValue)
 
 useMount(keyword, results, isModalShow, isLoading)

@@ -11,5 +11,5 @@ export const fetchAll = async (categoryId?: string | string[]) => {
 
 export const fetch = async (slug: string | string[]) => {
     const {fetchHelp} = useHelpStore()
-    return fetchHelp(slug)
+    return await fetchHelp(slug)
 }

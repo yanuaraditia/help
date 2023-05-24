@@ -25,7 +25,6 @@
       <h1 class="font-bold text-3xl xl:text-4xl mb-2 xl:mb-5" v-text="title"></h1>
       <p v-text="description"></p>
     </div>
-    <hr class="border-neutral-material-200 mb-5 border-dashed">
   </div>
 </template>
 

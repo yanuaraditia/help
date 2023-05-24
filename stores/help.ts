@@ -72,7 +72,7 @@ export const useHelpStore = defineStore('helpStore', {
                         "fields.slug[all]": slug
                     })
                 ]).then(([res]) => {
-                    this.help = res.items[0]
+                    this.help = res.items[0] as any
                 })
             } catch (e) {
                 console.log(e)
